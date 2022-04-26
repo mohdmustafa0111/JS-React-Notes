@@ -3,24 +3,19 @@
 // JavaScript is a scripting language that enables you to to create dynamic content, animate images, control multimedia. It adds the behaviour to web pages.It is a case sensitive language.
 // It was invented by Brenden Eich in 1995 and became an ECMA standard in 1997.
 
-// const chalk = require("chalk");
-
-/****  Section 1👉 we need to do it in console ****/
-// alert("Welcome, to Complete JavaScript course");
-// console.log('Welcome, to complete JavaScript Course');
-
 // Ques: How JavaScript works ??
 // Ans: In JavaScript everything happens inside an Execution Context.
-//      Javascript is synchronous single-threaded language because it execute one command at a time and in
-//      a specific order. that means it can only go to the next line once the current line has been
-//      finished executing.
+//      Javascript is synchronous single-threaded language because it execute one command at a time in
+//      a specific order (Single Threaded). that means it can only go to the next line once the current
+//      line has been finished executing (Synchronous).
 
-// That whole thing is called as execution context inside that there two things
-//  1. Memory component
-//  2. Code component
+// You can assume this execution context to be a big container in which whole Javascript code is executed.
+// and it has two components inside it. (Variable Environment of Execution Context)
+//  1. Memory component (Memory Creation/Allocation Phase)
+//  2. Code component (Code Execution Phase)
 // In memory component variable and functions values are stored or allocated in a  key value format.
-// Code component is a place where whole JavaScript code is executed.
 // Memory component is also called as variable environment.
+// Code component is a place where whole JavaScript code is executed.
 // And code component is also called as thread of execution.
 
 // Inside Browser, there is a Javascript engine (we are considering V8 for chrome.)
@@ -76,9 +71,7 @@
 // Every browser has a Javascript Runtime Environment
 // Node JS has also JRE. Node JS can run the JS code outside the browser by installing it in PC.
 
-/**** Section 2👉 Code Editor for writing JS ****/
-
-/**** Section 3👉 values and variables in JavaScript ****/
+/**** values and variables in JavaScript ****/
 
 // Variable is a name given to a storage area that our program can manipulate.
 
@@ -100,12 +93,9 @@
 
 // // **********************************************************************
 
-// // 👉 // 🤩 SUBSCRIBE TO THAPA TECHNICAL YOUTUBE CHANNEL 🤩
-//  👉 // 🤩  https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA
-
 // // **********************************************************************
 
-/**** Section 4👉 Data Types in JavaScript ****/
+/****  Data Types in JavaScript ****/
 
 // String
 // Number
@@ -187,7 +177,7 @@
 // It would "undefined" when we declared a variable in the code but did not assign the value before
 // printing the variable value.
 
-// SCOPES EXPLANATIONS (GLobal Scope, Local Scope, Function Scope, Block Scope)
+// SCOPES EXPLANATIONS (Global Scope, Local Scope, Function Scope, Block Scope)
 
 // GLOBAL SCOPE
 
@@ -378,9 +368,6 @@
 // console.log(!true);
 
 // // **********************************************************************
-
-// // 👉 // 🤩 SUBSCRIBE TO THAPA TECHNICAL YOUTUBE CHANNEL 🤩
-//  👉 // 🤩  https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA
 
 // // **********************************************************************
 
@@ -2421,9 +2408,12 @@
 //  variables are declared, they are moved to the top of their scope regardless of whether their scope is
 //  global or local.
 
+// Hoisting is phenomena in Javascript by which you can access these variables & function even before you
+// have initialized it.
+
 // For Example 👇
 // console.log(myName);
-// let myName;
+// var myName;
 // myName = "thapa";
 
 // // How it will be in output during creation phase
