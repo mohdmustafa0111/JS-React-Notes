@@ -177,37 +177,33 @@
 // It would "undefined" when we declared a variable in the code but did not assign the value before
 // printing the variable value.
 
-// SCOPES EXPLANATIONS (Global Scope, Local Scope, Function Scope, Block Scope)
+// Undefined is a keyword that is like a placeholder which is placed in the memory.
+
+// console.log(x);
+// var x;
+
+// SCOPES EXPLANATIONS 👇 (Global Scope, Function Scope, Block Scope)
+
+// Scope determines the accessibility (visibility) of variables.
 
 // GLOBAL SCOPE
 
-// var fruit = 'apple'
-// console.log(fruit);        //apple
+// Variables declared Globally (outside any function) have Global Scope.
+// Global variables can be accessed from anywhere in a JavaScript program.s
 
-// function getFruit(){
-//     console.log(fruit);    //fruit is accessible here
+// var fruit = "apple";
+// console.log(fruit); //apple
+
+// function getFruit() {
+//   console.log(fruit); //fruit is accessible here
 // }
 
-// getFruit();                //apple
-
-// LOCAL SCOPE
-
-// //global scope
-// function foo1(){
-//   //local scope 1
-//   function foo2(){
-//       //local scope 2
-//   }
-// }
-
-// //global scope
-// function foo3(){
-//   //local scope 3
-// }
-
-// //global scope
+// getFruit(); //apple
 
 // FUNCTION SCOPE
+
+// Each function creates a new scope.
+// Variables defined inside a function are not accessible (visible) from outside the function.
 
 // function foo(){
 //   var fruit ='apple';
@@ -219,12 +215,19 @@
 
 // BLOCK SCOPE
 
-// function foo(){
-//   if(true){
-//       var fruit1 = 'apple';        //exist in function scope
-//       const fruit2 = 'banana';     //exist in block scope
-//       let fruit3 = 'strawberry';   //exist in block scope
+// Before ES6 (2015), JavaScript had only Global Scope and Function Scope.
+// ES6 introduced two important new JavaScript keywords: let and const.
+// These two keywords provide Block Scope in JavaScript.
+// Variables declared inside a { } block cannot be accessed from outside the block:
 
+// Variables declared with the var keyword can NOT have block scope.
+// Variables declared inside a { } block can be accessed from outside the block.
+
+// function foo() {
+//   if (true) {
+//     var fruit1 = "apple"; //exist in function scope
+//     let fruit2 = "banana"; //exist in block scope
+//     const fruit3 = "strawberry"; //exist in block scope
 //   }
 //   console.log(fruit1);
 //   console.log(fruit2);
@@ -237,13 +240,34 @@
 // //error: fruit2 is not defined
 // //error: fruit3 is not defined
 
+// Another Example 👇
+
+// function x() {
+//   if (true) {
+//     var a = 10;
+//     let b = 20;
+//     const c = 30;
+//   }
+//   console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// x();
+
 // 🙋‍👨‍🏫 Interview Question 1 🙋‍👨‍🏫
 // var vs let vs const
 
 // var declarations are globally scoped or function scoped while let and const are block scoped.
 
-// var variables can be updated and re-declared within its scope; let variables can be updated
-// but not re-declared; const variables can neither be updated nor re-declared.
+// var variables can be updated and re-declared within its scope.
+// let variables can be updated but not re-declared.
+// const variables can neither be updated nor re-declared.
+
+// {
+//   var a = 10;
+//   var a = 50;
+// }
+// console.log(a);
 
 // They are all hoisted to the top of their scope. But while var variables are initialized
 // with undefined, let and const variables are not initialized.
@@ -261,6 +285,28 @@
 // we can see variable defined with ‘let’ throws ReferenceError,
 // which means the variable doesn’t have any reference, so we can say the
 // variable is temporarily dead(till the time it is assigned value).
+
+// So the temporal dead zone is the time since when let variable is hoisted
+// till it initialized some value.
+
+// Que: SyntaxError VS ReferenceError VS TypeError ??
+
+// Ans: Syntax Error: If you are messed with javascript syntax.
+// Or If I do not initialize const variable.
+// const a;
+// Or if I redeclare a let variable.
+// let a = 10;
+// let a = 100;
+
+// Reference Error: If you are trying to access a variable before declaring it.
+// console.log(a);
+// let a = 10;
+// Or If I try to access variable that I have not declared in program.
+// console.log(y);
+
+// Type Error: If you are trying to reassign a value to a constant variable.
+// const a = 10;
+// a = 100;
 
 /**** Section 5👉 Arithmetic operators in JavaScript ****/
 
@@ -650,7 +696,7 @@
 
 // sum();
 
-// 3️⃣ Function Parameter vs Function Arguments
+// Function Parameter vs Function Arguments
 // The values which are written at the time of the definition of the function.
 // An argument is a value passed to a function when the function is called.
 
@@ -666,14 +712,11 @@
 
 // // **********************************************************************
 
-// // 👉 // 🤩 SUBSCRIBE TO THAPA TECHNICAL YOUTUBE CHANNEL 🤩
-//  👉 // 🤩  https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA
-
 // // **********************************************************************
 
 // 🙋‍👨‍🏫 Interview Question 🙋‍👨‍🏫
 
-// Why Functions?
+// What are Functions in Javascript ?
 
 // You can reuse code: Define the code once, and use it many times.
 // You can use the same code many times with different arguments,
@@ -689,6 +732,9 @@
 
 // Function Statement OR (aka) Function Declaration
 
+// Declares the name, parameters, and code that form the body of a function procedure
+// is called a function statement.
+
 // A function statement loads before any code is executed. This behavior of
 //  function statements is called hoisting, which allows a function to be used before it is defined.
 
@@ -696,7 +742,7 @@
 //   set of statements
 // }
 
-// 4️⃣ Function expressions
+// Function expressions
 // "Function expressions simply means
 // create a function and put it into the variable"
 
@@ -706,14 +752,35 @@
 // just like any other assignment statement. function expressions
 // load only when the interpreter reaches the definition of the function.
 
-// function sum(a,b){
-//   var total = a+b;
-//   console.log(total);
+// var funExp = function (a, b) {
+//   return (total = a + b);
+// };
+
+// var sum = funExp(15, 15);
+// console.log(sum);
+
+// Que: Difference between Function Statement & Expressions ?
+
+// Ans:The function in function declaration can be accessed before and after the function definition.
+// This behavior of function statements is called hoisting, which allows a function
+// to be used before it is defined.
+
+// Function expressions load and execute only when the program interpreter reaches the line of code.
+
+// Example 👇
+
+// a();
+// b();
+
+// function a() {
+//   console.log("function a is called");
 // }
 
-// var funExp = sum(5,15);
+// var b = function () {
+//   console.log("function b is called");
+// };
 
-// 5️⃣ Return Keyword
+// Return Keyword
 // When JavaScript reaches a return statement,
 // the function will stop executing.
 
@@ -728,7 +795,7 @@
 
 // console.log('the sum of two no is ' + funExp );
 
-// 6️⃣ Anonymous Function
+// Anonymous Function
 
 // Anonymous Function is a function that does not have any name associated with it.
 // Normally we use the function keyword before the function name to define a function
@@ -752,62 +819,43 @@
 
 // FIRST CLASS FUNCTION
 
-// A programming language is said to have First-class functions when functions
-//  in that language are treated like any other variable.
+// The ability of function to be used as values, assigned to a variable and can be passed as
+// an argument to other function and can be returned from the function ,
+// this ability altogether is known as FCF.
+
 // OR
-// Ability to be used like values.
 
-// For example, in such
-//  a language, a function can be passed as an argument to other functions,
-//  can be returned by another function and can be assigned as a value to a variable.
+// A programming language is said to have First-class functions when functions
+// in that language are treated like any other variable. For example, in such a language,
+// a function can be passed as an argument to other functions, can be returned by
+// another function and can be assigned as a value to a variable.
 
-// First Class Citizens and FCF both are the same thing.
+// Example 👇
 
-// ************************************************************
+// const foo = function () {
+//   console.log("foobar");
+// };
+// foo();
 
-// 👻 Now It's Time for Modern JavaScript 😍😍
+//  👆 We assigned an Anonymous Function in a Variable, then we used that variable to invoke
+//  the function by adding parentheses () at the end.
 
-// 🙏🙏 Features of ECMAScript 2015 also known as ES6 🙏🙏
+// Another Example 👇
 
-// 1️⃣ LET VS CONST  vs  VAR
-
-// var myName = "thapa technical";
-// console.log(myName);
-
-// myName = "vinod thapa";
-// console.log(myName);
-
-// let myName = "thapa technical";
-// console.log(myName);
-
-// myName = "vinod thapa";
-// console.log(myName);
-
-// const myName = "thapa technical";
-// console.log(myName);
-
-// myName = "vinod thapa";
-// console.log(myName);
-
-// function biodata() {
-//   const myFirstName = "Vinod";
-//   console.log(myFirstName);
-
-//   if(true){
-//     const myLastName = "thapa";
-//   }
-
-//   // console.log('innerOuter ' + myLastName);
+// function sayHello() {
+//   return "Hello, ";
 // }
+// function greeting(helloMessage, name) {
+//   console.log(helloMessage() + name);
+// }
+// greeting(sayHello, "JavaScript !!");
 
-// console.log(myFirstName);
+// 👆 We are passing our sayHello() function as an argument to the greeting() function,
+// this explains how we are treating the function as a value.
 
-// biodata();
+// First Class Citizens and First Class Function both are the same thing.
 
-// var => Function scope
-// let and const => Block Scope
-
-// 2️⃣ Template literals (Template strings)
+// Template literals (Template strings)
 
 // JavaScript program to print table for given number (8)?
 
@@ -815,10 +863,10 @@
 //   8 * 2 = 16(8*2)
 //  => 8 * 10 = 80
 
-// for(let num = 1; num<= 10; num++){
-//     let tableOf = 12;
-//   console.log(tableOf + " * " + num + " = " + tableOf * num);
-//   console.log( ` ${tableOf} * ${num} = ${tableOf * num}` );
+// for (let num = 1; num <= 10; num++) {
+//   let tableOf = 12;
+//     console.log(tableOf + " * " + num + " = " + tableOf * num);
+//   console.log(`${tableOf} * ${num} = ${tableOf * num}`);
 // }
 
 // 3️⃣  Default Parameters
@@ -894,7 +942,7 @@
 
 // console.log(myBio);
 
-// 6️⃣ Fat Arror Function
+// 6️⃣ Fat Arrow Function
 
 // 👻 Normal Way of writing Function
 
@@ -1923,9 +1971,6 @@
 
 // // **********************************************************************
 
-// // 👉 // 🤩 SUBSCRIBE TO THAPA TECHNICAL YOUTUBE CHANNEL 🤩
-//  👉 // 🤩  https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA
-
 // // **********************************************************************
 
 // 2️⃣ All the members like objects, methods or properties.
@@ -2098,6 +2143,9 @@
 // setTimeout(function, milliseconds)
 // Executes a function, after waiting a specified number of milliseconds.
 
+// setTimeout takes a callback function attches the timer and once the timer expires,
+// it calls that function. And Javascript let execute rest of the code.
+
 // setInterval(function, milliseconds)
 // Same as setTimeout(), but repeats the execution of the function continuously.
 
@@ -2105,11 +2153,27 @@
 
 // function x() {
 //   i = 10;
-//   setTimeout(function() {
+//   setTimeout(function () {
 //     console.log(i);
 //   }, 3000);
+//   console.log("Hello Javascript");
 // }
 // x();
+
+// Another Example (Important interview question) 👇
+
+// function x() {
+//   for (let i = 1; i <= 5; i++) {
+//     setTimeout(function () {
+//       console.log(i);
+//     }, i * 1000);
+//   }
+//   console.log("Hello Javascript");
+// }
+// x();
+
+// Que: Why it not working with var ?? 👆
+// Ans: let is a block scope , so it creates a new copy everytime while loop is executed.
 
 // 2️⃣clearTimeout()
 
@@ -2398,18 +2462,18 @@
 
 // // 5️⃣ Hoisting in JavaScript
 
-// // we have a creation phase and execution phase.
+// Hoisting is phenomena in Javascript by which you can access variables & function even before you
+// have initialized it.
+
+// Basically, it gives us an advantage that no matter where functions and variables are declared,
+// they are moved to the top of their scope before the code execution regardless
+// of whether their scope is global or local.
 
 // // Hoisting in Javascript is a mechanism where variables and functions
 // // declarations are moved to the top of their scope before the code execute.
 
 //  In JavaScript, Hoisting is the default behavior of moving all the declarations at the top of the scope
-//  before code execution. Basically, it gives us an advantage that no matter where functions and
-//  variables are declared, they are moved to the top of their scope regardless of whether their scope is
-//  global or local.
-
-// Hoisting is phenomena in Javascript by which you can access these variables & function even before you
-// have initialized it.
+//  before code execution.
 
 // For Example 👇
 // console.log(myName);
@@ -2426,29 +2490,20 @@
 // // instead of var. (The other difference is that variables declared
 // // with let are local to the surrounding block, not the entire function.)
 
-// // 6️⃣ What is Scope Chain and Lexical Scoping in JavaScript?
+// //  What is Scope Chain and Lexical Scoping in JavaScript ?
 
 // When a variable is used in JavaScript, the JavaScript engine will
 // try to find the variable’s value in the current scope. If it could not
 // find the variable, it will look into the outer scope and will continue to
-// do so until it finds the variable or reaches global scope.
+// do so until it finds the variable or reaches global scope. So this way of finding is known as
+// Scope Chain.
 
-// // The scope chain is used to resolve the value of variable names
-// // in JS.
-
-// // scope chain in js is lexically defined, which means that we can
-// // see what the scope chain will be by looking at the code.
-
-// // At the top, we have the Global Scope, which is the window Object
-// // in the browser.
-
-// // Lexical Scoping means Now, the inner function can get access to
-// // their parent functions variables But the vice-versa is not true.
-// OR
 // A lexical scope in JavaScript means that a variable defined outside
 // a function can be accessible inside another function defined after
 // the variable declaration. But the opposite is not true; the variables
 // defined inside a function will not be accessible outside that function.
+// OR
+// A lexical scope means the inner function has access to the outer function variable.
 
 // // For Example 👇
 
@@ -2467,44 +2522,91 @@
 // }
 // first();
 
+// Another Example 👇
+
+// function a() {
+//   function c() {
+//     console.log(b);
+//   }
+//   c();
+// }
+// var b = 10;
+// a();
+
 // // 7️⃣ What is Closures in JavaScript 🤔
 
 // // A closure is the combination of a function and its lexical scope bundled together
-// forms a Closure OR (enclosed) with references
-// // to its surrounding state (the lexical environment).
+// forms a Closure OR (enclosed) with reference to its surrounding state (the lexical environment).
+// OR
+// Function along with its lexical scope bundled together forms a Closure.
+// OR
+// Closure is basically an inner function which has access to variable of outer function.
 
-// // In other words, a closure gives you
-// // access to an outer function’s scope from an inner function.
+// A closure is a function having access to the parent scope,
+// even after the parent function has closed.
 
 // // In JavaScript, closures are created every time a function is created, at function creation time.
+
+// // it same like lexical scoping
+
+// Uses/Advantages of Closures:
+// - Module Design Pattern
+// - Currying
+// - Function like once
+// - Maintaining State in the async world
+// - setTimeouts
+// - Iterators
+// - and many more
+
+// Disadvantages of Closures
+// - there could be overconsumption of memory in Closures
+// - The variables declared inside a closure are not garbage collected.
+// - Too many closures can slow down your application.
+// This is actually caused by duplication of code in the memory.
+
+// Que: What is Garbage Collector in Javascript ?
+// Ans: Garbage collector is a program in Javascript Engine which freeze-up the unutilized memory.
+// OR
+// Whenever there is some unused variables , it just takes out/freeze-up of memory whenever it finds
+// out that these variables no longer needed.
 
 // // For Example 👇
 
 // const outerFun = () => {
-//     let a = 10;
-//     let b = 10;
-//     const innerFun = () => {
-//       let sum = a+b;
-//       console.log(`the sum of the two no is ${sum}`);
-//     }
-//     innerFun();
-// }
-// outerFun();
-
-// // it same like lexical scoping
-
-// // One more Example 👇
-
-// const outerFun = (a) => {
+//   let a = 10;
 //   let b = 10;
 //   const innerFun = () => {
-//     let sum = a+b;
+//     let sum = a + b;
 //     console.log(`the sum of the two no is ${sum}`);
+//   };
+//   innerFun();
+// };
+// outerFun();
+
+// Another Example 👇
+
+// function x() {
+//   const a = 10;
+//   function y() {
+//     console.log(a);
 //   }
-//   return innerFun;
+//   y();
 // }
-// let checkClousure = outerFun(5);
-// console.dir(checkClousure);
+// x();
+
+// Another Example (return case)👇
+
+// function x() {
+//   var a = 7;
+//   function y() {
+//     console.log(a);
+//   }
+//   return y;
+// }
+// var z = x();
+// console.log(z);
+// // ...... (consider thousand of line here)
+// z();
 
 // "use strict"
 
@@ -2520,9 +2622,6 @@
 // sum(5)(3)(8);
 
 // // **********************************************************************
-
-// // 👉 // 🤩 SUBSCRIBE TO THAPA TECHNICAL YOUTUBE CHANNEL 🤩
-//  👉 // 🤩  https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA
 
 // // **********************************************************************
 
