@@ -22,9 +22,10 @@
 // and an environment to run javascript properly. Javascript engine has two parts,
 // Heap and Call Stack. And the engine has some assistant named Web APIs and Callback Queue.
 
-// HEAPS
+// HEAPS or Memory Heap
 
 // It's an unstructured memory block. Our code's memory allocation happens here.
+// It is basically a space where all the variables and function assigned memory.
 // As a programmer we don't have to worry much about heaps.
 
 // CALL STACK
@@ -32,15 +33,22 @@
 // CALL STACK is a stack where all these global execution context are kept.
 // the main job of call stack is to execute whatever comes inside it. That's all it does.
 // Whenever we try to execute the javascript code, a global execution context is created and
-// pushed inside the CALL STACK.
+// pushed inside the CALL STACK. And once the javascript code is finished executing then
+// it is pop off from the call stack.
 // We can consider Call Stack as a kitchen where all our code executed or cooked. Whenever
 // we try to run a piece of code, it goes to call stack first and then executed.
 // It works in LIFO style. That is Last In First Out.
 
-// GARBAGE COLLECTER
-// It basically tries to free up memory space whenever possible.
+// Garbage Collector
 
-// WEB API's 👇
+// It basically tries to free up memory space whenever possible.
+// OR
+// Garbage collector is a program in Javascript Engine which freeze-up the unutilized memory.
+// OR
+// Whenever there is some unused variables , it just takes out/freeze-up of memory whenever it finds
+// out that these variables no longer needed.
+
+// WEB APIs 👇
 
 // - setTimeout
 // - DOM API's
@@ -48,6 +56,10 @@
 // - local storage
 // - console
 // - location
+
+// 👆 These are not the part of Javascript.
+// So All these are WEB APIs above which the browser have it.
+// Browser gives access to javascript engine to use all these web APIs.
 
 // ASYNCHRONOUS JAVASCRIPT 👇
 
@@ -69,7 +81,9 @@
 // etc
 
 // Every browser has a Javascript Runtime Environment
-// Node JS has also JRE. Node JS can run the JS code outside the browser by installing it in PC.
+// Node JS has also JRE. Node JS is open source Javascript runtime that means it has everything
+// which is required to run javascript piece of code. Node JS can run the JS code outside the
+// browser by installing it in PC.
 
 /**** values and variables in JavaScript ****/
 
@@ -1186,9 +1200,6 @@
 
 // // **********************************************************************
 
-// // 👉 // 🤩 SUBSCRIBE TO THAPA TECHNICAL YOUTUBE CHANNEL 🤩
-//  👉 // 🤩  https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA
-
 // // **********************************************************************
 
 // Array.prototype.findIndex() 🙋‍♂️
@@ -1204,6 +1215,9 @@
 
 // The filter() method creates a new array filled with elements
 // that pass a test provided by a function.
+// OR
+// Filter method is used to filter the values inside an array.
+
 // The filter() method does not execute the function for empty elements.
 // The filter() method does not change the original array.
 
@@ -1394,7 +1408,7 @@
 //   console.log('No such data found');
 // }
 
-// 5️⃣ Array Subsection 4 👉 Map Method
+// 👉 Map Method / Map Function
 
 // Array.prototype.map() 🙋‍♂️
 
@@ -1426,8 +1440,8 @@
 // const array1 = [1, 4, 9, 16, 25];
 
 // let newArr = array1.map((curElem, index, arr) => {
-//     return curElem * 10;
-// })
+//   return curElem * 10;
+// });
 // console.log(newArr);
 
 // we can turn it into single line too 👇
@@ -1435,10 +1449,22 @@
 // let newArr = array1.map((curElem) => curElem * 10)
 // console.log(newArr);
 
-// // **********************************************************************
+// Another Example 👇
 
-// // 👉 // 🤩 SUBSCRIBE TO THAPA TECHNICAL YOUTUBE CHANNEL 🤩
-//  👉 // 🤩  https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA
+// const users = [
+//   { firstName: "Akshay", lastName: "Saini", age: 26 },
+//   { firstName: "Elon", lastName: "Musk", age: 50 },
+//   { firstName: "Jeff", lastName: "Bezos", age: 60 },
+//   { firstName: "Bill", lastName: "Gates", age: 70 },
+// ];
+
+// const output = users.map((x) => {
+//   return x.firstName + " " + x.lastName;
+// });
+
+// console.log(output);
+
+// // **********************************************************************
 
 // // **********************************************************************
 
@@ -1474,6 +1500,9 @@
 // to a single value and it iterates over each and every element
 // of the array (from left-to-right) and the return value of the function
 // is stored in an accumulator.
+// OR
+// Reduce function is basically used at a place where you have to take all the elements
+// of an array and come up with single value out of them.
 
 // The reducer function takes four arguments:
 
@@ -1485,12 +1514,13 @@
 // const arr = [5, 1, 3, 2, 6];
 
 // find sum ??
+// find maximum value ??
 
-// Traditional Way 👇
+// Traditional Way to find sum of an array 👇
 
 // function findSum(arr) {
 //   let sum = 0;
-//   for (let i=0; i < arr.length; i++) {
+//   for (let i = 0; i < arr.length; i++) {
 //     sum = sum + arr[i];
 //   }
 //   return sum;
@@ -1499,10 +1529,34 @@
 
 // Modern Way 👇
 
-// const output = arr.reduce(function(acc, curr) {
+// const output = arr.reduce(function (acc, curr) {
 //   acc = acc + curr;
 //   return acc;
 // }, 0);
+// console.log(output);
+
+// Traditional Way to find maximum number from an array 👇
+
+// function findMax(arr) {
+//   let max = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > max) {
+//       max = arr[i];
+//     }
+//   }
+//   return max;
+// }
+// console.log(findMax(arr));
+
+// Modern Way 👇
+
+// const output = arr.reduce(function (acc, curr) {
+//   if (curr > acc) {
+//     acc = curr;
+//   }
+//   return acc;
+// }, 0);
+
 // console.log(output);
 
 // How to fatten an array
@@ -2135,21 +2189,16 @@
 // **********************************************************************
 
 // The window object allows execution of code at specified time intervals.
-
 // These time intervals are called timing events.
-
 // The two key methods to use with JavaScript are:
+
+// setTimeout 👇
+
+// setTimeout takes a callback function and attaches the timer and once the timer expires,
+// it calls that function. And till then Javascript engine execute rest of the code.
 
 // setTimeout(function, milliseconds)
 // Executes a function, after waiting a specified number of milliseconds.
-
-// setTimeout takes a callback function attches the timer and once the timer expires,
-// it calls that function. And Javascript let execute rest of the code.
-
-// setInterval(function, milliseconds)
-// Same as setTimeout(), but repeats the execution of the function continuously.
-
-// 1️⃣ setTimeout()
 
 // function x() {
 //   i = 10;
@@ -2175,11 +2224,16 @@
 // Que: Why it not working with var ?? 👆
 // Ans: let is a block scope , so it creates a new copy everytime while loop is executed.
 
-// 2️⃣clearTimeout()
+// setInterval 👇
 
-// 3️⃣ setInterval()
+// setInterval(function, milliseconds)
+// Same as setTimeout(), but repeats the execution of the function continuously.
 
-// 4️⃣ clearInterval()
+// clearTimeout()
+
+// setInterval()
+
+// clearInterval()
 
 // **********************************************************************
 
@@ -2304,42 +2358,110 @@
 
 // // **********************************************************************
 
-// // 👉 How JavaScript Works? Advanced and Asynchronous JavaScript
+// // 👉 Advanced and Asynchronous JavaScript
 
 // // **********************************************************************
 
-// // Advanced JavaScript Section
-
-// // 1️⃣: Event Propagation (Event Bubbling and Event Capturing)
-
-// // check html file
-
 // // Higher Order Function
+
 // function which takes another function as an arguments
-// or that returns a new function is called HOF
-// wo function jo dusre function ko as an argument accept krta hai use HOF kehte hain.
+// and returns a function from it is called HOF.
 
 // Functions such as filter(),map(),reduce(),some() etc,
 // these all are example of Higher-Order Functions.
 
+// GENERAL/BAD WAY OF WRITING CODE 👇
+
+// const radius = [3, 1, 2, 4];
+
+// const calculateArea = function () {
+//   output = [];
+//   for (let i = 0; i < radius.length; i++) {
+//     output.push(Math.PI * radius[i] * radius[i]);
+//   }
+//   return output;
+// };
+
+// console.log(calculateArea(radius));
+
+// const calculateCircumference = function () {
+//   const output = [];
+//   for (let i = 0; i < radius.length; i++) {
+//     output.push(2 * Math.PI * radius[i]);
+//   }
+//   return output;
+// };
+
+// console.log(calculateCircumference(radius));
+
+// const calculateDiameter = function () {
+//   const output = [];
+//   for (let i = 0; i < radius.length; i++) {
+//     output.push(2 * radius[i]);
+//   }
+//   return output;
+// };
+
+// console.log(calculateDiameter(radius));
+
+// DRY PRINCIPLE / OPTIMIZED CODE / FUNCTIONAL PROGRAMMING 👇
+
+// const radius = [3, 1, 2, 4];
+
+// const area = function (radius) {
+//   return Math.PI * radius * radius;
+// };
+
+// const circumference = function (radius) {
+//   return 2 * Math.PI * radius;
+// };
+
+// const diameter = function (radius) {
+//   return 2 * radius;
+// };
+
+// const calculate = function (radius, logic) {
+//   output = [];
+//   for (let i = 0; i < radius.length; i++) {
+//     output.push(logic(radius[i]));
+//   }
+//   return output;
+// };
+
+// console.log(radius.map(area));
+
+// console.log(calculate(radius, area));
+// console.log(calculate(radius, circumference));
+// console.log(calculate(radius, diameter));
+
+// calculate is a higher order function and area, circumference & diameter are callback functions,
+// which is passed inside the logic.
+// So, Functional programming deals with
+// - Pure Function
+// - Composition of function
+// - Reusability
+// - modularity
+// lot of other things
+
 // // Callback Function
 
-// // function which get passed as an argument to another function is called CBF
-// // A callback function is a function that is passed as an argument to
-// // another function, to be “called back” at a later time.
+// function which get passed as an argument to another function is called CBF
+// A callback function is a function that is passed as an argument to
+// another function, to be “called back” at a later time.
+
+// Callback function gives the power of a asynchronicity.
 
 // function greet(name, callMe) {
-//   console.log("Hi " + name);
-//   callMe();
+//   console.log("Hi " + name + callMe);
 // }
 
 // // callback function
 // function callMe() {
-//   console.log("I am callback function");
+//   return " I am callback function";
 // }
 
 // // passing function as an argument
-// greet("Peter", callMe);
+// greet("Peter", callMe());
 
 // In the above program, there are two functions. While calling the greet() function,
 // two arguments (a string value and a function) are passed.
@@ -2452,13 +2574,20 @@
 
 // //👻 What is Event Loop in JavaScript ?
 
-// An event loop is something that pulls stuff out of the queue and places it onto
-// the function execution stack whenever the function stack becomes empty.
+// The job of event loop is to pulls stuff out of the callback queue and places it onto
+// the call stack whenever the call stack becomes empty.
 
 // // Event loop is just a guardian who keeps a good communication with Call Stack
 // and Callback Queue. It checks if the call stack is free, then lets know the callback queue.
 // Then Callback queue passes the callback function to Call stack to be executed. When all the
 // callback functions are executed, the call stack is out and global execution context is free.
+
+// Que: What are MicroTasks & Callback queue in Javascript ?
+// Ans: All the callback functions which comes through the promises will go in the MicroTask
+// Queue. And all the other callback functions which comes from setTimeout, DOM APIs like
+// event listeners, console etc all that go in the callback queue.
+// But MicroTask queue has more priority, means it is pulled out first from the
+// callback queue by event loop.
 
 // // 5️⃣ Hoisting in JavaScript
 
@@ -2569,6 +2698,8 @@
 // OR
 // Whenever there is some unused variables , it just takes out/freeze-up of memory whenever it finds
 // out that these variables no longer needed.
+// OR
+// It basically tries to free up memory space whenever possible.
 
 // // For Example 👇
 
@@ -2700,6 +2831,9 @@
 // Promises are used to handle asynchronous operations in JavaScript.
 // They are easy to manage when dealing with multiple asynchronous operations
 // where callbacks can create callback hell leading to unmanageable code.
+// OR
+// A Promise is an object that keep track about whether a certain event has happened
+// already or not.
 
 // callback functions were used but they had limited functionalities
 // and created unmanageable code. Also it is not easy for any user to handle
@@ -2716,10 +2850,30 @@
 // - Better Error Handling
 
 // A Promise has four states:
+// - pending: Promise is still pending i.e. not fulfilled or rejected yet
 // - fulfilled: Action related to the promise succeeded
 // - rejected: Action related to the promise failed
-// - pending: Promise is still pending i.e. not fulfilled or rejected yet
 // - settled: Promise has fulfilled or rejected
+
+// Example 👇
+
+// var promise = new Promise(function (resolve, reject) {
+//   const x = "geeksforgeeks";
+//   const y = "geeksforgeeks";
+//   if (x === y) {
+//     resolve();
+//   } else {
+//     reject();
+//   }
+// });
+
+// promise
+//   .then(function () {
+//     console.log("Success, You are a GEEK");
+//   })
+//   .catch(function () {
+//     console.log("Some error has occurred");
+//   });
 
 // Async/await
 
@@ -2767,6 +2921,9 @@
 // console.log(2);
 
 // ERROR HANDLING
+
+// Error handling, as the name states, is a strategy that handles the errors or
+// exceptions which occur at runtime.
 
 // The JavaScript statements try and catch come in pairs:
 
