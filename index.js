@@ -271,6 +271,8 @@
 // 🙋‍👨‍🏫 Interview Question 1 🙋‍👨‍🏫
 // var vs let vs const
 
+// var, let and const are the keywords that tells JavaScript you're declaring a variable.
+
 // var declarations are globally scoped or function scoped while let and const are block scoped.
 
 // var variables can be updated and re-declared within its scope.
@@ -2739,23 +2741,6 @@
 // // ...... (consider thousand of line here)
 // z();
 
-// "use strict"
-
-// let x = "vinod";
-// console.log(x);
-
-// //🏁🏁🏁 Back To Advanced JavaScript
-
-// Currying
-
-// const sum = (num1) => (num2) => (num3) => console.log(num1+num2+num3);
-
-// sum(5)(3)(8);
-
-// // **********************************************************************
-
-// // **********************************************************************
-
 // // 8️⃣: CallBack Hell
 
 // setTimeout(()=>{
@@ -2964,3 +2949,256 @@
 // 5xx:  Server Error  - Server failed to fulfill a valid request
 
 // Example:- 404 - not found error - if we try to access something that doesn't exit.
+
+// PROTOTYPE and PROTOTYPAL INHERITANCE
+
+// Prototypes are the mechanism by which JavaScript objects inherit features from one another.
+// All JavaScript objects inherit properties and methods from a prototype.
+// OR
+// One object is trying to access methods, properties of other object.
+
+// Whenever we create any object , Javascript engine automatically puts hidden properties,
+// methods and functions into an object and attaches it to your object. That is how we get
+// access to these properties and methods by using dot operator.
+
+// Everything in Javascript is nothing but a Object. Whether you create an array, object or
+// function, It is actually down the prototype Chain ends up being an object.
+
+// Example 👇
+
+// const obj1 = {
+//   name: "Mohd. Mustafa",
+//   getName: function () {
+//     return this.name;
+//   },
+//   getRoll: function () {
+//     return this.roll;
+//   },
+// };
+// console.log(obj1);
+
+// const obj2 = {
+//   roll: 23,
+//   name: "Sonu",
+//   __proto__: obj1,
+// };
+// console.log(obj2.getRoll());
+
+// const obj3 = {
+//   class: "BTech",
+//   __proto__: obj2,
+// };
+// console.log(obj3.getName());
+
+// CALL, APPLY and BIND Method in Javascript
+
+// In simple terms, all methods are used to set the context(this) explicitly in the regular function
+
+// Call: call invokes the function on given context and allows to pass arguments individually one by one.
+// Apply: apply invokes the function on given context and allows to pass arguments as an array.
+// Bind: bind returns a new function by setting the provided context, and allows to pass
+// arguments one by one.
+// OR
+// The bind() method allows an object to borrow a method from another object without copying.
+// OR
+// The bind method just bind and keep the copy of method and use it later.
+
+// Notes: 👇
+
+// - Call and Apply both are similar only difference is the way we pass arguments.
+// - The mentioned methods do not work with arrow function.
+// - And the only difference between Call and Bind is that Bind method gives you the copy but
+// which can be invoked later rather than directly invoking it wherever we are writing code
+// just like in Call Method.
+
+// Example for CALL & APPLY Method 👇
+
+// let printFullName = function (hometown, state) {
+//   console.log(
+//     this.firstName + " " + this.lastName + " from " + hometown + " , " + state
+//   );
+// };
+
+// const name1 = {
+//   firstName: "Mohd",
+//   lastName: "Mustafa",
+// };
+
+// // function borrowing
+// printFullName.call(name1, "Gurgaon", "Haryana");
+
+// const name2 = {
+//   firstName: "Sachin",
+//   lastName: "Tendulkar",
+// };
+
+// // function borrowing
+// printFullName.call(name2, "Mumbai", "Maharashtra");
+// printFullName.apply(name2, ["Mumbai", "Maharashtra"]);
+
+// Example for BIND Method 👇
+
+// let printMyName = printFullName.bind(name1, "Gurgaon", "Haryana");
+// printMyName();
+
+// POLYFILL
+
+// A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern
+// functionality on older browsers that do not natively support it.
+
+// CURRYING
+
+// Currying is a transformation of a function with multiple arguments into a sequence of
+// nested functions with a single argument.
+// OR
+// Currying is an advanced technique of working with functions.
+// It is a transformation of functions that translate a function from callable as add(1, 2, 3)
+// into callable as add(1)(2)(3). It only transforms a function instead of calling it. It returns
+// a new function until all arguments get exhausted.
+
+// That is, when we turn a function call sum(1,2,3) into sum(1)(2)(3)
+
+// Benefit of currying in JavaScript 👇
+
+// The main benefit of currying is when you need to use the same call with some of the same parameters
+// a lot i.e it helps to avoid passing the same variable again and again. In these situations,
+// currying becomes a good technique to use. Currying will make your code easier to refactor.
+
+// Two ways to curry a function 👇
+// - by using a bind function
+// - by using the concept of closure
+
+// Example 1 👇 (using bind function)
+
+// const multiply = function (x, y) {
+//   console.log(x * y);
+// };
+
+// const multipleByTwo = multiply.bind(this, 2);
+// multipleByTwo(5);
+
+// const multipleByThree = multiply.bind(this, 3);
+// multipleByThree(5);
+
+// We make a copy of this multiply method and we create more methods out of it by presetting some
+// arguments inside the functions.
+
+// Example 2 👇 (using concept of Closure)
+
+// function addition(a) {
+//   return function (b) {
+//     return function (c) {
+//       return a + b + c;
+//     };
+//   };
+// }
+
+// Bad Practice 👇
+
+// let add = addition(2);
+// let data1 = add(3);
+// let data2 = data1(4);
+// console.log(data2);
+
+// Right way to do it 👇 (By using Currying)
+
+// let add = addition(2)(3)(4);
+// console.log(add);
+
+// THIS keyword
+
+// The Javascript this keyword refers to the object it belongs to.
+
+// It has different values depending on where it is used. 👇
+
+// - Alone, this refers to the global object.
+// Example 👇
+// console.log(this);
+
+// - In a regular function also, this refers to the global object.
+// Example 👇
+
+// function sum() {
+//   var a = 5;
+//   var b = 10;
+//   var add = a + b;
+//   console.log("Sum of a and b is " + add);
+//   console.log(this);
+// }
+// sum();
+
+// - In a Method, this refers to the owner object.
+// Example 👇
+
+// const user = {
+//   firstName: "Mohd.",
+//   lastName: "Mustafa",
+//   printFullName: function () {
+//     console.log(this.firstName + " " + this.lastName);
+//   },
+// };
+// user.printFullName();
+
+// - In a function, in a strict mode, this is undefined.
+// Example 👇
+
+// "use strict";
+
+// function sum() {
+//   var a = 5;
+//   var b = 10;
+//   var add = a + b;
+//   console.log("Sum of a and b is " + add);
+//   console.log(this);
+// }
+// sum();
+
+// Strict Mode
+
+// The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
+// With strict mode, you can not, for example, use undeclared variables.
+
+// - Eliminates some JavaScript silent errors by changing them to throw errors.
+// - Fixes mistakes that make it difficult for JavaScript engines to perform optimizations:
+// strict mode code can sometimes be made to run faster than identical code that's not strict mode.
+// - Prohibits some syntax likely to be defined in future versions of ECMAScript.
+
+// "use strict";
+
+// function sum(a, b) {
+//   add = a + b;
+//   console.log(add);
+// }
+
+// sum(2, 5);
+
+// IIFE (Immediately Invoked Function Expression)
+
+// An Immediately-invoked Function Expression is a way to execute functions immediately,
+// as soon as they are created. IIFEs are very useful because they don't pollute the
+// global object, and they are a simple way to isolate variables declarations
+
+// An IIFE is Javascript function that runs as soon as it is defined.
+
+// It is a design pattern which is also known as a Self-Executing Anonymous Function and
+// contains two major parts:
+
+// - The first is the anonymous function with lexical scope enclosed within the Grouping Operator ().
+// This prevents accessing variables within the IIFE idiom as well as polluting the global scope.
+// - The second part creates the immediately invoked function expression () through which the
+// JavaScript engine will directly interpret the function.
+
+// Example 👇
+
+//  General way of defining function 👇
+
+// function authorName(name) {
+//   console.log("Author name is " + name);
+// }
+// authorName("Mustafa");
+
+// This is IIFE 👇 contain Grouping Operator() & ()
+
+// (function (name) {
+//   console.log("Author name is " + name);
+// })("Mustafa");
