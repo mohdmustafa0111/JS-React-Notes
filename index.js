@@ -903,7 +903,7 @@
 
 //  ➡ Array Destructuring  🏁
 
-// const myprolang = ['JS', 'C++', 'C', 'python', 'java'];
+// const myprolang = ["JS", "C++", "C", "python", "java"];
 
 // ES-5
 // var top1 = myprolang[0]
@@ -1124,8 +1124,8 @@
 
 // we use for loop to navigate
 
-// var myFriends = ['vinod','ramesh','arjun','vishal'];
-// for(var i=0; i<myFriends.length; i++){
+// var myFriends = ["vinod", "ramesh", "arjun", "vishal"];
+// for (var i = 0; i < myFriends.length; i++) {
 //   console.log(myFriends[i]);
 // }
 
@@ -1141,20 +1141,27 @@
 //   console.log(elements);
 // }
 
+// ForEach Method
+
 // Array.prototype.forEach() 🙋‍♂️
+
 // Calls a function for each element in the array.
 
-// var myFriends = ['vinod','ramesh','arjun','vishal'];
+// var myFriends = ["vinod", "ramesh", "arjun", "vishal"];
 
-// myFriends.forEach(function(element, index, array) {
-//       console.log(element + " index : " +
-//         index + " " + array);
+// myFriends.forEach(function (element, index, array) {
+//   console.log(element + " index : " + index + " " + array);
 // });
+
+// Using Arrow Function 👇
 
 // myFriends.forEach((element, index, array) => {
-//   console.log(element + " index : " +
-//     index + " " + array);
+//   console.log(element + " index : " + index + " " + array);
 // });
+
+// Trying my own way 👇
+
+// myFriends.forEach((kabooter) => console.log(kabooter));
 
 // 2️⃣ Array Subsection 2 👉 Searching and Filter in an Array
 
