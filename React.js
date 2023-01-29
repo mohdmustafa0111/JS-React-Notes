@@ -80,7 +80,7 @@
 // without passing prop to every level.
 
 // 👉 Prop Drilling :- State should be held by the highest parent component in the stack that
-// requires access to the state.To illustrate, we have many nested components. The component
+// requires access to the state. To illustrate, we have many nested components. The component
 // at the top and bottom of the stack need access to the state. To do this without Context,
 // we will need to pass the state as "props" through each nested component.
 // This is called "prop drilling".
@@ -97,7 +97,7 @@
 // Side effects are basically anything that affects something outside of the scope of
 // current function (or outside the component) that is being executed.
 
-// For example,
+// For example:
 //  - tasks like updating the DOM manually,
 //  - API requests to our backend service (Data Fetching),
 //  - Calls to our authentication service,
@@ -121,9 +121,14 @@
 
 // 👉 2nd Explanation in lucid language:-
 // Our components are functions and a side effect would be manipulating something outside of the
-// components control. So things like getting or setting local storage, or making API calls to
-// fetch some data etc.Those things are outside of the components control, to mutate local storage
+// components control. So things like
+// - getting or setting local storage,
+// - or making API calls to fetch some data etc.
+// Those things are outside of the components control, to mutate local storage
 // in your component would be considered a side effect of the component.
+
+// IMPORTANT 👇
+// by passing empty dependency means App component will run ONCE when it loads, and never again.
 
 // Que: What is useReducer Hook in React ? ❓
 
@@ -178,3 +183,10 @@
 // - Managing focus, text selection, or media playback.
 // - Triggering imperative animations.
 // - Integrating with third-party DOM libraries.
+
+// Que: What is useParams hook in React router ? ❓
+
+// Ans: The useParams() hook is a React Router hook that allows you to access the parameters
+// of the current URL. This can be useful if you want to dynamically render content based on the URL
+// parameters. For example, if you have a blog application, you may want to render different articles
+// based on the article ID in the URL.

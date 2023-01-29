@@ -1,6 +1,8 @@
 /**** What is JavaScript ? ****/
 
-// JavaScript is a scripting language that enables you to to create dynamic content, animate images, control multimedia. It adds the behaviour to web pages.It is a case sensitive language.
+// JavaScript is a scripting language that enables you to to create dynamic content,
+// animate images, control multimedia. It adds the behaviour to web pages.
+// It is a case sensitive language.
 // It was invented by Brenden Eich in 1995 and became an ECMA standard in 1997.
 
 // Ques: How JavaScript works ??
@@ -129,15 +131,15 @@
 
 // DataTypes Practice
 
-// console.log( 10 + "20");
-// 9 - "5"
+// console.log(10 + "20");
+// console.log(9 - "5");
 // console.log( 9 - "5"); // 1st bug in JavaScript
-// "Java" + "Script"
-// console.log( "Java "+ "Script");
+// "Java" + "Script";
+// console.log("Java " + "Script");
 // " " + " "
-// console.log( " " + 0);
+// console.log(" " + 0);
 // " " + 0
-// "vinod" - "thapa"
+// console.log("vinod" - "thapa");
 // true + true
 // true + false
 // false + true
@@ -193,8 +195,8 @@
 
 // Undefined is a keyword that is like a placeholder which is placed in the memory.
 
-// console.log(x);
 // var x;
+// console.log(x);
 
 // SCOPES EXPLANATIONS 👇 (Global Scope, Function Scope, Block Scope)
 
@@ -203,7 +205,7 @@
 // GLOBAL SCOPE
 
 // Variables declared Globally (outside any function) have Global Scope.
-// Global variables can be accessed from anywhere in a JavaScript program.s
+// Global variables can be accessed from anywhere in a JavaScript programs.
 
 // var fruit = "apple";
 // console.log(fruit); //apple
@@ -262,13 +264,13 @@
 //     let b = 20;
 //     const c = 30;
 //   }
-//   console.log(a);
+//     console.log(a);
 //     console.log(b);
-//     console.log(c);
+//   console.log(c);
 // }
 // x();
 
-// 🙋‍👨‍🏫 Interview Question 1 🙋‍👨‍🏫
+// 🙋‍👨‍🏫 Interview Question 🙋‍👨‍🏫
 // var vs let vs const
 
 // var, let and const are the keywords that tells JavaScript you're declaring a variable.
@@ -288,9 +290,10 @@
 // They are all hoisted to the top of their scope. But while var variables are initialized
 // with undefined, let and const variables are not initialized.
 
-// FOR BEST EXPLANATION :- https://alligator.io/js/var-let-const/
-
 // Ques: What is Temporal Dead Zone ?
+
+// console.log(a);
+// let a = 10;
 
 // Ans: We all know, accessing a ‘let’ before initializing results in a ‘ReferenceError’
 // whereas accessing a ‘var’ before its value is initialized we would get ‘undefined’.
@@ -713,7 +716,7 @@
 // sum();
 
 // Function Parameter vs Function Arguments
-// The values which are written at the time of the definition of the function.
+// The values which are written at the time of the definition of the function are Parameters.
 // An argument is a value passed to a function when the function is called.
 
 // function sum(a,b){
@@ -1013,10 +1016,10 @@
 // const num2 = [...num1, 4, 5, 6];
 // console.log(num2);
 
-// function numbers(a,b,c) {
-//   console.log(a+b+c);
+// function numbers(a, b, c) {
+//   console.log(a + b + c);
 // }
-// var values = [1,3,4];
+// var values = [1, 3, 4];
 // numbers(...values);
 
 // REST VS SPREAD OPERATOR
@@ -1146,6 +1149,7 @@
 // Array.prototype.forEach() 🙋‍♂️
 
 // Calls a function for each element in the array.
+// The forEach() method calls a function and iterates over the elements of an array.
 
 // var myFriends = ["vinod", "ramesh", "arjun", "vishal"];
 
@@ -1421,12 +1425,15 @@
 
 // Array.prototype.map() 🙋‍♂️
 
-// The map() method creates an array by calling a function
+// map() function is used to tranform each value of array and get a new array out of it.
+
+// The map() method creates a new array by calling a function
 // on each element present in the parent array.
 
 // Generally map() method is used to iterate over an array and
 // calling function on every element of array.
 
+// map() creates a new array from calling a function for every array element.
 // map() calls a function once for each element in an array.
 // map() does not execute the function for empty elements.
 // map() does not change the original array.
@@ -1565,6 +1572,20 @@
 //   }
 //   return acc;
 // }, 0);
+
+// console.log(output);
+
+// Another Example 👇
+
+// const users = [
+//   { firstName: "Akshay", lastName: "Saini", age: 26 },
+//   { firstName: "Elon", lastName: "Musk", age: 50 },
+//   { firstName: "Donald", lastName: "Trump", age: 75 },
+//   { firstName: "Deepika", lastName: "Padukone", age: 26 },
+// ];
+
+// const output = users.map((x) => x.firstName + " " + x.lastName);
+// const output = users.filter((x) => x.age < 30).map((x) => x.firstName);
 
 // console.log(output);
 
@@ -2218,6 +2239,12 @@
 // }
 // x();
 
+// basic Example 👇
+
+// setTimeout(() => {
+//   console.log("Hello");
+// }, 3000);
+
 // Another Example (Important interview question) 👇
 
 // function x() {
@@ -2230,7 +2257,7 @@
 // }
 // x();
 
-// Que: Why it not working with var ?? 👆
+// Que: Why is it not working with var ?? 👆
 // Ans: let is a block scope , so it creates a new copy everytime while loop is executed.
 
 // setInterval 👇
@@ -2581,7 +2608,7 @@
 
 // fun1();
 
-// //👻 What is Event Loop in JavaScript ?
+// // What is Event Loop in JavaScript ?
 
 // The job of event loop is to pulls stuff out of the callback queue and places it onto
 // the call stack whenever the call stack becomes empty.
@@ -2598,7 +2625,7 @@
 // But MicroTask queue has more priority, means it is pulled out first from the
 // callback queue by event loop.
 
-// // 5️⃣ Hoisting in JavaScript
+// // Hoisting in JavaScript
 
 // Hoisting is phenomena in Javascript by which you can access variables & function even before you
 // have initialized it.
@@ -2617,6 +2644,12 @@
 // console.log(myName);
 // var myName;
 // myName = "thapa";
+
+// Another Example 👇
+// getName();
+// function getName() {
+//   console.log("Hello g");
+// }
 
 // // How it will be in output during creation phase
 
@@ -2669,6 +2702,16 @@
 //   c();
 // }
 // var b = 10;
+// a();
+
+// Another Example 👇
+
+// var c = 40;
+// function a() {
+//   var b = 30;
+//   console.log(c);
+// }
+// console.log(b);
 // a();
 
 // // 7️⃣ What is Closures in JavaScript 🤔
@@ -2748,7 +2791,27 @@
 // // ...... (consider thousand of line here)
 // z();
 
-// // 8️⃣: CallBack Hell
+// Example of Data Privacy using Closures 👇
+
+// function counter() {
+//   var count = 0;
+//   function incrementCounter() {
+//     count++;
+//     console.log(count);
+//   }
+//   return incrementCounter;
+// }
+// var z = counter();
+// z();
+// z();
+// z();
+
+// // : CallBack Hell
+
+// The phenomenon which happens when we nest multiple callbacks within a function is called
+// a callback hell. The shape of the resulting code structure resembles a pyramid and hence
+// callback hell is also called the “pyramid of the doom”. It makes the code very difficult
+// to understand and maintain.
 
 // setTimeout(()=>{
 //     console.log(`1️⃣ works is done`);
@@ -2819,6 +2882,8 @@
 // });
 
 // PROMISES 🤞
+
+// A Promise is an object representing the eventual completion of an asynchronous operation.
 
 // Promises are used to handle asynchronous operations in JavaScript.
 // They are easy to manage when dealing with multiple asynchronous operations
@@ -2957,6 +3022,17 @@
 
 // Example:- 404 - not found error - if we try to access something that doesn't exit.
 
+// What is an API ?
+
+//  Application Programming Interface (API) is a software interface that allows two applications
+//  to interact with each other without any user intervention. API is a collection of software
+//  functions and procedures. In simple terms, API means a software code that can be accessed
+//  or executed. API is defined as a code that helps two different software’s to communicate
+//  and exchange data with each other.
+
+// It offers products or services to communicate with other products and services without
+// having to know how they’re implemented.
+
 // PROTOTYPE and PROTOTYPAL INHERITANCE
 
 // Prototypes are the mechanism by which JavaScript objects inherit features from one another.
@@ -2999,11 +3075,18 @@
 
 // CALL, APPLY and BIND Method in Javascript
 
-// In simple terms, all methods are used to set the context(this) explicitly in the regular function
+// In simple terms, Call, apply, and bind are the functions that help you change the context
+// of the this keyword present inside the invoking function.
 
-// Call: call invokes the function on given context and allows to pass arguments individually one by one.
-// Apply: apply invokes the function on given context and allows to pass arguments as an array.
-// Bind: bind returns a new function by setting the provided context, and allows to pass
+// Call: call method invokes the function on given context and allows to pass arguments
+// individually one by one.
+// - Call is a function that helps you change the context of the invoking function.
+
+// Apply: apply method invokes the function on given context and allows to pass arguments as an array.
+// - Apply is very similar to the call function. The only difference is that in apply
+// you can pass an array as an argument list.
+
+// Bind: bind method returns a new function by setting the provided context, and allows to pass
 // arguments one by one.
 // OR
 // The bind() method allows an object to borrow a method from another object without copying.
@@ -3019,6 +3102,9 @@
 // just like in Call Method.
 
 // Example for CALL & APPLY Method 👇
+// ( Took example from Akshay Saini Youtube Channel )
+
+// -> The only difference between Call and Apply method is the way we pass arguments.
 
 // let printFullName = function (hometown, state) {
 //   console.log(
@@ -3032,6 +3118,7 @@
 // };
 
 // // function borrowing
+
 // printFullName.call(name1, "Gurgaon", "Haryana");
 
 // const name2 = {
@@ -3043,10 +3130,38 @@
 // printFullName.call(name2, "Mumbai", "Maharashtra");
 // printFullName.apply(name2, ["Mumbai", "Maharashtra"]);
 
+// Another Example for Call and Apply 👇
+
+// var obj = {
+//   name: "Sachin",
+// };
+
+// function sayHello(age, profession) {
+//   return "Hello " + this.name + " is " + age + " and is an " + profession;
+// }
+
+// console.log(sayHello.call(obj, 24, "Software Engineer"));
+// console.log(sayHello.apply(obj, [24, "Software Engineer"]));
+
 // Example for BIND Method 👇
 
 // let printMyName = printFullName.bind(name1, "Gurgaon", "Haryana");
 // printMyName();
+
+// Another Example of Bind Method 👇
+
+// var obj = {
+//   name: "Sachin",
+// };
+
+// function sayHello(age, profession) {
+//   return "Hello " + this.name + " is " + age + " and is an " + profession;
+// }
+
+// const bindFunc = sayHello.bind(obj);
+
+// console.log(bindFunc(23, "Software Engineer"));
+// console.log(bindFunc(28, "Doctor"));
 
 // POLYFILL
 
@@ -3114,9 +3229,16 @@
 
 // THIS keyword
 
-// The Javascript this keyword refers to the object it belongs to.
+// this keyword refers to the object on which we call our function.
 
 // It has different values depending on where it is used. 👇
+
+// - In an object method, this refers to the object.
+// - Alone, this refers to the global object.
+// - In a function, this refers to the global object.
+// - In a function, in strict mode, this is undefined.
+// - In an event, this refers to the element that received the event.
+// - Methods like call(), apply(), and bind() can refer this to any object.
 
 // - Alone, this refers to the global object.
 // Example 👇
@@ -3159,6 +3281,51 @@
 //   console.log(this);
 // }
 // sum();
+
+// Another Example 👇 ( this example needs to be implemented in the browser )
+// ( Took example from CodeWithSimran Youtube channel )
+
+// let obj1 = {
+//   name: "harry",
+//   displayName: displayName,
+// };
+
+// let obj2 = {
+//   name: "john",
+//   displayName: displayName,
+// };
+
+// function displayName() {
+//   console.log(this.name);
+// }
+
+// var name = "Lara";
+// displayName();
+
+// obj1.displayName();
+// obj2.displayName();
+
+// Another Example 👇 ( this example needs to be implemented in the browser )
+
+// const obj = {
+//   name: "John",
+//   sayHello: function () {
+//     console.log("Hello", this);
+//     var sayBye = function () {
+//       console.log("Bye", this);
+//     };
+//     sayBye();
+//   },
+// };
+// obj.sayHello;
+
+// Another Example 👇
+
+// const sayBye = () => {
+//   console.log("Bye", this);
+// };
+
+// sayBye();
 
 // Strict Mode
 
