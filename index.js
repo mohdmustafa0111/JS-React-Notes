@@ -3170,8 +3170,11 @@
 
 // CURRYING
 
-// Currying is a transformation of a function with multiple arguments into a sequence of
-// nested functions with a single argument.
+// Currying is basically a transformation of the function of multiple arguments into several functions of
+// a single argument in sequence.
+// OR
+// Currying is a function that takes one argument at a time and returns a new function
+// expecting the new argument.
 // OR
 // Currying is an advanced technique of working with functions.
 // It is a transformation of functions that translate a function from callable as add(1, 2, 3)
