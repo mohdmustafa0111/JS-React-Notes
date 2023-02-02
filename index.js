@@ -3035,14 +3035,29 @@
 
 // PROTOTYPE and PROTOTYPAL INHERITANCE
 
-// Prototypes are the mechanism by which JavaScript objects inherit features from one another.
-// All JavaScript objects inherit properties and methods from a prototype.
+// Every object in JavaScript has a built-in property, which is called its prototype.
+// The prototype is itself an object, so the prototype will have its own prototype,
+// making what's called a prototype chain. The chain ends when we reach a prototype
+// that has null for its own prototype.
 // OR
-// One object is trying to access methods, properties of other object.
+// JavaScript is a prototype based language, so, whenever we create a function using JavaScript,
+// JavaScript engine adds a prototype property inside a function, Prototype property is basically
+// an object (also known as Prototype object), where we can attach methods and properties in a
+// prototype object, which enables all the other objects to inherit these methods and properties.
+// OR
+// The prototype is an object that is associated with every functions and objects by default
+// in
+// OR
+// In JavaScript, objects can inherit features from one another via prototypes. Every object has
+// its own property called prototype.
+// Because a prototype itself is also another object, the prototype has its own prototype.
+// This creates a something called prototype chain. The prototype chain ends when a prototype
+// has null for its own prototype.
 
 // Whenever we create any object , Javascript engine automatically puts hidden properties,
 // methods and functions into an object and attaches it to your object. That is how we get
-// access to these properties and methods by using dot operator.
+// access to these properties and methods by using dot operator. And all these come via
+// Prototype.
 
 // Everything in Javascript is nothing but a Object. Whether you create an array, object or
 // function, It is actually down the prototype Chain ends up being an object.
@@ -3086,6 +3101,9 @@
 // - Apply is very similar to the call function. The only difference is that in apply
 // you can pass an array as an argument list.
 
+// By this method, we can bind an object to a function, so that a function gives different
+// result when it needs.
+// OR
 // Bind: bind method returns a new function by setting the provided context, and allows to pass
 // arguments one by one.
 // OR
