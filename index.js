@@ -3045,8 +3045,7 @@
 // an object (also known as Prototype object), where we can attach methods and properties in a
 // prototype object, which enables all the other objects to inherit these methods and properties.
 // OR
-// The prototype is an object that is associated with every functions and objects by default
-// in
+// The prototype is an object that is associated with every functions and objects by default in
 // OR
 // In JavaScript, objects can inherit features from one another via prototypes. Every object has
 // its own property called prototype.
@@ -3351,11 +3350,11 @@
 // Strict Mode
 
 // The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
-// With strict mode, you can not, for example, use undeclared variables.
+// With strict mode, you can not use undeclared variables.
 
 // - Eliminates some JavaScript silent errors by changing them to throw errors.
 // - Fixes mistakes that make it difficult for JavaScript engines to perform optimizations:
-// strict mode code can sometimes be made to run faster than identical code that's not strict mode.
+// - strict mode code can sometimes be made to run faster than identical code that's not strict mode.
 // - Prohibits some syntax likely to be defined in future versions of ECMAScript.
 
 // "use strict";
@@ -3364,8 +3363,12 @@
 //   add = a + b;
 //   console.log(add);
 // }
-
 // sum(2, 5);
+
+// Another Example 👇
+
+// a = 10;
+// console.log(a);
 
 // IIFE (Immediately Invoked Function Expression)
 
