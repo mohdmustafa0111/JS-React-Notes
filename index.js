@@ -3400,3 +3400,91 @@
 // (function (name) {
 //   console.log("Author name is " + name);
 // })("Mustafa");
+
+// Difference between map() and forEach()
+
+// Map -
+// The map() method returns an entirely new array.
+// The map() method returns the newly created array according to the provided callback function.
+// With the map() method, we can chain other methods like, reduce(),sort() etc.
+
+// forEach() -
+// The forEach() method does not returns a  new array based on the given array.
+// 	The forEach() method returns “undefined“.
+// 	The forEach() method doesn’t return anything hence the method chaining technique
+// cannot be applied here.
+
+// let data = [1, 2, 3, 4, 5];
+
+// let res = data.forEach((item) => {
+//   return item * 10;
+// });
+// console.log(res);
+
+// let ans = data.map((item) => {
+//   return item * 10;
+// });
+// console.log(ans);
+
+// Difference between Regurlar function & Arrow function
+
+// 1 - Syntax, Implicit Return
+
+// In regular function, you have to use return keyword to return any value.
+// If you don’t return anything then the function will return undefined.
+
+// If the arrow function contains one expression, you can omit the curly braces,
+// and then the expression will be implicitly returned.
+
+// Example 👇
+
+// ES5
+// var add = function (x, y) {
+//   return x + y;
+// };
+// var result = add(2, 3);
+// console.log(result);
+
+// ES6
+// let add = (x, y) => x + y;
+// let result = add(2, 3);
+// console.log(result);
+
+// 2 - Arguments binding
+
+// - In regular function, Arguments keywords can be used to access the arguments of
+// which passed to function.
+
+// Example 👇
+
+// function regularFunction(a, b) {
+//   console.log(arguments);
+// }
+// regularFunction(1, 2);
+
+// - Arrow functions do not have an arguments binding.
+
+// Example 👇
+
+// const arrowFunction = (a, b) => {
+//   console.log(arguments);
+// };
+// arrowFunction(1, 2);
+
+// - However, if you want to access arguments in an arrow function, you can use the rest operator:
+
+// Example 👇
+
+// const arrowFunction = (...arguments) => {
+//   console.log(...arguments);
+// };
+// arrowFunction(1, 2);
+
+// 3 - this Keyword
+
+// In regular function, this changes according to the way that function is invoked.
+
+// Simple Invocation: this equals the global object or maybe undefined if you are using strict mode.
+// Method Invocation: this equals the object that owns the method.
+// Indirect Invocation: this equals the first argument.
+// Constructor Invocation: this equals the newly created instance.
