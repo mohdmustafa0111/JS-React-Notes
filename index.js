@@ -3488,3 +3488,23 @@
 // Method Invocation: this equals the object that owns the method.
 // Indirect Invocation: this equals the first argument.
 // Constructor Invocation: this equals the newly created instance.
+
+// Arrow functions don’t have their own this, and they don’t redefine the value of this
+// within the function.
+
+// this inside an arrow function always refers to this from the outer context.
+
+// Event Bubbling
+
+// When an event happens on an element, it first runs the handlers on it, then on its parent,
+// then all the way up on other ancestors.
+// OR
+// Event Bubbling is a concept in the DOM (Document Object Model). It happens when an element
+// receives an event, and that event bubbles up (or you can say is transmitted or propagated)
+// to its parent and ancestor elements in the DOM tree until it gets to the root element.
+
+// Event Capturing
+
+// Event capturing is opposite to the event bubbling. In event capturing the flow goes from
+// outermost element to the target element. Whereas in case of event bubbling the flow goes
+// from target element to the outermost element.
