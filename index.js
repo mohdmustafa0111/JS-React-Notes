@@ -3508,3 +3508,62 @@
 // Event capturing is opposite to the event bubbling. In event capturing the flow goes from
 // outermost element to the target element. Whereas in case of event bubbling the flow goes
 // from target element to the outermost element.
+
+// Debouncing & Throttling
+
+// Debouncing and throttling techniques are used to limit the number of times a function can execute.
+// Generally, how many times or when a function will be executed is decided by the developer.
+// But in some cases, developers give this ability to the users. Now, it is up to the user to decide
+// when and how many times to execute that function.
+
+// Debouncing is a method used in JavaScript to increase browser performance. There may be some
+// features on a web page that needs time-consuming computations. If such type of method is applied
+// frequently, it may greatly affect the browser's performance because Javascript is a single-threaded
+// language. Debouncing is a programming technique that assures that time-consuming activities do
+// not trigger the web page's performance decreases. In other words, the Debounce methods do not
+// run when invoked. Instead, they wait a predetermined period of time until executing. When we call
+// the same process again, the previous process is canceled, and the timer is reset.
+
+// A debounce is a throttle cousin, and they both help improve the web application's performance.
+// Although, they are seen in different situations. When we just think about the final state,
+// a debounce is used. For example, they are waiting until a user has finished typing to retrieve
+// typeahead search results. If we want to manage all intermediate states at a regulated pace,
+// a throttle is the best tool to use.
+
+// OR
+
+// The debounce() function forces a function to wait a certain amount of time before running again.
+// The function is built to limit the number of times a function is called.
+
+// OR
+
+// There are many events in JS that trigger super quickly.
+// When you scroll the page, or resize the window, or move your mouse, the browser captures dozens
+// and dozens of events per second.
+// In many cases, you don't need to capture every single intermediate step; you're only
+// interested in capturing the end state (when the user finishes scrolling, or finishes
+// resizing the window).
+// Debouncing is a strategy that lets us improve performance by waiting until a certain amount
+// of time has passed before triggering an event. When the user stops triggering the event,
+// our code will run.
+// In some cases, this isn't necessary. But, if any network requests are involved, or if the
+// DOM changes (eg. re-rendering a component), this technique can drastically improve the
+// smoothness of your application.
+
+// OR Explanation in hindi
+
+// Debouncing and Throttling are not the part of Javascript. In concept ko achieve kiya jata hai
+// setTimeout web API k through , jo ki web browser ka part hai. When you scroll the page, or
+// resize the window, or move your mouse, the browser captures dozens and dozens of events per second.
+// to us time par jo unwanted functions call hote hain usko stop karne k lie hum Debouncing or
+// throttling concept ka istemal karte hain. or jab wo unwanted function baar baar call hote hain to
+// application ki performance ko down kar dete hain. To application ki performfance ko down hone se
+// bachaane k lie hum aisa code likhte hain jisse ki wo unwanted functions baar baar call na ho.
+// balki kisi specific time interval k baad call ho.
+
+// Throttling
+
+// Throttling is a technique in which, no matter how many times the user fires the event,
+// the attached function will be executed only once in a given time interval.
+
+// In order to understand these concepts, watch some tutorials on Youtube.
