@@ -150,7 +150,9 @@
 // 🙋‍👨‍🏫 Interview Question 1 🙋‍👨‍🏫
 // Difference between null vs undefined?
 
-// Ans: null is a special value meaning "no value" or "useless". null is a object becuse typeof null returns 'onject' (which is 2nd bug of javascript). On the other hand, undefined means that the variable has not been declared, or has not been given a value.
+// Ans: null is a special value meaning "no value" or "useless". null is a object because
+// typeof null returns 'object' (which is 2nd bug of javascript). On the other hand, undefined
+// means that the variable has not been declared, or has not been given a value.
 
 // var iAmUseless = null;
 // console.log(iAmUseless);
@@ -2043,54 +2045,34 @@
 // Math.floor(),
 // otherwise Math.trunc() is equivalent to Math.ceil().
 
-// Section 10👉 Document Object model in JavaScript
+// DOM - Document Object model
 
-// 1️⃣ Window is the main container or we can say the
-// global Object and any operations related to entire
-// browser window can be a part of window object.
+// DOM stands for Document Object Model. It is a programming interface that allows us to create,
+// change, or remove elements from the document. We can also add events to these elements to make
+// our page more dynamic.
+// The DOM views an HTML document as a tree of nodes. A node represents an HTML element.
+// OR
+// Document Object Model (DOM) is a platform and language-neutral interface that allows programs
+// and scripts to dynamically access and update the content, structure, and style of a document.
+// OR
+// The Document Object Model (DOM) is the data representation of the objects that comprise the
+// structure and content of a document on the web.
 
-// For ex 👉 the history or to find the url etc.
+// All of the properties, methods, and events available for manipulating and creating web pages
+// are organized into objects.
 
-// 1️⃣ whereas the DOM is the child of Window Object
+// - JavaScript can change all the HTML elements in the page
+// - JavaScript can change all the HTML attributes in the page
+// - JavaScript can change all the CSS styles in the page
+// - JavaScript can remove existing HTML elements and attributes
+// - JavaScript can add new HTML elements and attributes
+// - JavaScript can react to all existing HTML events in the page
+// - JavaScript can create new HTML events in the page
 
-// // **********************************************************************
-
-// // **********************************************************************
-
-// 2️⃣ All the members like objects, methods or properties.
-// If they are the part of window object then we do not refer
-// the window object. Since window is the global object
-// so you do not have to write down window.
-// - it will be figured out by the runtime.
-
-// For example
-// 👉 window.screen or just screen is a small information
-// object about physical screen dimensions.
-// 👉 window.location giving the current URL
-// 👉 window.document or just document is the main object
-// of the potentially visible (or better yet: rendered)
-// document object model/DOM.
-
-// 2️⃣ Where in the DOM we need to refer the document,
-// if we want to use the document object, methods or properties
-// For example
-// 👉 document.getElementById()
-
-// 3️⃣ Window has methods, properties and object.
-// ex setTimeout() or setInterval() are the methods
-// where as Document is the object of the Window and
-// It also has a screen object with properties
-// describing the physical display.
-
-// Now, I know you have a doubt like we have seen the methods
-// and object of the global object that is window. But What about
-// the properties of the Window Object 🤔
-
-// so example of window object properties are
-// innerHeight,
-// innerWidth and there are many more
-
-// let's see some practical in DOM HTML file
+// The DOM is not part of the JavaScript language, but is instead a Web API used to build websites.
+// JavaScript can also be used in other contexts. For example, Node.js runs JavaScript programs
+// on a computer, but provides a different set of APIs, and the DOM API is not a core part of
+// the Node.js runtime.
 
 // ************** DOM vs BOM *******************
 
