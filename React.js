@@ -372,3 +372,39 @@
 // while developing larger applications we need to keep our code DRY, therefore, we want an abstraction
 // that allows us to define this logic in a single place and share it across components. HOC allows us to
 // create that abstraction.
+
+// Que: What is React Router ? ❓
+
+// Ans: React Router refers to the standard library used for routing in React. It allows us for
+// building a single-page web application in React with navigation without even refreshing the page
+// when the user navigates. It also allows to change the browser URL and will keep the user interface
+// in sync with the URL. React Router will make use of the component structure for calling the components,
+// using which appropriate information can be shown. Since React is a component-based framework,
+// it’s not necessary to include and use this package. Any other compatible routing library would
+// also work with React.
+
+// The major components of React Router are given below:
+
+// - BrowserRouter: It is a router implementation that will make use of the HTML5 history API (pushState,
+//  popstate, and event replaceState) for keeping your UI to be in sync with the URL. It is the parent
+// component useful in storing all other components.
+// - Routes: It is a newer component that has been introduced in the React v6 and an upgrade of the
+// component.
+// - Route: It is considered to be a conditionally shown component and some UI will be rendered by this
+// whenever there is a match between its path and the current URL.
+// - Link: It is useful in creating links to various routes and implementing navigation all over the
+// application. It works similarly to the anchor tag in HTML.
+
+// Que: Explain conditional rendering in React ? ❓
+
+// Ans: Conditional rendering refers to the dynamic output of user interface markups based on a
+// condition state. It works in the same way as JavaScript conditions. Using conditional rendering,
+// it is possible to toggle specific application functions, API data rendering, hide or show elements,
+// decide permission levels, authentication handling, and so on.
+
+// There are different approaches for implementing conditional rendering in React. Some of them are:
+
+// - Using if-else conditional logic which is suitable for smaller as well as for medium-sized
+// applications.
+// - Using ternary operators, which takes away some amount of complication from if-else statements
+// - Using element variables, which will enable us to write cleaner code.
