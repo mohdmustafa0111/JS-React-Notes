@@ -317,3 +317,58 @@
 // React fragments serve as a cleaner alternative to using unnecessary divs in our code.
 // These fragments do not produce any extra elements in the DOM, which means that a fragment’s
 // child components will render without any wrapping DOM node.
+
+// Que: What are the different ways to style a React component ? ❓
+
+// Ans: Inline Styling :- We can directly style an element using inline style attributes.
+// Make sure the value of style is a JavaScript object.
+
+// Using JavaScript object :- We can create a separate JavaScript object and set the desired
+// style properties. This object can be used as the value of the inline style attribute.
+
+// CSS Stylesheet :- We can create a separate CSS file and write all the styles for the component
+// inside that file. This file needs to be imported inside the component file.
+
+// Que: Name a few techniques to optimize React app performance ? ❓
+
+// Ans: Lazy Loading :-
+// It is a technique used to reduce the load time of a React app.
+// Lazy loading helps reduce the risk of web app performances to a minimum.
+
+// Using React.PureComponent :-
+// It is a base component class that checks the state and props of a component to know whether the
+// component should be updated.
+// Instead of using the simple React.Component, we can use React.PureComponent to reduce the re-renders
+// of a component unnecessarily.
+
+// Using useMemo( ) :-
+// It is a React hook that is used for caching CPU-Expensive functions.
+// Sometimes in a React app, a CPU-Expensive function gets called repeatedly due to re-renders of a
+// component, which can lead to slow rendering.
+// useMemo( ) hook can be used to cache such functions. By using useMemo( ), the CPU-Expensive function
+// gets called only when it is needed.
+
+// Maintaining State Colocation :-
+// This is a process of moving the state as close to where you need it as possible.
+// Sometimes in React app, we have a lot of unnecessary states inside the parent component which makes
+// the code less readable and harder to maintain. Not to forget, having many states inside a single
+// component leads to unnecessary re-renders for the component.
+// It is better to shift states which are less valuable to the parent component,
+// to a separate component.
+
+// Que: What are higher-order components in React ? ❓
+
+// Ans: A higher-order component (HOC) is an advanced technique in React for reusing component logic.
+// HOCs are not part of the React API, per se. They are a pattern that emerges from React’s
+// compositional nature.
+
+// Concretely, a higher-order component is a function
+// that takes a component and returns a new component.
+
+// When do we need a Higher Order Component ?
+
+// While developing React applications, we might develop components that are quite similar to each other
+// with minute differences. In most cases, developing similar components might not be an issue but,
+// while developing larger applications we need to keep our code DRY, therefore, we want an abstraction
+// that allows us to define this logic in a single place and share it across components. HOC allows us to
+// create that abstraction.
