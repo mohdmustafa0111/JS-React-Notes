@@ -256,9 +256,22 @@
 // to handle the state, initialArgs refers to the initial arguments and init is the function to
 // initialize the state lazily.
 
+// While action types allow you tell your reducer what action it should take,
+// the payload is the data that your reducer will use to update the state.
+
 // Que: What is Redux ? ❓
 
 // Ans: A third party state manager.
+
+// Redux is an open-source JavaScript library used to manage application state. React uses Redux
+// for building the user interface. It was first introduced by Dan Abramov and Andrew Clark in 2015.
+
+// React Redux is the official React binding for Redux. It allows React components to read data from
+// a Redux Store, and dispatch Actions to the Store to update data. Redux helps apps to scale by
+// providing a sensible way to manage state through a unidirectional data flow model. React Redux
+// is conceptually simple. It subscribes to the Redux store, checks to see if the data which your
+// component wants have changed, and re-renders your component.
+
 // Redux is a state management tool for JavaScript applications. It is more commonly used
 // with ReactJS but is also compatible with many other frameworks such as Angular, Vue, Preact,
 // as well as vanilla JavaScript. It is important to note that even though React and Redux
