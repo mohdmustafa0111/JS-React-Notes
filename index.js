@@ -202,7 +202,7 @@
 
 // SCOPES EXPLANATIONS 👇 (Global Scope, Function Scope, Block Scope)
 
-// Scope determines the accessibility (visibility) of variables.
+// Scope determines the accessibility (visibility) of variables, functions and objects.
 
 // GLOBAL SCOPE
 
@@ -309,6 +309,10 @@
 
 // So the temporal dead zone is the time since when let variable is hoisted
 // till it initialized some value.
+
+// The Temporal Dead Zone (TDZ) is a concept in JavaScript that refers to the period between
+// the creation and initialization of a variable or a constant declared with let or const.
+// During this period, accessing the variable will result in a runtime error.
 
 // Que: SyntaxError VS ReferenceError VS TypeError ??
 
