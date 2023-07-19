@@ -2637,6 +2637,18 @@
 //   console.log("Hello g");
 // }
 
+// Question 👇
+
+// function abc() {
+//   console.log(a, b, c);
+
+//   const c = 30;
+//   let b = 20;
+//   var a = 10;
+// }
+
+// abc();
+
 // // How it will be in output during creation phase
 
 // 1: var myName = undefined;
