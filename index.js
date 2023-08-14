@@ -1431,10 +1431,10 @@
 
 // Array.prototype.map() 🙋‍♂️
 
-// map() function is used to tranform each value of array and get a new array out of it.
-
 // The map() method creates a new array by calling a function
 // on each element present in the parent array.
+
+// map() function is used to tranform each value of array and get a new array out of it.
 
 // Generally map() method is used to iterate over an array and
 // calling function on every element of array.
@@ -3043,7 +3043,7 @@
 // an object (also known as Prototype object), where we can attach methods and properties in a
 // prototype object, which enables all the other objects to inherit these methods and properties.
 // OR
-// The prototype is an object that is associated with every functions and objects by default in
+// The prototype is an object that is associated with every functions and objects by default
 // OR
 // In JavaScript, objects can inherit features from one another via prototypes. Every object has
 // its own property called prototype.
