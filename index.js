@@ -1232,6 +1232,11 @@
 
 // Array.prototype.filter() 🙋‍♂️
 
+// In JavaScript, the "filter" method is a built-in array method that is used to create a
+// new array containing all elements from the original array that satisfy a certain condition.
+// It doesn't modify the original array; instead, it returns a new array with the
+// filtered elements.
+
 // The filter() method creates a new array filled with elements
 // that pass a test provided by a function.
 // OR
@@ -1240,7 +1245,7 @@
 // The filter() method does not execute the function for empty elements.
 // The filter() method does not change the original array.
 
-// const prices = [200,300,350,400,450,500,600];
+// const prices = [200, 300, 350, 400, 450, 500, 600];
 
 // const newPriceTag = prices.filter((elem, index) => {
 //   return elem > 400;
@@ -1518,6 +1523,11 @@
 
 // 👉 Reduce Method
 
+// The reduce() method in JavaScript is used to reduce an array to a single value by
+// applying a function to each element of the array and accumulating the results.
+// It's often used to perform operations like summing up numbers, calculating averages,
+// or transforming data in a specific way.
+// OR
 // The reduce() method in JavaScript is used to reduce the array
 // to a single value and it iterates over each and every element
 // of the array (from left-to-right) and the return value of the function
@@ -3182,6 +3192,8 @@
 
 // A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern
 // functionality on older browsers that do not natively support it.
+// Polyfills are used to make sure that your code works in all browsers,
+// even if the browser does not support the latest features.
 
 // CURRYING
 
