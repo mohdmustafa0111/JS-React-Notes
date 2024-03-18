@@ -682,7 +682,7 @@
 
 // ************************************************************
 
-/**** Section 5 👉 Functions in JavaScript ****/
+// Functions
 
 // A JavaScript function is a block of code designed to perform a particular task.
 
@@ -707,7 +707,6 @@
 //   var total = a+b;
 //   console.log(total);
 // }
-// //
 
 // 2️⃣Calling functions
 // Defining a function does not execute it.
@@ -906,9 +905,10 @@
 
 // 4️⃣ Destructuring in ES6
 
-// The destructuring assignment syntax is a JavaScript expression
-// that makes it possible to unpack values from arrays,
-// or properties from objects, into distinct variables.
+// Destructuring in JavaScript is a way to extract values from arrays or properties
+// from objects into distinct variables.
+// It allows you to unpack values from arrays or objects and assign them to variables
+// in a more concise and readable manner.
 
 //  ➡ Array Destructuring  🏁
 
@@ -990,7 +990,7 @@
 // an indefinite number of arguments as an array.
 
 // function sum(...args) {
-//   // console.log(para);
+// console.log(para);
 
 //   let sum = 0;
 //   for (const i of args) {
@@ -1436,13 +1436,10 @@
 
 // Array.prototype.map() 🙋‍♂️
 
-// The map() method creates a new array by calling a function
-// on each element present in the parent array.
-
-// map() function is used to tranform each value of array and get a new array out of it.
-
-// Generally map() method is used to iterate over an array and
-// calling function on every element of array.
+// In JavaScript, the map() function is a higher-order function that is used to iterate
+// over an array and apply a transformation to each element in the array, creating a new
+// array with the results of applying the transformation to each element. The original
+// array remains unchanged.
 
 // map() creates a new array from calling a function for every array element.
 // map() calls a function once for each element in an array.
@@ -2475,11 +2472,13 @@
 // - modularity
 // lot of other things
 
-// // Callback Function
+// Callback Function
 
-// function which get passed as an argument to another function is called CBF
-// A callback function is a function that is passed as an argument to
-// another function, to be “called back” at a later time.
+// In JavaScript, a callback function is a function that is passed as an argument to another
+// function, with the intention of being called at a later time, usually after some
+// asynchronous operation or event has occurred. Callback functions are commonly used
+// in scenarios like event handling, asynchronous programming, and in libraries that
+// utilize a "callback pattern" for handling the completion of tasks.
 
 // Callback function gives the power of a asynchronicity.
 
@@ -2487,13 +2486,25 @@
 //   console.log("Hi " + name + callMe);
 // }
 
-// // callback function
 // function callMe() {
 //   return " I am callback function";
 // }
 
 // // passing function as an argument
 // greet("Peter", callMe());
+
+// Another Example 👇
+
+// function greet(name, callback) {
+//   console.log("Hello, " + name + "!");
+//   callback();
+// }
+
+// function sayGoodbye() {
+//   console.log("Goodbye!");
+// }
+
+// greet("Alice", sayGoodbye);
 
 // In the above program, there are two functions. While calling the greet() function,
 // two arguments (a string value and a function) are passed.
@@ -2526,12 +2537,12 @@
 // }
 // x(y);
 
-// // // we need to create a calculator
+// we need to create a calculator
 
 // const add = (a,b) => {
 //     return a+b;
 // }
-// // console.log(add(5,2));
+// console.log(add(5,2));
 
 // const subs = (a,b) => {
 //     return Math.abs(a-b);
@@ -2548,30 +2559,30 @@
 
 // console.log(calculator(5,2,subs));
 
-// // // I have to do the hardcoded for each operation which is bad
-// // // we will use the callback and the HOF to make it simple to use
+// I have to do the hardcoded for each operation which is bad
+// we will use the callback and the HOF to make it simple to use
 
-// // // Now instead of calling each function indivisually we can call it
-// // // by simply using one function that is calculator
+// Now instead of calling each function indivisually we can call it
+// by simply using one function that is calculator
 
 // console.log(calculator(5,6,add));
 // console.log(calculator(5,6,subs));
 // console.log(calculator(5,6,mult));
 
-// // In the above example, calculator is the higher-order function,
-// // which accepts three arguments, the third one being the callback.
-// // Here the calculator is called the Higher Order Function because it takes
-// // another function as an argument
+// In the above example, calculator is the higher-order function,
+// which accepts three arguments, the third one being the callback.
+// Here the calculator is called the Higher Order Function because it takes
+// another function as an argument
 
-// // and add, sub and mult are called the callback function bcz they are passed
-// // as an argument to another fucntion
+// and add, sub and mult are called the callback function bcz they are passed
+// as an argument to another fucntion
 
-// // InterView Question
-// // Difference Between Higher Order Function and Callback Function ?
+// InterView Question
+// Difference Between Higher Order Function and Callback Function ?
 
-// // 🏁🏁Asynchronous JavaScript
+// 🏁🏁Asynchronous JavaScript
 
-// // 6️⃣:   Synchronous JavaScript Prog
+// 6️⃣:   Synchronous JavaScript Prog
 
 // 1work = 10min
 // 2work = 5s

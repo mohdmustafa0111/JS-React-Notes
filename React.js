@@ -421,3 +421,14 @@
 // applications.
 // - Using ternary operators, which takes away some amount of complication from if-else statements
 // - Using element variables, which will enable us to write cleaner code.
+
+// Que: What is NPM (Node Package Manager) ? ❓
+
+// Ans: NPM, or Node Package Manager, is the default package manager for the JavaScript runtime
+// environment, Node.js. It's essentially a vast repository of pre-written code packages that
+// developers can easily access and use in their projects, saving them tons of time and effort.
+
+// NPM is like a giant warehouse with tons of pre-written code modules, like "a button that
+// logs in," "a map that shows directions," or "a calculator that adds numbers." You can easily
+// search for these modules (called packages) and download them into your project, just like grabbing
+// a LEGO piece from the bin.
