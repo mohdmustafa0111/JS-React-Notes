@@ -3639,16 +3639,44 @@
 //  These are files that are already being tracked by Git (they exist in previous commits),
 // but you've made changes to them since the last commit.
 
-// - staged:- "file is ready to be committed"
+// - staged:- "file is ready to be committed" "git add ."
 // This refers to files that have been modified and marked to be included in the next commit.
 // After modifying a file, you use the git add command to stage it. Staging files allows you to
 // group related changes together before committing them.
 
-// - unmodified:- "Unchanged"
+// - unmodified:- "Unchanged" "git commit -m ''"
 // These are tracked files that haven't been changed since the last commit. Git recognizes them
 // and knows they haven't been modified. They won't be included in your next commit because there
 // are no new changes to record. Think of these as files you haven't edited since the last
 // project snapshot.
+
+// Add, Commit & Push Commands
+
+// Add:- This command tells Git which files you want to include in your next commit. Changes to
+// files are not saved in Git until you explicitly add them using git add. You can add individual
+// files with git add filename.txt or add all modified files in the working directory with
+// 'git add .' (the dot represents all files).
+
+// Commit:- After you've added files with git add, you use git commit to create a snapshot of
+// the current state of your repository. This snapshot includes the added files and a commit
+// message you provide. The commit message briefly describes the changes you've made. It's essential
+// to write clear and concise commit messages as they help you and others understand the project's
+// history. You use the -m "your message" flag with git commit to specify the message.
+
+// Push:- This command uploads your local commits to a remote repository, typically hosted on a
+// platform like GitHub.  Before pushing, you need to set up a remote repository and configure your
+// local repository to communicate with it.  Once configured, you can use git push origin branch_name
+// to push your commits to the specified branch (branch_name) on the remote repository named origin
+// (which is the common default name for the remote repository).
+
+// General Workflow - for local git
+
+// 1. Make new repo on Github
+// 2. Clone
+// 3. Changes
+// 4. Add
+// 5. Commit
+// 6. Push
 
 // What does "hosting the website" means ?
 
