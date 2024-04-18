@@ -3589,9 +3589,9 @@
 
 // In order to understand these concepts, watch some tutorials on Youtube.
 
-// Basic Git Commands  ❓
+// BASIC GIT COMMANDS
 
-// What is Git ?
+// What is Git ? ❓
 
 // Git is a version control system that helps to track changes in code.
 // It's free and Open Source.
@@ -3603,11 +3603,11 @@
 // of changes made to the source code over time. It maintains a history of all changes,
 // enabling users to revert to previous versions if necessary.
 
-// What is Github ?
+// What is Github ? ❓
 
 // GitHub is a platform that allows developers to create, store, manage and share their code.
 
-// What is Git Clone ?
+// What is Git Clone ? ❓
 
 // Command -> git clone <remote_repository_URL>
 
@@ -3621,7 +3621,7 @@
 // This allows you to work on a local copy of the project, make changes, and contribute those
 // changes back to the original repository.
 
-// What does the git status command do ?
+// What does the git status command do ? ❓
 
 // The git status command displays the state of the working directory and the staging area.
 
@@ -3629,7 +3629,7 @@
 // your repository is in the state you expect it to be in before committing your changes.
 // It's a fundamental command in the Git workflow.
 
-// In Git, the state of a file can be categorized into four main stages:
+// In Git, the state of a file can be categorized into four main stages: ❓
 
 // - untracked:- "New files that git doesn't yet track"
 // These are files that are completely new and exist in your working directory but are not
@@ -3650,7 +3650,7 @@
 // are no new changes to record. Think of these as files you haven't edited since the last
 // project snapshot.
 
-// Add, Commit & Push Commands
+// Add, Commit & Push Commands ❓
 
 // Add:- This command tells Git which files you want to include in your next commit. Changes to
 // files are not saved in Git until you explicitly add them using git add. You can add individual
@@ -3669,7 +3669,7 @@
 // to push your commits to the specified branch (branch_name) on the remote repository named origin
 // (which is the common default name for the remote repository).
 
-// General Workflow - for local git
+// General Workflow - for local git ❓
 
 // 1. Make new repo on Github
 // 2. Clone
@@ -3678,7 +3678,63 @@
 // 5. Commit
 // 6. Push
 
-// What does "hosting the website" means ?
+// Git Branch Commands ❓
+
+// 1. Listing Branches
+
+// command -> git branch
+// This lists all your local branches. The current branch
+// (the one you're working on) is marked with an asterisk (*).
+
+// command -> git branch -a
+// This lists all branches, including local branches,
+// remote tracking branches, and detached HEAD state.
+
+// 2. Renaming Branches
+
+// command -> git branch -m <old_branch_name> <new_branch_name>
+// Renames the specified branch to a new name.
+
+// 3. Switching Branches
+
+// command -> git checkout <branch_name>
+// Switches to the specified branch.
+
+// 4. Creating Branches
+
+// command -> git checkout -b <branch_name>
+// Creates a new branch with the specified name and switches to it in one step.
+
+// 5. Deleting Branches
+
+// command -> git branch -d <branch_name>
+// Deletes the specified branch.
+// Git prevents you from deleting the branch if it contains unmerged changes.
+
+// command -> git branch -D <branch_name>
+// Forces deletion of the specified branch, even if it contains unmerged changes.
+
+// 6. Merging Branches
+
+// There are two ways to merge branches
+
+// 1st way
+// command -> git merge <branch_to_merge>
+// To merge two branches in Git, you typically use the 'git merge'
+
+// 2nd way
+// -> Via a Pull Request
+// It lets you tell others about changes you have pushed to a branch in a repository on Github.
+
+// Pull Command ❓
+// command -> git pull origin main
+// The pull command is used to fetch and download content from a remote repo and immediately
+// update the local repo to match the content.
+
+// Resolving Merge Conflicts ❓
+// Will do this later
+
+// What does "hosting the website" means ? ❓
 
 // Hosting a website refers to renting storage space and resources on a powerful computer
 // called a server. This server is always connected to the internet and makes your website's
