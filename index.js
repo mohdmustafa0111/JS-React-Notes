@@ -1765,7 +1765,7 @@
 
 // let myBioData = `I am vinod bahadur thapa vinod`;
 
-// let repalceData = myBioData.replace('Vinod','VINOD');
+// let repalceData = myBioData.replace("Vinod", "VINOD");
 // console.log(repalceData);
 // console.log(myBioData);
 
@@ -3588,3 +3588,70 @@
 // the attached function will be executed only once in a given time interval.
 
 // In order to understand these concepts, watch some tutorials on Youtube.
+
+// Basic Git Commands  ❓
+
+// What is Git ?
+
+// Git is a version control system that helps to track changes in code.
+// It's free and Open Source.
+
+// It was created by Linus Torvalds in 2005 to manage the development of the Linux kernel.
+// Git is widely used in software development for its efficiency, speed, and flexibility.
+
+// Git allows multiple developers to work on the same project simultaneously by keeping track
+// of changes made to the source code over time. It maintains a history of all changes,
+// enabling users to revert to previous versions if necessary.
+
+// What is Github ?
+
+// GitHub is a platform that allows developers to create, store, manage and share their code.
+
+// What is Git Clone ?
+
+// Command -> git clone <remote_repository_URL>
+
+// Example:- git clone https://github.com/example-user/example-project.git
+
+// Downloads a copy of an existing Git repository from a remote location (like GitHub) to your
+// local machine.
+
+// Creates a fully functional Git repository with its own history and branches.
+
+// This allows you to work on a local copy of the project, make changes, and contribute those
+// changes back to the original repository.
+
+// What does the git status command do ?
+
+// The git status command displays the state of the working directory and the staging area.
+
+// By running git status regularly, you can keep track of your changes and ensure that
+// your repository is in the state you expect it to be in before committing your changes.
+// It's a fundamental command in the Git workflow.
+
+// In Git, the state of a file can be categorized into four main stages:
+
+// - untracked:- "New files that git doesn't yet track"
+// These are files that are completely new and exist in your working directory but are not
+// yet known to Git. They haven't been added to the version control system.
+
+// - modified:- "Changed"
+//  These are files that are already being tracked by Git (they exist in previous commits),
+// but you've made changes to them since the last commit.
+
+// - staged:- "file is ready to be committed"
+// This refers to files that have been modified and marked to be included in the next commit.
+// After modifying a file, you use the git add command to stage it. Staging files allows you to
+// group related changes together before committing them.
+
+// - unmodified:- "Unchanged"
+// These are tracked files that haven't been changed since the last commit. Git recognizes them
+// and knows they haven't been modified. They won't be included in your next commit because there
+// are no new changes to record. Think of these as files you haven't edited since the last
+// project snapshot.
+
+// What does "hosting the website" means ?
+
+// Hosting a website refers to renting storage space and resources on a powerful computer
+// called a server. This server is always connected to the internet and makes your website's
+// files accessible to anyone who visits it.

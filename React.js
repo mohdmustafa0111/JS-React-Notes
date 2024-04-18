@@ -1,4 +1,4 @@
-// React JS - The Public Realease❗❓
+// React JS - The Public Release❗❓
 // Jordan Walke, a software engineer who was working for Facebook created React. It was first deployed
 // on the news feed of Facebook in 2011 and on Instagram in 2012. Facebook publicly open sourced ReactJS
 // in May 2013.
@@ -273,7 +273,7 @@
 // component wants have changed, and re-renders your component.
 
 // Redux is a state management tool for JavaScript applications. It is more commonly used
-// with ReactJS but is also compatible with many other frameworks such as Angular, Vue, Preact,
+// with ReactJS but is also compatible with many other frameworks such as Angular, Vue, React,
 // as well as vanilla JavaScript. It is important to note that even though React and Redux
 // are frequently used together, they are independent of each other!
 
@@ -319,7 +319,7 @@
 // StrictMode does not render any visible UI. It activates additional checks and
 // warnings for its descendants.
 
-// Strict mode checks are run in developement mode only,
+// Strict mode checks are run in development mode only,
 // they do not impact the production build.
 
 // Que: What is React Fragments ? ❓
@@ -327,7 +327,7 @@
 // Ans: A common pattern in React is for a component to return multiple elements.
 // Fragments let you group a list of children without adding extra nodes to the DOM.
 
-// React fragments serve as a cleaner alternative to using unnecessary divs in our code.
+// React fragments serve as a cleaner alternative to using unnecessary div in our code.
 // These fragments do not produce any extra elements in the DOM, which means that a fragment’s
 // child components will render without any wrapping DOM node.
 
