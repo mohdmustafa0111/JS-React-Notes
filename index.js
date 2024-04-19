@@ -3672,11 +3672,11 @@
 // General Workflow - for local git ❓
 
 // 1. Make new repo on Github
-// 2. Clone
+// 2. Clone                    command -> git clone <remote_repository_URL>
 // 3. Changes
-// 4. Add
-// 5. Commit
-// 6. Push
+// 4. Add                      command -> git add <file1> <file2> ... <fileN> or git add . (all)
+// 5. Commit                   command -> git commit -m "Your commit message here"
+// 6. Push                     command -> git push -u origin <branch-name>
 
 // Git Branch Commands ❓
 
