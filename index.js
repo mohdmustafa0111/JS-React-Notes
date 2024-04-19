@@ -3732,7 +3732,25 @@
 // update the local repo to match the content.
 
 // Resolving Merge Conflicts ❓
-// Will do this later
+// Will do this later...
+
+// Undoing Changes ❓
+
+// Case 1 : staged changes (Changes added but not commited)
+//  command -> git reset <file_name>
+
+// Case 2 : commited changes (for one commit)
+// command -> git reset HEAD~1
+
+// Case 3 : commited changes (for many commits)
+// command -> git reset <commit hash>
+// command -> git reset --hard <commit hash>
+
+// Fork ❓
+// In Git, a "fork" refers to a copy of a repository that exists under a different user or
+// organization's account. Forking is commonly used in open-source development workflows,
+// where it allows contributors to freely experiment with changes without affecting the
+// original repository.
 
 // What does "hosting the website" means ? ❓
 
