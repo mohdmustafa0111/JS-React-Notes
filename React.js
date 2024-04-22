@@ -37,19 +37,26 @@
 // As stated by the react team, virtual DOM is a concept where a virtual representation of the real DOM
 // is kept inside the memory and is synced with the real DOM by a library such as ReactDOM.
 
-// Think of the Virtual DOM like a blueprint or a draft of your website. When you make changes to your
-// website (like adding text, images, or buttons), instead of immediately changing the actual website,
-// React first makes those changes to the blueprint, which is this Virtual DOM.
+// here's a simplified explanation of how the virtual DOM works in React JS:
 
-// Then, React compares this updated blueprint with the previous one to figure out exactly what changed.
-// It's like comparing two drafts of a document to see what edits were made.
+// 1. Initial Render: When you first load a React app, it creates a virtual copy of the actual
+// webpage's structure called the virtual DOM.
 
-// Once React knows what changes need to be made, it updates the actual website (the real DOM) to match
-// the changes in the Virtual DOM. This process is like updating the final version of a document
-// based on the edits you made in your drafts.
+// 2. State Changes: When something changes, like you click a button or data updates, React doesn't
+// immediately update the real webpage. Instead, it updates the virtual DOM.
 
-// The Virtual DOM helps React make these updates efficiently and quickly, which makes your website
-// feel smooth and responsive to users.
+// 3. Diffing: React compares the new virtual DOM with the previous one to see what's changed.
+// It's like spot the difference!
+
+// 4. Minimize Changes: React figures out the smallest set of changes needed to update the real
+// webpage based on the differences between the old and new virtual DOM.
+
+// 5. Update the Real DOM: Finally, React makes those small changes to the actual webpage's DOM.
+// This process is quicker because React only touches the parts of the webpage that need updating,
+// not the whole thing.
+
+// By using the virtual DOM, React makes updating webpages faster and smoother,
+// giving users a better experience.
 
 // Why was virtual DOM introduced ?
 
