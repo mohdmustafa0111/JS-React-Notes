@@ -37,6 +37,20 @@
 // As stated by the react team, virtual DOM is a concept where a virtual representation of the real DOM
 // is kept inside the memory and is synced with the real DOM by a library such as ReactDOM.
 
+// Think of the Virtual DOM like a blueprint or a draft of your website. When you make changes to your
+// website (like adding text, images, or buttons), instead of immediately changing the actual website,
+// React first makes those changes to the blueprint, which is this Virtual DOM.
+
+// Then, React compares this updated blueprint with the previous one to figure out exactly what changed.
+// It's like comparing two drafts of a document to see what edits were made.
+
+// Once React knows what changes need to be made, it updates the actual website (the real DOM) to match
+// the changes in the Virtual DOM. This process is like updating the final version of a document
+// based on the edits you made in your drafts.
+
+// The Virtual DOM helps React make these updates efficiently and quickly, which makes your website
+// feel smooth and responsive to users.
+
 // Why was virtual DOM introduced ?
 
 // DOM manipulation is an integral part of any web application, but DOM manipulation is quite slow
