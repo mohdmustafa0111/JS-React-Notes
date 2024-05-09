@@ -2953,8 +2953,11 @@
 
 // Async/await
 
-// Async means asynchronous. It allows a program to run a function without freezing
-// the entire program. This is done using the Async/Await keyword.
+// Async/await is a powerful syntax combination in JavaScript that simplifies working with
+// asynchronous code without blocking the execution of the entire program. It provides a cleaner
+// and more synchronous-like way to handle promises, making asynchronous operations appear
+// more sequential.
+
 // Async/Await makes it easier to write promises. The keyword ‘async’ before a function
 // makes the function return a promise, always. And the keyword await is used inside
 // async functions, which makes the program wait until the Promise resolves.
@@ -2964,6 +2967,37 @@
 // await makes a function wait for a Promise.
 // So the async keyword is added to a function to tell them to return a promise
 // rather than directing returning the value.
+
+// Traditional Promises :-
+
+// Before async/await, promises were the primary way to manage asynchronous operations.
+// Here's a typical example:
+
+// fetch("https://api.example.com/data")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log("Fetched data:", data);
+//   })
+//   .catch((error) => {
+//     console.error("Error:", error);
+//   });
+
+// Async/await :-
+
+// Async/await builds upon promises, offering a more readable way to write asynchronous code.
+// Here's the same example using async/await:
+
+// async function fetchData() {
+//   try {
+//     const response = await fetch("https://api.example.com/data");
+//     const data = await response.json();
+//     console.log("Fetched data:", data);
+//   } catch (error) {
+//     console.error("Error:", error);
+//   }
+// }
+
+// fetchData();
 
 // Async 👇
 
@@ -2990,7 +3024,7 @@
 // const getData = async () => {
 //   var y = await "Hello World";
 //   console.log(y);
-// }
+// };
 
 // console.log(1);
 // getData();

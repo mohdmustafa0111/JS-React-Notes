@@ -127,14 +127,17 @@
 // functional components. It should be used when the DOM has something that is dynamically
 // manipulating/controlling.
 
-// useState is a hook that lets you add state to a functional component. It accepts
-// an argument which is the initial value of the state property and returns the
-// current value of state property and a method which is capable of updating that state property.
+// Here's how it works :-
 
-// The two most used hooks are the useState() hook, which allows functional components to
-// have a dedicated state of their own, and the useEffect() hook, which allows functional
-// components to manipulate DOM elements before each render.
-// (almost like one gets to do it in lifecycle functions).
+// 1. Importing useState: First, you import the useState hook from the React library.
+
+// 2. State Initialization: You call the useState function with an initial state value.
+// This function returns an array with two elements: the current state value and a function
+// to update that state value.
+
+// 3. State Management: You can use the state value in your component, and whenever you want to
+// update the state, you call the function returned by useState with the new value. React will
+// then re-render the component with the updated state.
 
 // What are the rules that must be followed while using React Hooks ?
 
@@ -212,21 +215,13 @@
 
 // Que: What is useEffect Hook ? ❓
 
-// Ans: The motivation behind the introduction of useEffect Hook is to eliminate the
-// side-effects of using class-based components.
-// Basically useEffect hook let you perform side effects in function component.
-// Hooks are a new addition in React 16.8.
-// They let you use state and other React features without writing a class.
+// Ans: The useEffect hook in React.js is a built-in hook that allows you to perform
+// side effects in function components. Side effects are actions that occur outside of the
+// regular flow of the application, such as
 
-// What are side-effects in React ?
-// Side effects are basically anything that affects something outside of the scope of
-// current function (or outside the component) that is being executed.
-
-// For example:
-//  - tasks like updating the DOM manually,
-//  - API requests to our backend service (Data Fetching),
-//  - Calls to our authentication service,
-//  - Setting up subscriptions or timers, etc can be lead to unwarranted side-effects.
+// 1. fetching data from a server or API's
+// 2. Directly manipulating the DOM (rarely needed in modern React)
+// 3. Setting up subscriptions or timers
 
 // 👉 What does useEffect do ? ❓
 
