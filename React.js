@@ -310,12 +310,12 @@
 
 // What is useRef Hook ? ❓
 
-// There are two main uses of useRef :-
-// - It is used to access the DOM nodes or React elements directly
-// - keeping a mutable variable.
+// useRef is like a box for holding a value that doesn’t cause re-renders when it changes.
+// It is commonly used to directly manipulate DOM elements or to keep a mutable value across renders.
+// The value inside the useRef box can be accessed and changed via the .current property.
 
-// The useRef is a hook that allows to directly create a reference to the DOM element
-// in the functional component.
+// This simple concept can be very powerful in React for managing DOM interactions and preserving
+// state without triggering re-renders.
 
 // There are a few good use cases for refs:
 // - Managing focus, text selection, or media playback.

@@ -156,7 +156,7 @@
 
 // var iAmUseless = null;
 // console.log(iAmUseless);
-// console.log(typeof(iAmUseless));
+// console.log(typeof iAmUseless);
 // //2nd javascript bug
 
 // var iAmStandBy;
