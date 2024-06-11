@@ -279,19 +279,109 @@
 
 // Ans: A third party state manager.
 
-// Redux is an open-source JavaScript library used to manage application state. React uses Redux
-// for building the user interface. It was first introduced by Dan Abramov and Andrew Clark in 2015.
+// Redux is a state management library for JavaScript applications, and it is often used with React
+// to manage the state of the application in a predictable way. Redux helps you manage the state
+// of your application by providing a centralized store and a structured way to update and
+// access the state.
 
-// React Redux is the official React binding for Redux. It allows React components to read data from
-// a Redux Store, and dispatch Actions to the Store to update data. Redux helps apps to scale by
-// providing a sensible way to manage state through a unidirectional data flow model. React Redux
-// is conceptually simple. It subscribes to the Redux store, checks to see if the data which your
-// component wants have changed, and re-renders your component.
+// It is important to note that even though React and Redux are frequently used together,
+// but they are independent of each other!
 
-// Redux is a state management tool for JavaScript applications. It is more commonly used
-// with ReactJS but is also compatible with many other frameworks such as Angular, Vue, React,
-// as well as vanilla JavaScript. It is important to note that even though React and Redux
-// are frequently used together, they are independent of each other!
+// Key Concepts of Redux -> Store, state, actions, reducers, dispatch.
+
+// 1. Store
+
+// -> The single source of truth for your application's state. The store holds the entire state
+// tree of the application.
+// -> You can create a store using the createStore function.
+
+// 2. State
+
+// -> The state is the data structure that holds all the information about your application.
+// The state is immutable, meaning it should not be changed directly.
+
+// 3. Actions
+
+// -> Actions are plain JavaScript objects that describe an intention to change the state.
+// Each action has a type property that indicates the type of action being performed.
+// -> Actions may also contain a payload with additional information.
+
+// 4. Reducers
+
+// -> Reducers are pure functions that take the current state and an action as arguments and
+// return a new state.
+// -> Reducers specify how the application's state changes in response to actions.
+
+// 5. Dispatch
+
+// Dispatch is a function that sends an action to the Redux store. When an action is dispatched,
+// the Redux store calls the reducer to determine the new state.
+
+// Using Redux with React :-
+
+// To use Redux in a React application, you typically use the react-redux library,
+// which provides bindings to integrate Redux with React components.
+
+// 1. Provider:- The Provider component makes the Redux store available to the
+// rest of your application.
+
+// 2. useSelector:- The useSelector hook allows you to extract data from the Redux store state.
+
+// 3. useDispatch:- The useDispatch hook allows you to dispatch actions to the Redux store.
+
+// Que: What is Redux Toolkit ? ❓
+
+// Ans: Redux Toolkit is a set of tools and best practices for using Redux, a popular state
+// management library for JavaScript applications. It is designed to simplify the setup and
+// usage of Redux, reduce boilerplate code, and promote best practices. Redux Toolkit provides
+// utilities for store configuration, creating reducers and actions, handling asynchronous
+// actions, and more.
+
+// Key Features of Redux Toolkit:
+
+// - configureStore
+// - createSlice
+// - createAsyncThunk
+// - built-in middleware
+// - and createEntityAdapter
+
+// 1. configureStore:
+
+// - Simplifies store setup and configuration.
+// - Automatically sets up Redux DevTools and includes default middleware like Redux Thunk.
+// - Provides a single function for creating the Redux store with good default settings.
+
+// 2. createSlice:
+
+// - Simplifies the creation of reducers and action creators.
+// - Automatically generates action creators and action types based on the reducers defined
+// in the slice.
+
+// 3. createAsyncThunk:
+
+// - Simplifies handling of asynchronous actions.
+// - Automatically dispatches lifecycle actions (pending, fulfilled, rejected)
+// based on the promise status.
+
+// 4. Built-in Middleware:
+
+// - Includes Redux Thunk for handling asynchronous logic out of the box.
+// - Allows adding additional middleware if needed.
+
+// 5. createEntityAdapter:
+
+// Provides a set of functions to manage normalized state structures, such as
+// handling collections of items.
+
+// Advantages of Redux Toolkit:
+
+// - Reduces Boilerplate: Simplifies the setup and usage of Redux by reducing repetitive code.
+// - Promotes Best Practices: Encourages writing better and more maintainable Redux code.
+// - Enhanced Developer Experience: Provides a better development experience with integrated tools
+// and utilities.
+// - Default Middleware: Includes commonly used middleware like Redux Thunk out of the box.
+// - Simplified Async Logic: Makes handling asynchronous actions straightforward with
+// createAsyncThunk.
 
 // Que: What is useNavigate Hook ? ❓
 // Ans: useNavigate is a new hook introduced in React Router v6 and it is extremely useful
