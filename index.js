@@ -1437,9 +1437,12 @@
 // Array.prototype.map() 🙋‍♂️
 
 // In JavaScript, the map() function is a higher-order function that is used to iterate
-// over an array and apply a transformation to each element in the array, creating a new
-// array with the results of applying the transformation to each element. The original
-// array remains unchanged.
+// over an array and It transforms each element and returns a new array.
+
+// OR (in React)
+
+// Commonly used to iterate through an array and render components dynamically.
+// It allows you to create a new array of React elements based on the original array.
 
 // map() creates a new array from calling a function for every array element.
 // map() calls a function once for each element in an array.
@@ -1520,16 +1523,11 @@
 
 // 👉 Reduce Method
 
-// The reduce() method in JavaScript is used to reduce an array to a single value by
-// applying a function to each element of the array and accumulating the results.
+// The reduce method in JavaScript is an array method that allows you to reduce an array to
+// a single value. It iterates over each element of the array, applying a reducer function,
+// and accumulates the result into a single output value.
 // It's often used to perform operations like summing up numbers, calculating averages,
 // or transforming data in a specific way.
-// OR
-// The reduce() method in JavaScript is used to reduce the array
-// to a single value and it iterates over each and every element
-// of the array (from left-to-right) and the return value of the function
-// is stored in an accumulator.
-// OR
 // Reduce function is basically used at a place where you have to take all the elements
 // of an array and come up with single value out of them.
 
@@ -2391,10 +2389,10 @@
 
 // // **********************************************************************
 
-// // Higher Order Function
+// Higher Order Function ❓
 
 // function which takes another function as an arguments
-// and returns a function from it is called HOF.
+// and returns a function as its result.
 
 // Functions such as filter(),map(),reduce(),some() etc,
 // these all are example of Higher-Order Functions.

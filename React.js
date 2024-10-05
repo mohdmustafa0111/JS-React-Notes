@@ -113,6 +113,10 @@
 // UI broken down into multiple individual pieces called components and work on them independently
 // and merge them all in a parent component which will be your final UI.
 
+// Que: What are Pure Components ? ❓
+
+// Ans: Optimize the rendering performance of components by reducing unnecessary re-renders.
+
 // Que: What is props ? ❓
 
 // Ans: (Props stand for properties).
@@ -200,9 +204,11 @@
 
 // Que: What Are PropTypes In React ? ❓
 
-// Ans: PropTypes are a mechanism to ensure that components use the correct data type and
-// pass the right data, and that components use the right type of props, and that receiving
-// components receive the right type of props.
+// Ans: PropTypes in React are a type-checking mechanism used to ensure that the props passed
+// to a component are of the correct type. They help catch bugs by validating the props during
+// development, ensuring that components receive the correct data types and structures.
+// If the props don't match the expected type, React will issue warnings in the console,
+// making debugging easier.
 
 // Que: What is Context or useContext Hook in React ? ❓
 
@@ -520,8 +526,12 @@
 // While developing React applications, we might develop components that are quite similar to each other
 // with minute differences. In most cases, developing similar components might not be an issue but,
 // while developing larger applications we need to keep our code DRY, therefore, we want an abstraction
-// that allows us to define this logic in a single place and share it across components. HOC allows us to
-// create that abstraction.
+// that allows us to define this logic in a single place and share it across components. HOC allows us
+// to create that abstraction.
+
+// A Higher-Order Component (HOC) in React is a pattern that involves a function which takes a
+// component as input and returns a new component with additional functionality. It is commonly
+// used for reusing component logic.
 
 // Que: What is React Router ? ❓
 
