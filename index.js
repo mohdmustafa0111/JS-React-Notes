@@ -1002,14 +1002,8 @@
 
 // 7️⃣Spread Operator
 
-// The JavaScript spread operator (...) allows us to quickly copy all or part of an existing
-// array or object into another array or object.
-
-// Spread operator allows an iterable to expand in places where 0+ arguments
-// are expected. It is mostly used in the variable array where there is more than 1
-// values are expected. It allows us the privilege to obtain a list of parameters from
-// an array. Syntax of Spread operator is same as Rest parameter
-// but it works completely opposite of it.
+// The spread operator (...) in JavaScript expands an array, object, or string into individual
+// elements, making it easy to copy, merge, or add items without changing the original.
 
 // it replaces the concat and copy method too.
 
@@ -1027,6 +1021,18 @@
 // }
 // var values = [1, 3, 4];
 // numbers(...values);
+
+// Rest Operator
+
+// The rest operator (...) in JavaScript collects multiple elements into a single array or object.
+// It’s used in function parameters and object destructuring to handle an indefinite number of values.
+
+// Example for Rest Operator
+
+// const person = { name: "Alice", age: 25, city: "New York" };
+// const { name, ...rest } = person;
+// console.log(name);
+// console.log(rest);
 
 // REST VS SPREAD OPERATOR
 

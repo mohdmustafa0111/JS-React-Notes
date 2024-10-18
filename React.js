@@ -253,8 +253,40 @@
 // regular flow of the application, such as
 
 // 1. fetching data from a server or API's
-// 2. Directly manipulating the DOM (rarely needed in modern React)
+// 2. Directly updating or manipulating the DOM (rarely needed in modern React)
 // 3. Setting up subscriptions or timers
+
+// The useEffect hook in React has three main ways it can work, depending on how you set up
+// its dependency array. Let's break down each one:
+
+// 1. No Dependency Array
+
+// - What it does: If you don’t include a dependency array, the effect will run every time the
+// component re-renders. In other words, useEffect will run every time there’s any update to
+// the component, like changes in its state or props.
+
+// - When to use it: This setup is rare because it can lead to performance issues, especially if
+// the effect involves complex calculations or frequent updates. It's mostly used for debugging
+// or testing.
+
+// 2. Empty Dependency Array
+
+// - What it does: With an empty array [], the effect only runs once when the component first
+// mounts (appears on the screen). It will not run again even if the component re-renders,
+// unless the component is removed from the DOM and re-mounted.
+
+// - When to use it: This setup is common for code that only needs to run once,
+// like initializing data, fetching information from an API, or setting up event listeners.
+
+// 3. With Dependencies
+
+// - What it does: When you include dependencies (variables) in the array, the effect runs
+// every time any of these specified dependencies change. React tracks these variables,
+// so if one changes between renders, the effect will run again.
+
+// - When to use it: This setup is great for situations where you need to react to specific changes.
+// For example, if you’re fetching data based on a user’s input, you might include that input
+// as a dependency. Then, whenever the input changes, useEffect will rerun and fetch new data.
 
 // 👉 What does useEffect do ? ❓
 
@@ -433,12 +465,15 @@
 
 // What is useRef Hook ? ❓
 
-// useRef is like a box for holding a value that doesn’t cause re-renders when it changes.
-// It is commonly used to directly manipulate DOM elements or to keep a mutable value across renders.
-// The value inside the useRef box can be accessed and changed via the .current property.
+// The useRef hook in React is used to create a "reference" to a DOM element or to store
+// mutable values that persist across renders without causing re-renders. It’s particularly
+// useful when you need to access or modify an element directly without triggering the React
+// rendering flow.
 
-// This simple concept can be very powerful in React for managing DOM interactions and preserving
-// state without triggering re-renders.
+// When would you use useRef:
+
+// 1 - DOM Manipulation: Accessing a DOM Element.
+// 2 - Storing Mutable Values that persist without causing re-renders.
 
 // There are a few good use cases for refs:
 // - Managing focus, text selection, or media playback.
