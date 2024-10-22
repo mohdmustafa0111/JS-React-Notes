@@ -213,9 +213,12 @@
 // Que: What is Context or useContext Hook in React ? ❓
 
 // Ans: React Context is a way to manage state globally.
+
 // Context provides a way to pass data through the component tree without having to pass
-// props down manually at every level.
-// In order to use the Context in a child component, we need to access it using the useContext Hook.
+// props down manually at every level. This makes it easier to manage state and can lead
+// to cleaner, more maintainable code.
+
+// It allows functional components to access context values without prop drilling.
 
 // React Context API allows you to easily access data at different levels of the component tree,
 // without passing prop to every level.
@@ -322,10 +325,11 @@
 
 // Que: What is useReducer Hook in React ? ❓
 
-// Ans: The useReducer Hook is the better alternative to the useState hook and is generally
-// more preferred over the useState hook when you have complex state-building logic like
-// big e-commerce web app or when the next state value depends upon its previous value or
-// when the components are needed to be optimized.
+// Ans: The useReducer Hook is the better alternative to the useState hook, provides a way to
+// update a state based on defined actions and is generally more preferred over the useState
+// hook when you have complex state-building logic like big e-commerce web app or when the
+// next state value depends upon its previous value or when the components are needed
+// to be optimized.
 
 // The useReducer hook takes three arguments including reducer, initial state, and the function
 // to load the initial state lazily.

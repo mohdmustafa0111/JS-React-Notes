@@ -2274,7 +2274,30 @@
 
 // **********************************************************************
 
+// Objects in JavaScript ? ❓
+
+// In JavaScript, an object is a collection of key-value pairs, where the keys
+// (also called properties) are strings (or symbols), and the values can be anything,
+// like numbers, strings, functions, or even other objects.
+
+// Example:
+
+// const car = {
+//     brand: "Toyota",
+//     model: "Corolla",
+//     year: 2020,
+//     start: function() {
+//       console.log("Car started");
+//     }
+//   };
+
+//   console.log(car.brand);
+//   car.start();
+
 // 1️⃣ What is Object Literal?
+
+// (This is only one way of writing object which is object literal, but there are two other way
+// as well to write object by using constructors and classes.)
 
 // Object literal is simply a key:value pair data structure.
 
@@ -2330,9 +2353,9 @@
 
 // The this object can have different values depending on where it is placed.
 
-// // For Example 1
+// For Example 1
 // console.log(this.alert('Awesome'));
-// // it refers to the current context and that is window global object
+// it refers to the current context and that is window global object
 
 // // ex 2
 // function myName() {
@@ -2358,7 +2381,7 @@
 // obj.myName();
 
 // // ex 5
-// // this object will not work with arrow function bcz arrow function is bound to class.
+// this object will not work with arrow function bcz arrow function is bound to class.
 
 // const obj = {
 //     myAge : 26,
@@ -2375,7 +2398,7 @@
 //         realName : "vinod thapa",
 //         channelName : 'thapa technical'
 //     },
-//     // things to remember is that the myName is the key and the object is act like a value
+//  things to remember is that the myName is the key and the object is act like a value
 //     myAge : 26,
 //     getData (){
 //       console.log(`My name is ${this.myName.channelName} and my age is ${this.myAge} `);
@@ -2384,10 +2407,10 @@
 
 //   bioData.getData();
 
-// // call method is used to call the method of another object
-// // or with call(), an object can use a method belonging to another object
+// call method is used to call the method of another object
+// or with call(), an object can use a method belonging to another object
 
-// // But as per other it is simply the way to use the this keyword or another object
+// But as per other it is simply the way to use the this keyword or another object
 
 // // **********************************************************************
 
