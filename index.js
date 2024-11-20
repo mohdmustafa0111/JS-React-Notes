@@ -6,15 +6,17 @@
 // It was invented by Brenden Eich in 1995 and became an ECMA standard in 1997.
 
 // Ques: How JavaScript works ??
-// Ans: In JavaScript everything happens inside an Execution Context.
+// Ans: Everything in JavaScript happens inside an Execution Context.
 //      Javascript is synchronous single-threaded language because it execute one command at a time in
 //      a specific order (Single Threaded). that means it can only go to the next line once the current
 //      line has been finished executing (Synchronous).
 
-// You can assume this execution context to be a big container in which whole Javascript code is executed.
-// and it has two components inside it. (Variable Environment of Execution Context)
+// You can assume this execution context to be a big container in which whole Javascript code
+// is executed and it has two components inside it. (Variable Environment of Execution Context)
+
 //  1. Memory component (Memory Creation/Allocation Phase)
 //  2. Code component (Code Execution Phase)
+
 // In memory component variable and functions values are stored or allocated in a  key value format.
 // Memory component is also called as variable environment.
 // Code component is a place where whole JavaScript code is executed.
@@ -32,14 +34,78 @@
 
 // CALL STACK
 
+// The call stack in JavaScript is like a "to-do list" for the computer. It keeps track of the
+// functions that are currently running, the ones waiting to run, and the order in which they
+// need to run. When a function is called, it gets added to the top of the stack. Once the function
+// finishes, it is removed from the stack, and the program continues. It's a simple way JavaScript
+// handles the sequence of function calls.
+
+// It operates on a Last-In-First-Out (LIFO) principle, meaning the last function called is
+// the first one to be removed from the stack.
+
+// Example 1:-
+
+// function first() {
+//   console.log("This is the first function.");
+//   second();
+// }
+
+// function second() {
+//   console.log("This is the second function.");
+//   third();
+// }
+
+// function third() {
+//   console.log("This is the third function.");
+// }
+
+// first();
+
+// What happens in the call stack:
+
+// 1. The first() function is added to the stack and starts executing.
+// - Logs: "This is the first function."
+// - Calls second().
+
+// 2. The second() function is added to the stack.
+// - Logs: "This is the second function."
+// - Calls third().
+
+// 3. The third() function is added to the stack.
+// - Logs: "This is the third function."
+// - Then it finishes and is removed from the stack.
+
+// 4. Once third() is done, second() is removed.
+// 5. Finally, first() is removed, and the stack is empty.
+
+// Example 2:-
+
+// function multiply(x, y) {
+//   return x * y;
+// }
+
+// function add(x, y) {
+//   return x + y;
+// }
+
+// function main() {
+//   let result = multiply(2, 3);
+//   result = add(result, 5);
+//   console.log(result);
+// }
+
+// main();
+
 // CALL STACK is a stack where all these global execution context are kept.
 // the main job of call stack is to execute whatever comes inside it. That's all it does.
-// Whenever we try to execute the javascript code, a global execution context is created and
-// pushed inside the CALL STACK. And once the javascript code is finished executing then
-// it is pop off from the call stack.
+// Whenever we try to execute the javascript code, a call stack is populated and the global
+// execution context is pushed inside the CALL STACK. And once the javascript code is
+// finished executing then it is pop off from the call stack.
 // We can consider Call Stack as a kitchen where all our code executed or cooked. Whenever
 // we try to run a piece of code, it goes to call stack first and then executed.
 // It works in LIFO style. That is Last In First Out.
+
+// Call Stack maintains the order of execution of execution contexts.
 
 // Garbage Collector
 
