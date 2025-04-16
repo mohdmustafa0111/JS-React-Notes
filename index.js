@@ -339,15 +339,25 @@
 // x();
 
 // 🙋‍👨‍🏫 Interview Question 🙋‍👨‍🏫
+
 // var vs let vs const
 
-// var, let and const are the keywords that tells JavaScript you're declaring a variable.
+// A variable is like a container that stores a value.
 
-// var declarations are globally scoped or function scoped while let and const are block scoped.
+// We use variables to:-
 
-// var variables can be updated and re-declared within its scope.
-// let variables can be updated but not re-declared.
-// const variables can neither be updated nor re-declared.
+// - Store data: like numbers, text, or anything else.
+// - Reuse data: instead of repeating values everywhere.
+// - Change values during the program.
+// - Make code readable and easier to manage.
+
+// var declarations are globally scoped or function scoped.
+// while let and const are block scoped.
+
+// IMPORTANT POINTS 👇
+// - var variables can be updated and re-declared within its scope.
+// - let variables can be updated but not re-declared.
+// - const variables can neither be updated nor re-declared.
 
 // {
 //   var a = 10;
