@@ -2725,7 +2725,7 @@
 // But MicroTask queue has more priority, means it is pulled out first from the
 // callback queue by event loop.
 
-// // Hoisting in JavaScript
+// Hoisting in JavaScript
 
 // Hoisting is phenomena in Javascript by which you can access variables & function even before you
 // have initialized it.
@@ -2734,8 +2734,8 @@
 // they are moved to the top of their scope before the code execution regardless
 // of whether their scope is global or local.
 
-// // Hoisting in Javascript is a mechanism where variables and functions
-// // declarations are moved to the top of their scope before the code execute.
+// Hoisting in Javascript is a mechanism where variables and functions
+// declarations are moved to the top of their scope before the code execute.
 
 //  In JavaScript, Hoisting is the default behavior of moving all the declarations at the top of the scope
 //  before code execution.
@@ -2763,17 +2763,17 @@
 
 // abc();
 
-// // How it will be in output during creation phase
+// How it will be in output during creation phase
 
 // 1: var myName = undefined;
 // 2: console.log(myName);
 // 3: myName = "thapa";
 
-// //😲 In ES2015 (a.k.a. ES6), hoisting is avoided by using the let keyword
-// // instead of var. (The other difference is that variables declared
-// // with let are local to the surrounding block, not the entire function.)
+// 😲 In ES2015 (a.k.a. ES6), hoisting is avoided by using the let keyword
+// instead of var. (The other difference is that variables declared
+// with let are local to the surrounding block, not the entire function.)
 
-// //  What is Scope Chain and Lexical Scoping in JavaScript ?
+// What is Scope Chain and Lexical Scoping in JavaScript ?
 
 // When a variable is used in JavaScript, the JavaScript engine will
 // try to find the variable’s value in the current scope. If it could not
@@ -2788,20 +2788,20 @@
 // OR
 // A lexical scope means the inner function has access to the outer function variable.
 
-// // For Example 👇
+// For Example 👇
 
 // let a = "Hello guys. "; // global scope
 
 // const first= () => {
 //   let b = " How are you?"
-//   // // console.log(a+b);
+//   console.log(a+b);
 
 //     const second = () => {
 //       let c = " Hii, I am fine thank you🙏";
 //       console.log(a+b+c);
 //     }
 //     second();
-//     // console.log(a+b+c); //I can't use C
+//    console.log(a+b+c); //I can't use C
 // }
 // first();
 
@@ -2826,9 +2826,9 @@
 // console.log(b);
 // a();
 
-// // 7️⃣ What is Closures in JavaScript 🤔
+// 7️⃣ What is Closures in JavaScript 🤔
 
-// // A closure is the combination of a function and its lexical scope bundled together
+// A closure is the combination of a function and its lexical scope bundled together
 // forms a Closure OR (enclosed) with reference to its surrounding state (the lexical environment).
 // OR
 // Function along with its lexical scope bundled together forms a Closure.
@@ -2838,9 +2838,9 @@
 // A closure is a function having access to the parent scope,
 // even after the parent function has closed.
 
-// // In JavaScript, closures are created every time a function is created, at function creation time.
+// In JavaScript, closures are created every time a function is created, at function creation time.
 
-// // it same like lexical scoping
+// it same like lexical scoping
 
 // Uses/Advantages of Closures:
 // - Module Design Pattern
