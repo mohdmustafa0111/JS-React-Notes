@@ -1175,8 +1175,21 @@
 
 // "use strict";
 
-// let x = 3.14;
-// console.log(x);
+// "use strict" is a way to tell JavaScript to be more careful and strict,
+// so it helps catch mistakes in your code.
+
+// - It prevents the use of undeclared variables.
+// - Helps catch common coding mistakes.
+// - Makes JavaScript code more secure and optimized.
+
+// It must be used at the top of a script or a function:
+
+// Example 👇
+
+// "use strict";
+// function test() {
+//   // strict mode is on here
+// }
 
 // ************************************************************
 
