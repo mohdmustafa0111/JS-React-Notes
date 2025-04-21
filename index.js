@@ -26,11 +26,21 @@
 // and an environment to run javascript properly. Javascript engine has two parts,
 // Heap and Call Stack. And the engine has some assistant named Web APIs and Callback Queue.
 
+// 🧠 Think of your computer's memory like a big toolbox.
+//    JavaScript uses two main sections of this toolbox:
+
+// STACK
+
+// - Stores: Primitive values (like number, string, boolean, etc.)
+// - Fast access and small in size
+// - Follows Last In, First Out (LIFO) – like a stack of plates
+
 // HEAPS or Memory Heap
 
-// It's an unstructured memory block. Our code's memory allocation happens here.
-// It is basically a space where all the variables and function assigned memory.
-// As a programmer we don't have to worry much about heaps.
+// - Stores: Non-primitive values (like objects, arrays, functions)
+// - Slower access, but more flexible and holds more data
+// - JavaScript stores a reference (address) to the object in the stack,
+//   but the actual object goes in the heap
 
 // CALL STACK
 
@@ -2731,7 +2741,7 @@
 
 // fun1();
 
-// // What is Event Loop in JavaScript ?
+// What is Event Loop in JavaScript ?
 
 // The job of event loop is to pulls stuff out of the callback queue and places it onto
 // the call stack whenever the call stack becomes empty.
