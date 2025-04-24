@@ -967,7 +967,9 @@
 
 // Template literals (Template strings)
 
-// JavaScript program to print table for given number (8)?
+// Template literals are a way to create strings in JavaScript using backticks (`),
+// instead of quotes (' or "), allowing you to easily insert variables and expressions
+// using ${...}, and write multi-line strings.
 
 // output :  8 * 1 = 8
 //   8 * 2 = 16(8*2)
