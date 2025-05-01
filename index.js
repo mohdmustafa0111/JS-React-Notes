@@ -1090,8 +1090,9 @@
 
 // 7️⃣Spread Operator
 
-// The spread operator (...) in JavaScript expands an array, object, or string into individual
-// elements, making it easy to copy, merge, or add items without changing the original.
+// The spread method in JavaScript is represented by three dots (...). It is used to spread
+// elements of an array or object into individual elements, making it easy to copy, merge,
+// or add items without changing the original.
 
 // it replaces the concat and copy method too.
 
@@ -1102,7 +1103,9 @@
 
 // const num1 = [1, 2, 3];
 // const num2 = [...num1, 4, 5, 6];
+// const num3 = [7, 8, 9];
 // console.log(num2);
+// console.log(...num1, ...num3);
 
 // function numbers(a, b, c) {
 //   console.log(a + b + c);
@@ -1120,6 +1123,12 @@
 // const person = { name: "Alice", age: 25, city: "New York" };
 // const { name, ...rest } = person;
 // console.log(name);
+// console.log(rest);
+
+// Another Example
+
+// const [first, ...rest] = [1, 2, 3, 4];
+// console.log(first);
 // console.log(rest);
 
 // REST VS SPREAD OPERATOR
