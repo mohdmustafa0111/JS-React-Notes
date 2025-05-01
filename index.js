@@ -993,30 +993,15 @@
 
 // 4️⃣ Destructuring in ES6
 
-// Destructuring in JavaScript is a way to extract values from arrays or properties
-// from objects into distinct variables.
-// It allows you to unpack values from arrays or objects and assign them to variables
-// in a more concise and readable manner.
+// Destructuring in JavaScript allows you to extract values from arrays or objects and
+// assign them to variables in a more concise and readable manner.
 
 //  ➡ Array Destructuring  🏁
 
-// const myprolang = ["JS", "C++", "C", "python", "java"];
-
-// ES-5
-// var top1 = myprolang[0]
-// var top2 = myprolang[1]
-// var top3 = myprolang[2]
-// console.log("my favorite language is " + top1);
-
-// ES-6
-// let [top1,,top3,,top2] = myprolang;
-// console.log(`my most favorite language is ${top1} and least favorite lang is ${top2} and I enjoy this too ${top3}`);
-
-// it takes the value of nested array too
-// we can add and set the values as default
-
-// let [top1,,,,,top6='Ruby'] = myprolang;
-// console.log(`${top6}`);
+// const numbers = [1, 2, 3];
+// const [a, b] = numbers;
+// console.log(a);
+// console.log(b);
 
 // ➡ Object destructuring 🏁
 
