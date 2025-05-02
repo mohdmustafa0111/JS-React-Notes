@@ -1788,19 +1788,6 @@
 // substring(start, end)
 // substr(start, length)
 
-// The slice() Method 🙋‍♂️
-// slice() extracts a part of a string and returns the extracted part
-// in a new string.
-
-// The method takes 2 parameters: the start position,
-// and the end position (end not included).
-
-// var str = "Apple, Bananaa, Kiwi, mango";
-
-// // let res = str.slice(0,4);
-// let res = str.slice(7);
-// console.log(res);
-
 // Slice Method
 
 // The slice() method in JavaScript is used to copy part of an array or string into a new array
@@ -2385,19 +2372,35 @@
 // (also called properties) are strings (or symbols), and the values can be anything,
 // like numbers, strings, functions, or even other objects.
 
+// They're essential for organizing and managing data, and they form the foundation of
+// most JavaScript code, including working with the DOM, APIs, and frameworks like
+// React or Node.js.
+
+// 🔹 Common Use Cases
+
+// - Representing structured data (e.g., JSON from a server).
+// - Grouping functions and data in modules or components.
+// - Passing multiple values in a single function argument.
+// - Using key-value stores for lookup tables or configurations.
+
 // Example:
 
 // const car = {
-//     brand: "Toyota",
-//     model: "Corolla",
-//     year: 2020,
-//     start: function() {
-//       console.log("Car started");
-//     }
-//   };
+//   brand: "Toyota",
+//   model: "Corolla",
+//   year: 2020,
+//   start: function () {
+//     console.log("Car started");
+//   },
+// };
 
-//   console.log(car.brand);
-//   car.start();
+// console.log(car.brand);
+// console.log(car.start());
+
+// After Destructuring the object 👇
+
+// const { brand, model, year } = car;
+// console.log(model);
 
 // 1️⃣ What is Object Literal?
 
@@ -2411,7 +2414,7 @@
 
 // object = school bag
 
-// How to create an Object?
+// 👉 How to create an Object using Object Literal ?
 
 // 1st way
 
@@ -2425,17 +2428,36 @@
 
 // bioData.getData();
 
-// 2nd way no need to write functions as well after es6
+// 2nd way, no need to write functions as well after es6
 
 // let bioData = {
-//   myName : "thapatechnical",
-//   myAge : 26,
-//   getData (){
+//   myName: "thapatechnical",
+//   myAge: 26,
+//   getData() {
 //     console.log(`My name is ${bioData.myName} and my age is ${bioData.myAge}`);
-//   }
-// }
+//   },
+// };
 
 // bioData.getData();
+
+// 👉 How to create an Object using Object constructor ?
+
+// const car = new Object();
+// car.make = "Toyota";
+// car.model = "Camry";
+
+// console.log(car);
+
+// 👉 How to create an Object using classes (ES6) ?
+
+// class Car {
+//   constructor(make, model) {
+//     this.make = make;
+//     this.model = model;
+//   }
+// }
+// const car1 = new Car("Toyota", "Camry");
+// console.log(car1);
 
 // 👉 What if we want object as a value inside an Object
 
