@@ -826,16 +826,10 @@
 
 // 🙋‍👨‍🏫 Interview Question 🙋‍👨‍🏫
 
-// What are Functions in Javascript ?
+// What are Functions in JavaScript ?
 
-// You can reuse code: Define the code once, and use it many times.
-// You can use the same code many times with different arguments,
-// to produce different results.
-
-// OR
-
-// A function is a group of reusable code which can be called anywhere
-// in your program. This eliminates the need of writing the same code
+// A function is a block of reusable code that perform a specific task which can be called
+// or invoked anywhere in your program. This eliminates the need of writing the same code
 // again and again.
 
 // DRY => do not repeat yourself
@@ -846,7 +840,7 @@
 // is called a function statement.
 
 // A function statement loads before any code is executed. This behavior of
-//  function statements is called hoisting, which allows a function to be used before it is defined.
+// function statements is called hoisting, which allows a function to be used before it is defined.
 
 // function x() {
 //   set of statements
@@ -891,11 +885,10 @@
 // };
 
 // Return Keyword
+
 // When JavaScript reaches a return statement,
 // the function will stop executing.
-
-// Functions often compute a return value.
-// The return value is "returned" back to the "caller"
+// return ends the function and sends a value back to the caller.
 
 // function sum(a,b){
 //   return total = a+b;
