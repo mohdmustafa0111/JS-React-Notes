@@ -282,7 +282,7 @@
 
 // GLOBAL SCOPE
 
-// Variables declared Globally (outside any function) have Global Scope.
+// Variables declared outside of any function or block.
 // Global variables can be accessed from anywhere in a JavaScript programs.
 
 // var fruit = "apple";
@@ -296,16 +296,18 @@
 
 // FUNCTION SCOPE
 
-// Each function creates a new scope.
-// Variables defined inside a function are not accessible (visible) from outside the function.
+// - Each function creates a new scope.
+// - Variables declared inside a function using var, let, or const are only accessible
+// within that function.
+// - Variables defined inside a function are not accessible (visible) from outside the function.
 
-// function foo(){
-//   var fruit ='apple';
-//   console.log('inside function: ',fruit);
+// function foo() {
+//   var fruit = "apple";
+//   console.log("inside function: ", fruit);
 // }
 
-// foo();                    //inside function: apple
-// console.log(fruit);       //error: fruit is not defined
+// foo();                      //inside function: apple
+// console.log(fruit);         //error: fruit is not defined
 
 // BLOCK SCOPE
 
@@ -323,30 +325,39 @@
 //     let fruit2 = "banana"; //exist in block scope
 //     const fruit3 = "strawberry"; //exist in block scope
 //   }
-//   console.log(fruit1);
-//   console.log(fruit2);
-//   console.log(fruit3);
+//     console.log(fruit1);
+//     console.log(fruit2);
+//     console.log(fruit3);
 // }
-
 // foo();
-// //result:
-// //apple
-// //error: fruit2 is not defined
-// //error: fruit3 is not defined
 
 // Another Example 👇
 
 // function x() {
+//   const d = 50;
 //   if (true) {
 //     var a = 10;
 //     let b = 20;
 //     const c = 30;
+//     console.log(d);  // I can access the d from here (IMPORTANT TO UNDERSTAND❗)
 //   }
-//     console.log(a);
-//     console.log(b);
+//   console.log(a);
+//   console.log(b);
 //   console.log(c);
 // }
 // x();
+
+// Another Important Example 👇
+
+// if (true) {
+//   const username = "hitesh";
+//   if (username === "hitesh") {
+//     const website = " youtube";
+//     console.log(username + website);
+//   }
+//   console.log(website);
+// }
+// console.log(username);
 
 // 🙋‍👨‍🏫 Interview Question 🙋‍👨‍🏫
 
