@@ -1044,23 +1044,6 @@
 
 // console.log(myBio);
 
-// 6️⃣ Fat Arrow Function
-
-// 👻 Normal Way of writing Function
-
-// function sum() {
-//   let a = 5; b = 6;
-//   let sum = a+b;
-//   return `the sum of the two number is ${sum}`;
-// }
-// console.log(sum());
-
-// 👻 How to convert in into Fat Arrow Function
-
-// const sum = () => `the sum of the two number is ${(a=5)+(b=6)}`;
-
-// console.log(sum());
-
 // REST OPERATOR
 
 // The rest parameter syntax allows a function to accept
@@ -3460,7 +3443,7 @@
 // let add = addition(2)(3)(4);
 // console.log(add);
 
-// THIS keyword
+// THIS KEYWORD
 
 // this keyword refers to the object on which we call our function.
 
@@ -3639,14 +3622,39 @@
 // });
 // console.log(ans);
 
+// Arrow Function
+
+// An Arrow Function in JavaScript is a shorter way to write a function expression.
+// It was introduced in ES6 (ECMAScript 2015) and uses the => syntax.
+
+// Syntax:-
+
+// const functionName = (parameters) => {
+//   //  function body
+// };
+
+// Key Features:-
+
+// - Shorter syntax
+// - Does not have its own this (inherits from the parent scope)
+// - Cannot be used as constructors (i.e., you can't use new with them)
+
+// One-liner Arrow Function:-
+// If the function has only one expression, you can exclude {} and return.
+
+// Example:-
+
+// const square = (n) => n * n;
+// console.log(square(4));
+
 // Difference between Regurlar function & Arrow function
 
-// 1 - Syntax, Implicit Return
+// Syntax, Implicit Return
 
 // In regular function, you have to use return keyword to return any value.
 // If you don’t return anything then the function will return undefined.
 
-// If the arrow function contains one expression, you can omit the curly braces,
+// If the arrow function contains one expression, you can omit(exclude) the curly braces,
 // and then the expression will be implicitly returned.
 
 // Example 👇
@@ -3663,7 +3671,7 @@
 // let result = add(2, 3);
 // console.log(result);
 
-// 2 - Arguments binding
+// Arguments binding
 
 // - In regular function, Arguments keywords can be used to access the arguments of
 // which passed to function.
@@ -3692,20 +3700,6 @@
 //   console.log(...arguments);
 // };
 // arrowFunction(1, 2);
-
-// 3 - this Keyword
-
-// In regular function, this changes according to the way that function is invoked.
-
-// Simple Invocation: this equals the global object or maybe undefined if you are using strict mode.
-// Method Invocation: this equals the object that owns the method.
-// Indirect Invocation: this equals the first argument.
-// Constructor Invocation: this equals the newly created instance.
-
-// Arrow functions don’t have their own this, and they don’t redefine the value of this
-// within the function.
-
-// this inside an arrow function always refers to this from the outer context.
 
 // Event Bubbling
 
