@@ -3556,33 +3556,58 @@
 // IIFE (Immediately Invoked Function Expression)
 
 // An Immediately-invoked Function Expression is a way to execute functions immediately,
-// as soon as they are created. IIFEs are very useful because they don't pollute the
-// global object, and they are a simple way to isolate variables declarations
+// as soon as they are created.
 
-// An IIFE is Javascript function that runs as soon as it is defined.
+// 👉 Why Use an IIFE?
 
-// It is a design pattern which is also known as a Self-Executing Anonymous Function and
-// contains two major parts:
+// - Avoid polluting the global scope
+// - Variables inside an IIFE can’t be accessed from outside it.
 
-// - The first is the anonymous function with lexical scope enclosed within the Grouping Operator ().
-// This prevents accessing variables within the IIFE idiom as well as polluting the global scope.
-// - The second part creates the immediately invoked function expression () through which the
-// JavaScript engine will directly interpret the function.
+// - Create a private scope
+// - Useful in situations where you want to isolate logic,
+//   especially before ES6 let/const and modules.
 
-// Example 👇
+// - Execute code immediately
+// - Sometimes you just want a chunk of code to run once (e.g., initialization code).
 
-//  General way of defining function 👇
+// Syntax:-
+
+// - The function is wrapped inside parentheses () to turn it into an expression.
+// - The trailing () invokes it immediately.
+
+// Example
+
+// General way of defining function 👇
 
 // function authorName(name) {
-//   console.log("Author name is " + name);
+//   console.log(`Author name is ${name}`);
 // }
 // authorName("Mustafa");
 
 // This is IIFE 👇 contain Grouping Operator() & ()
 
 // (function (name) {
-//   console.log("Author name is " + name);
+//   console.log(`Author name is ${name}`);
 // })("Mustafa");
+
+// Explanation:-
+// - message is not accessible outside the IIFE.
+// - The function runs immediately after being defined.
+
+// 👉 IIFE with Arrow Function (ES6+)
+
+// ((name) => {
+//   console.log(`Author name is ${name}`);
+// })("Musti");
+
+// 👉 Real-World Use Case Example
+
+// const result = (function () {
+//   let a = 3;
+//   let b = 4;
+//   return a + b;
+// })();
+// console.log(result);
 
 // Difference between map() and forEach()
 
