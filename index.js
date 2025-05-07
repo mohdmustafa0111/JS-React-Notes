@@ -3445,103 +3445,90 @@
 
 // THIS KEYWORD
 
-// this keyword refers to the object on which we call our function.
+// The this keyword in JavaScript refers to the object to which it belongs.
+// It has different values depending on where it is used.👇
 
-// It has different values depending on where it is used. 👇
-
-// - In an object method, this refers to the object.
 // - Alone, this refers to the global object.
+// - In an object method, this refers to the object.
 // - In a function, this refers to the global object.
 // - In a function, in strict mode, this is undefined.
 // - In an event, this refers to the element that received the event.
 // - Methods like call(), apply(), and bind() can refer this to any object.
 
-// - Alone, this refers to the global object.
-// Example 👇
+// 👉 Alone, this refers to the global object.
+
+// - In a browser, this refers to the global object, which is window.
+// - In Node.js, this refers to an empty object ({}) or module.exports.
+
+// Example
 // console.log(this);
 
-// - In a regular function also, this refers to the global object.
-// Example 👇
+// 👉 Inside an Object Method, this refers to the owner object.
 
-// function sum() {
-//   var a = 5;
-//   var b = 10;
-//   var add = a + b;
-//   console.log("Sum of a and b is " + add);
-//   console.log(this);
-// }
-// sum();
+// - Here, this refers to the object (user) calling the method.
+// - This is the most common and expected behavior of this.
 
-// - In a Method, this refers to the owner object.
-// Example 👇
+// Example
 
 // const user = {
 //   firstName: "Mohd.",
 //   lastName: "Mustafa",
 //   printFullName: function () {
-//     console.log(this.firstName + " " + this.lastName);
+//     console.log(`${this.firstName} ${this.lastName}`);
 //   },
 // };
 // user.printFullName();
 
-// - In a function, in a strict mode, this is undefined.
-// Example 👇
+// 👉 In a regular function, this refers to the global object.
 
-// "use strict";
+// - When a regular function is called without an object,
+//   this refers to the global object (window in browser).
+// - But in strict mode, this will be undefined.
+// - ⚠️ this = global object (or undefined in strict mode) when the function is called normally.
 
-// function sum() {
-//   var a = 5;
-//   var b = 10;
-//   var add = a + b;
-//   console.log("Sum of a and b is " + add);
-//   console.log(this);
+// Example
+
+// function user() {
+//   let username = "Musti";
+//   console.log(this.username);
 // }
-// sum();
+// user();
 
-// Another Example 👇 ( this example needs to be implemented in the browser )
-// ( Took example from CodeWithSimran Youtube channel )
+// In browser: window, in strict mode: undefined
 
-// let obj1 = {
-//   name: "harry",
-//   displayName: displayName,
-// };
+// 👉 Inside a Function (called inside an object method)
 
-// let obj2 = {
-//   name: "john",
-//   displayName: displayName,
-// };
+// - Even though inner() is inside a method, it’s still a regular function.
+// - So this in inner() points to the global object, not user.
+// - SO WE WILL HAVE TO FIX IT WITH ARROW FUNCTION
 
-// function displayName() {
-//   console.log(this.name);
-// }
+// Example (with the regular function)
 
-// var name = "Lara";
-// displayName();
-
-// obj1.displayName();
-// obj2.displayName();
-
-// Another Example 👇 ( this example needs to be implemented in the browser )
-
-// const obj = {
-//   name: "John",
-//   sayHello: function () {
-//     console.log("Hello", this);
-//     var sayBye = function () {
-//       console.log("Bye", this);
-//     };
-//     sayBye();
+// const user = {
+//   name: "Bob",
+//   greet: function () {
+//     function inner() {
+//       console.log(this.name);
+//     }
+//     inner();
 //   },
 // };
-// obj.sayHello;
 
-// Another Example 👇
+// user.greet();
 
-// const sayBye = () => {
-//   console.log("Bye", this);
+// Example (with an Arrow function)
+
+// const user = {
+//   name: "Bob",
+//   greet: function () {
+//     const inner = () => {
+//       console.log(this.name);
+//     };
+//     inner();
+//   },
 // };
 
-// sayBye();
+// user.greet();
 
 // Strict Mode
 
