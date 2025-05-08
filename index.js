@@ -5,53 +5,45 @@
 // It is a case sensitive language.
 // It was invented by Brenden Eich in 1995 and became an ECMA standard in 1997.
 
-// Ques: How JavaScript works ??
-// Ans: Everything in JavaScript happens inside an Execution Context.
-//      Javascript is synchronous single-threaded language because it execute one command at a time in
-//      a specific order (Single Threaded). that means it can only go to the next line once the current
-//      line has been finished executing (Synchronous).
+// Ques: How does JavaScript execute code ? ❓
+
+// Ans: Let's break it down in simple and detailed steps:
+
+// 👉 1. JavaScript is Single-Threaded
+
+// - Everything in JavaScript happens inside an Execution Context.
+// - Javascript is synchronous single-threaded language meaning it execute one command at a time in
+//   a specific order (Single Threaded). That means it can only go to the next line once the current
+//   line has been finished executing (Synchronous).
+
+// 👉 2. How JavaScript Executes Code (Step-by-Step)
 
 // You can assume this execution context to be a big container in which whole Javascript code
 // is executed and it has two components inside it. (Variable Environment of Execution Context)
 
-//  1. Memory component (Memory Creation/Allocation Phase)
-//  2. Code component (Code Execution Phase)
+//  1. Memory component ( aka Memory Creation/Allocation Phase)
+//  2. Code component ( aka Code Execution Phase)
 
-// In memory component variable and functions values are stored or allocated in a  key value format.
-// Memory component is also called as variable environment.
-// Code component is a place where whole JavaScript code is executed.
-// And code component is also called as thread of execution.
+// > In memory component
+// - The engine parses the code.
+// - It allocates memory for variables and functions (this is where hoisting happens).
+// - Functions are stored in memory, variables are set to undefined.
 
-// Inside Browser, there is a Javascript engine (we are considering V8 for chrome.)
-// and an environment to run javascript properly. Javascript engine has two parts,
-// Heap and Call Stack. And the engine has some assistant named Web APIs and Callback Queue.
+// > Code component is a place where whole JavaScript code is executed.
+//   the engine executes the code line by line.
+// - Values are assigned.
+// - Functions are invoked.
+// - Statements are evaluated.
 
-// 🧠 Think of your computer's memory like a big toolbox.
-//    JavaScript uses two main sections of this toolbox:
+// 👉 3. CALL STACK
 
-// STACK
-
-// - Stores: Primitive values (like number, string, boolean, etc.)
-// - Fast access and small in size
-// - Follows Last In, First Out (LIFO) – like a stack of plates
-
-// HEAPS or Memory Heap
-
-// - Stores: Non-primitive values (like objects, arrays, functions)
-// - Slower access, but more flexible and holds more data
-// - JavaScript stores a reference (address) to the object in the stack,
-//   but the actual object goes in the heap
-
-// CALL STACK
-
-// The call stack in JavaScript is like a "to-do list" for the computer. It keeps track of the
-// functions that are currently running, the ones waiting to run, and the order in which they
-// need to run. When a function is called, it gets added to the top of the stack. Once the function
-// finishes, it is removed from the stack, and the program continues. It's a simple way JavaScript
-// handles the sequence of function calls.
-
+// The Call Stack is a data structure that keeps track of function calls.
 // It operates on a Last-In-First-Out (LIFO) principle, meaning the last function called is
 // the first one to be removed from the stack.
+
+// - When a function is invoked, it is pushed onto the top of the stack.
+// - When a function returns, it is popped off the stack.
+// - The engine runs whatever is on top of the stack.
 
 // Example 1:-
 
@@ -106,6 +98,8 @@
 
 // main();
 
+// Explanation of CALL STACK by AKSHAY SAINI
+
 // CALL STACK is a stack where all these global execution context are kept.
 // the main job of call stack is to execute whatever comes inside it. That's all it does.
 // Whenever we try to execute the javascript code, a call stack is populated and the global
@@ -114,8 +108,56 @@
 // We can consider Call Stack as a kitchen where all our code executed or cooked. Whenever
 // we try to run a piece of code, it goes to call stack first and then executed.
 // It works in LIFO style. That is Last In First Out.
-
 // Call Stack maintains the order of execution of execution contexts.
+
+// 👉 4. What about Async Code? (setTimeout, fetch, etc.)
+
+// JavaScript itself doesn't handle async — the browser/web APIs do.
+
+// Here's how it works:-
+
+// - Async function like setTimeout is sent to Web API.
+// - After delay, callback is moved to Callback Queue.
+// - Event Loop checks if the call stack is empty.
+// - If yes, it pushes the callback onto the call stack, and it runs.
+
+// Visual Summary:-
+
+// Call Stack        Web APIs       Callback Queue
+// ----------        --------       ----------------
+//    |                 |                  |
+//    |-- setTimeout -->|                  |
+//    |                 |--(after delay)-> |-- callback -->
+//    |                 |                  |              |
+//    |<-- Event Loop checks -------------<---------------|
+
+// 👉 Final Takeaway
+
+// - JavaScript uses a Call Stack to manage function execution in a synchronous manner.
+// - For asynchronous operations, it relies on Web APIs, Callback Queue, and
+//   the Event Loop to handle them without blocking the stack.
+
+// HEAP & STACK
+
+// Inside Browser, there is a Javascript engine (we are considering V8 for chrome.),
+// an environment to run javascript properly. Javascript engine has two parts,
+// Heap and Call Stack. And the engine has some assistant named Web APIs and Callback Queue.
+
+// Think of your computer's memory like a big toolbox.
+// JavaScript uses two main sections of this toolbox:
+
+// STACK
+
+// - Stores: Primitive values (like number, string, boolean, etc.)
+// - Fast access and small in size
+// - Follows Last In, First Out (LIFO) – like a stack of plates
+
+// HEAPS or Memory Heap
+
+// - Stores: Non-primitive values (like objects, arrays, functions)
+// - Slower access, but more flexible and holds more data
+// - JavaScript stores a reference (address) to the object in the stack,
+//   but the actual object goes in the heap
 
 // Garbage Collector
 
@@ -150,6 +192,7 @@
 // JAVASCRIPT RUNTIME ENVIRONMENT
 
 // JRE is like a big container which has all the things required to run JavaScript code.
+
 // These things can be :-
 // - JS Engine
 // - Set of API's to connect to the outer environment
@@ -2761,7 +2804,7 @@
 // The job of event loop is to pulls stuff out of the callback queue and places it onto
 // the call stack whenever the call stack becomes empty.
 
-// // Event loop is just a guardian who keeps a good communication with Call Stack
+// Event loop is just a guardian who keeps a good communication with Call Stack
 // and Callback Queue. It checks if the call stack is free, then lets know the callback queue.
 // Then Callback queue passes the callback function to Call stack to be executed. When all the
 // callback functions are executed, the call stack is out and global execution context is free.
