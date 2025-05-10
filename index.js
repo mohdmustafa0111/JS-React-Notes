@@ -1284,28 +1284,44 @@
 //   console.log(elements);
 // }
 
-// ForEach Method
+// forEach Method
 
-// Array.prototype.forEach() 🙋‍♂️
+// The forEach() method in JavaScript is used to loop through each item in an array and
+// run a function on every item, one by one. It is best used when you want to do
+// something with each item, like logging it or updating something, but don’t need to
+// get a new array in return.
 
-// Calls a function for each element in the array.
-// The forEach() method calls a function and iterates over the elements of an array.
+//  Key Points about forEach() :-
 
-// var myFriends = ["vinod", "ramesh", "arjun", "vishal"];
+// - It does not return anything (always returns undefined).
+// - It does not modify the original array unless you explicitly do so inside the callback.
+// - It cannot be broken with break, continue, or return (unlike for or for...of loops).
+// - It takes a callback function with up to three arguments:
 
-// myFriends.forEach(function (element, index, array) {
-//   console.log(element + " index : " + index + " " + array);
+// ⚠️ Important Notes:-
+
+// - You can't use async/await effectively inside forEach. Use for...of for async operations.
+// - If you want to transform data, use map() instead,
+//   because forEach() doesn't return a new array.
+
+// Syntax:-
+
+// array.forEach(function(currentValue, index, array) {
+//   // your code here
+// }, thisArg);
+
+// - currentValue: The current element being processed.
+// - index (optional): The index of the current element.
+// - array (optional): The array forEach() was called upon.
+// - thisArg (optional): Value to use as this inside the callback.
+
+// Example:-
+
+// const fruits = ['apple', 'banana', 'cherry'];
+
+// fruits.forEach((fruit, index) => {
+//   console.log(`${index + 1}: ${fruit}`);
 // });
-
-// Using Arrow Function 👇
-
-// myFriends.forEach((element, index, array) => {
-//   console.log(element + " index : " + index + " " + array);
-// });
-
-// Trying my own way 👇
-
-// myFriends.forEach((kabooter) => console.log(kabooter));
 
 // 2️⃣ Array Subsection 2 👉 Searching and Filter in an Array
 
@@ -1364,32 +1380,50 @@
 
 // FILTER METHOD
 
-// Array.prototype.filter() 🙋‍♂️
+// The filter() method in JavaScript is used to create a new array by keeping
+// only the elements that pass a certain test.
 
-// In JavaScript, the "filter" method is a built-in array method that is used to create a
-// new array containing all elements from the original array that satisfy a certain condition.
-// It doesn't modify the original array; instead, it returns a new array with the
-// filtered elements.
+// 🔹 Syntax:-
 
-// The filter() method creates a new array filled with elements
-// that pass a test provided by a function.
-// OR
-// Filter method is used to filter the values inside an array.
+// array.filter(callback(element, index, array), thisArg)
 
-// The filter() method does not execute the function for empty elements.
-// The filter() method does not change the original array.
+// callback: A function that runs for each element.
+// element: The current item being processed.
+// index (optional): The index of the current element.
+// array (optional): The original array.
+// thisArg (optional): Value to use as this inside the callback.
+
+// 🔹 Key Points:-
+
+// - Returns a new array.
+// - Does not change the original array.
+// - Only includes elements where the callback returns true.
+
+// Example:-
 
 // const prices = [200, 300, 350, 400, 450, 500, 600];
 
-// const newPriceTag = prices.filter((elem, index) => {
+// const newPriceTag = prices.filter((elem) => {
 //   return elem > 400;
-// })
+// });
 // console.log(newPriceTag);
 
 // we can turn it into single line 👇
 
 // const newPriceTag = prices.filter((curElem) => curElem > 400);
 // console.log(newPriceTag);
+
+// Another Example:-
+
+// const users = [
+//   { name: "Alice", age: 17 },
+//   { name: "Bob", age: 22 },
+//   { name: "Charlie", age: 19 },
+// ];
+
+// const adults = users.filter((user) => user.age >= 18);
+
+// console.log(adults);
 
 // 3️⃣ Array Subsection 3 👉 How to sort an Array
 
