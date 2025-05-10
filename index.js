@@ -1585,11 +1585,9 @@
 // items.splice(1, 1, "marker");
 // console.log(items);
 
-// 👉 Map Method / Map Function
+// MAP METHOD
 
-// Array.prototype.map() 🙋‍♂️
-
-// In JavaScript, the map() function is a higher-order function that is used to iterate
+// In JavaScript, the map() method is a higher-order function that is used to iterate
 // over an array and It transforms each element and returns a new array.
 
 // OR (in React)
@@ -1597,10 +1595,13 @@
 // Commonly used to iterate through an array and render components dynamically.
 // It allows you to create a new array of React elements based on the original array.
 
-// map() creates a new array from calling a function for every array element.
-// map() calls a function once for each element in an array.
-// map() does not execute the function for empty elements.
-// map() does not change the original array.
+// 🔹 What map() Does:-
+
+// - map() loops through each element in the array.
+// - map() applies a function to each element.
+// - map() returns a new array with the results.
+// - map() does not execute the function for empty elements.
+// - map() does not change the original array.
 
 // SYNTAX:-👇
 
@@ -1629,20 +1630,47 @@
 // let newArr = array1.map((curElem) => curElem * 10)
 // console.log(newArr);
 
-// Another Example 👇
+// Real-world Example:-
 
 // const users = [
-//   { firstName: "Akshay", lastName: "Saini", age: 26 },
-//   { firstName: "Elon", lastName: "Musk", age: 50 },
-//   { firstName: "Jeff", lastName: "Bezos", age: 60 },
-//   { firstName: "Bill", lastName: "Gates", age: 70 },
+//   { id: 1, name: "Ali" },
+//   { id: 2, name: "Sara" },
+//   { id: 3, name: "John" },
 // ];
 
-// const output = users.map((x) => {
-//   return x.firstName + " " + x.lastName;
-// });
+// const names = users.map((user) => user.name);
 
-// console.log(output);
+// console.log(names);
+
+// CHAINING METHOD
+
+// - Method chaining means calling multiple methods one after another on the same
+//   object or result, in a single line of code.
+// - Each method in the chain returns an object, so the next method can be called
+//   immediately on the result.
+
+// 🔹 Example 1 – Chaining Array Methods:-
+
+// const numbers = [1, 2, 3, 4, 5];
+
+// const result = numbers
+//   .map((num) => num * 2)
+//   .filter((num) => num > 5)
+//   .reverse();
+
+// console.log(result);
+
+// 🔹 Example 2 – Chaining String Methods:-
+
+// const message = "   Hello JavaScript!   ";
+// const cleaned = message.trim().toUpperCase().replace("JAVASCRIPT", "WORLD");
+// console.log(cleaned);
+
+// 🔹 Why use Chaining?
+
+// - Cleaner, more readable code.
+// - Avoids creating unnecessary intermediate variables.
+// - Especially useful with array and string methods, jQuery, or custom objects.
 
 // // **********************************************************************
 
