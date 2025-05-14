@@ -1751,27 +1751,27 @@
 
 // Another Example:-
 
-const shoppingCart = [
-  {
-    itemName: "JS Course",
-    price: 999,
-  },
-  {
-    itemName: "Python Course",
-    price: 1999,
-  },
-  {
-    itemName: "Web Dev Course",
-    price: 2999,
-  },
-  {
-    itemName: "Data Science Course",
-    price: 3999,
-  },
-];
+// const shoppingCart = [
+//   {
+//     itemName: "JS Course",
+//     price: 999,
+//   },
+//   {
+//     itemName: "Python Course",
+//     price: 1999,
+//   },
+//   {
+//     itemName: "Web Dev Course",
+//     price: 2999,
+//   },
+//   {
+//     itemName: "Data Science Course",
+//     price: 3999,
+//   },
+// ];
 
-const priceToPay = shoppingCart.reduce((acc, item) => acc + item.price, 0);
-console.log(priceToPay);
+// const priceToPay = shoppingCart.reduce((acc, item) => acc + item.price, 0);
+// console.log(priceToPay);
 
 // Traditional Way to find maximum number from an array 👇
 
