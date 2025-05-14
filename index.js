@@ -1702,15 +1702,16 @@
 
 // we can use the chaining too
 
-// 👉 Reduce Method
+// REDUCE METHOD
 
-// The reduce method in JavaScript is an array method that allows you to reduce an array to
-// a single value. It iterates over each element of the array, applying a reducer function,
-// and accumulates the result into a single output value.
-// It's often used to perform operations like summing up numbers, calculating averages,
-// or transforming data in a specific way.
+// The reduce() method in JavaScript is used to reduce an array to a single value
+// by executing a callback function on each element of the array.
+
 // Reduce function is basically used at a place where you have to take all the elements
 // of an array and come up with single value out of them.
+
+// It's often used to perform operations like summing up numbers, calculating averages,
+// or transforming data in a specific way.
 
 // The reducer function takes four arguments:
 
@@ -1735,13 +1736,42 @@
 // }
 // console.log(findSum(arr));
 
-// Modern Way 👇
+// Modern Way to find sum of an array 👇
 
-// const output = arr.reduce(function (acc, curr) {
+// const output = arr.reduce((acc, curr) => {
 //   acc = acc + curr;
 //   return acc;
 // }, 0);
 // console.log(output);
+
+// This could have been written in one line as well.👇
+
+// const output = arr.reduce((acc, curr) => acc + curr, 0);
+// console.log(output);
+
+// Another Example:-
+
+const shoppingCart = [
+  {
+    itemName: "JS Course",
+    price: 999,
+  },
+  {
+    itemName: "Python Course",
+    price: 1999,
+  },
+  {
+    itemName: "Web Dev Course",
+    price: 2999,
+  },
+  {
+    itemName: "Data Science Course",
+    price: 3999,
+  },
+];
+
+const priceToPay = shoppingCart.reduce((acc, item) => acc + item.price, 0);
+console.log(priceToPay);
 
 // Traditional Way to find maximum number from an array 👇
 
@@ -1781,27 +1811,41 @@
 
 // console.log(output);
 
-// How to fatten an array
-// converting 2d and 3d array into one dimensional array
+// HOW TO FLATTEN AN ARRAY ?
+// converting 2d and 3d array into 1d array (one dimensional)
 
-// const arr = [
-//         ['zone_1', 'zone_2'],
-//         ['zone_3', 'zone_4'],
-//         ['zone_5', 'zone_6'],
-//         ['zone_7', ['zone_7', ['zone_7', 'zone_8']]]
-//     ];
+// Example:- Flatten a 2D array
 
-// // let flatArr = arr.reduce((accum, currVal)  => {
-// //           return accum.concat(currVal);
-// // })
+// const nested = [[1, 2], [3, 4], [5]];
 
-// console.log(arr.flat(Infinity));
+// const flat = nested.reduce((acc, curr) => acc.concat(curr), []);
 
-// console.log(flatArr);
+// console.log(flat);
 
-// const arr = [ ['zone_1', 'zone_2'], ['zone_3', ['zone_1', 'zone_2', ['zone_1', 'zone_2']]] ];
-// console.log(arr.flat(3));
-// console.log(arr);
+// Example:- Flatten a 3D Array
+
+// const arr3D = [
+//   [
+//     [1, 2],
+//     [3, 4],
+//   ],
+//   [
+//     [5, 6],
+//     [7, 8],
+//   ],
+// ];
+
+// const flattened = arr3D.flat(2); // 2 means flatten two levels deep
+
+// console.log(flattened);
+
+// USING REDUCE() 👇
+
+// const flattened = arr3D.reduce((acc, twoD) => {
+//   return acc.concat(twoD.reduce((flat, oneD) => flat.concat(oneD), []));
+// }, []);
+
+// console.log(flattened);
 
 /**** Section 7👉 Strings in JavaScript  ****/
 
