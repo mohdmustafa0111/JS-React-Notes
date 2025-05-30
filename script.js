@@ -2429,55 +2429,40 @@
 
 // **********************************************************************
 
-/**** Section 11👉 EVENTS in JavaScript ****/
+/**** EVENTS in JavaScript ****/
 
-// HTML events are "things" that happen to HTML elements.
-// When JavaScript is used in HTML pages, JavaScript can "react" on these events.
+// In JavaScript, an event is a signal that something has happened in the
+// browser—usually as a result of user interaction.
+// (like clicking a button or typing in a form).
 
-// 👨‍🏫 HTML Events
-// An HTML event can be something the browser does, or something a user does.
+// 📘 Common Examples of Events:-
 
-// Here are some examples of HTML events:
+// Event Name 👇	      Triggered When...👇
 
-// An HTML web page has finished loading
-// An HTML input field was changed
-// An HTML button was clicked
-// Often, when events happen, you may want to do something.
+// click	    ->        A user clicks an element
+// mouseover	->        Mouse is moved over an element
+// keydown	    ->        A key is pressed down
+// submit	    ->        A form is submitted
+// load	        ->        A page or image finishes loading
+// change	    ->        Input value changes (like dropdown/input)
+// resize	    ->        The browser window is resized
 
-// JavaScript lets you execute code when events are detected.
+// There are 3 main ways to handle events:-
 
-// HTML allows event handler attributes, with JavaScript code,
-// to be added to HTML elements.
+// ✅ 1. Inline HTML Attribute
+// ✅ 2. Using DOM Property
+// ✅ 3. Using addEventListener() (Best Practice)
 
-// section 1️⃣ 4 ways of writing Events in JavaScript
+// 1. Inline HTML Attribute 👇(Example)
 
-// 1: using inline events alert();
-// 2: By Calling a funcion (We already seen and most common way of writing)
-// 3: using Inline events (HTML onclick="" property and element.onclick)
-// 4: using Event Listeners (addEventListener and IE's attachEvent)
+// <button onclick="sayHello()">Click Me</button>
 
-// check the Events HTML File
+// 3. Using addEventListener() (Best Practice) 👇(Example)
 
-// section 2️⃣: What is Event Object?
-// Event object is the parent object of the event object.
-// for Example
-// MouseEvent, focusEvent, KeyboardEvent etc
-
-// section ️3️⃣ MouseEvent in JavaScript
-// The MouseEvent Object
-// Events that occur when the mouse interacts with the HTML
-// document belongs to the MouseEvent Object.
-
-// section ️4️⃣ KeyboardEvent  in JavaScript
-// Events that occur when user presses a key on the keyboard,
-// belongs to the KeyboardEvent Object.
-// https://www.w3schools.com/jsref/obj_keyboardevent.asp
-
-// Section 5️⃣ InputEvents in JavaScript
-// The onchange event occurs when the value of an element has been changed.
-
-// For radiobuttons and checkboxes, the onchange event occurs when the
-// checked state has been changed.
+// const btn = document.getElementById("myBtn");
+// btn.addEventListener("click", function () {
+//   alert("Clicked with addEventListener!");
+// });
 
 // **********************************************************************
 
