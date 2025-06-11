@@ -2476,6 +2476,9 @@
 
 // setTimeout 👇
 
+// setTimeout is a built-in JavaScript function that executes a piece of code
+// after a specified delay (in milliseconds).
+
 // setTimeout takes a callback function and attaches the timer and once the timer expires,
 // it calls that function. And till then Javascript engine execute rest of the code.
 
@@ -2512,16 +2515,30 @@
 // Que: Why is it not working with var ?? 👆
 // Ans: let is a block scope , so it creates a new copy everytime while loop is executed.
 
+// ✅ Important Notes
+
+// -> setTimeout is asynchronous, meaning it doesn’t block the rest of the code.
+// -> It returns a timeout ID which can be used to cancel it.
+
 // setInterval 👇
 
-// setInterval(function, milliseconds)
-// Same as setTimeout(), but repeats the execution of the function continuously.
+// setInterval() is a built-in JavaScript function used to repeatedly execute a block of
+// code or a function at a fixed time interval (in milliseconds).
 
-// clearTimeout()
+// Example:-
 
-// setInterval()
+// function greet() {
+//   console.log("Hello, world!");
+// }
 
-// clearInterval()
+// let id = setInterval(greet, 2000);
+
+//🔹Use Cases of setInterval:
+
+// -> Creating digital clocks
+// -> Polling APIs at intervals
+// -> Animations or slideshows
+// -> Repeating background tasks
 
 // **********************************************************************
 
