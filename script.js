@@ -2520,6 +2520,19 @@
 // -> setTimeout is asynchronous, meaning it doesn’t block the rest of the code.
 // -> It returns a timeout ID which can be used to cancel it.
 
+//🔹Use Cases of setTimeout:
+
+// -> Show a message after a delay
+// -> Auto-hide or remove an element (like alerts)
+// -> Simulate API or network delay
+// -> Trigger animations or effects after a pause
+// -> Debounce user input (e.g., in search bars)
+// -> Redirect the user after a delay
+// -> Delay the execution of heavy computations
+// -> Schedule tasks for later (like reminders)
+// -> Create a typing or loading effect
+// -> Delay showing tooltips or pop-ups
+
 // setInterval 👇
 
 // setInterval() is a built-in JavaScript function used to repeatedly execute a block of
