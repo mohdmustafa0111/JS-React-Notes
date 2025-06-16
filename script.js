@@ -3249,14 +3249,9 @@
 
 // PROMISES 🤞
 
-// A Promise is an object representing the eventual completion of an asynchronous operation.
-
 // Promises are used to handle asynchronous operations in JavaScript.
 // They are easy to manage when dealing with multiple asynchronous operations
 // where callbacks can create callback hell leading to unmanageable code.
-// OR
-// A Promise is an object that keep track about whether a certain event has happened
-// already or not.
 
 // callback functions were used but they had limited functionalities
 // and created unmanageable code. Also it is not easy for any user to handle
@@ -3266,36 +3261,44 @@
 // simplest manner. They can handle multiple asynchronous operations easily
 // and provide better error handling than callbacks and events.
 
-// Benefits of Promises 👇
-// - Improves Code Readability
-// - Better handling of asynchronous operations
-// - Better flow of control definition in asynchronous logic
-// - Better Error Handling
+// 🔁 Promise has four states:
 
-// A Promise has four states:
-// - pending: Promise is still pending i.e. not fulfilled or rejected yet
-// - fulfilled: Action related to the promise succeeded
-// - rejected: Action related to the promise failed
-// - settled: Promise has fulfilled or rejected
+// -> pending: Promise is still pending i.e. not fulfilled or rejected yet
+// -> fulfilled: Action related to the promise succeeded
+// -> rejected: Action related to the promise failed
+// -> settled: Promise has fulfilled or rejected
+
+// 📌 Promise Methods:
+
+// -> .then() → Runs when the promise is fulfilled.
+// -> .catch() → Runs when the promise is rejected.
+// -> .finally() → Runs regardless of the outcome (fulfilled or rejected).
+
+// 🧩 Benefits of Promises:
+
+// -> Improves Code Readability
+// -> Better handling of asynchronous operations
+// -> Better flow of control definition in asynchronous logic
+// -> Better Error Handling
 
 // Example 👇
 
-// var promise = new Promise(function (resolve, reject) {
-//   const x = "geeksforgeeks";
-//   const y = "geeksforgeeks";
-//   if (x === y) {
-//     resolve();
+// let pizzaOrder = new Promise(function (resolve, reject) {
+//   let pizzaReady = true;
+
+//   if (pizzaReady) {
+//     resolve("Pizza is ready! 🍕");
 //   } else {
-//     reject();
+//     reject("Pizza was not prepared! ❌");
 //   }
 // });
 
-// promise
-//   .then(function () {
-//     console.log("Success, You are a GEEK");
+// pizzaOrder
+//   .then(function (message) {
+//     console.log("Success:", message);
 //   })
-//   .catch(function () {
-//     console.log("Some error has occurred");
+//   .catch(function (error) {
+//     console.log("Failed:", error);
 //   });
 
 // Async/await 🤞
