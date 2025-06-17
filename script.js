@@ -3303,20 +3303,33 @@
 
 // Async/await 🤞
 
-// Async/await is a powerful syntax combination in JavaScript that simplifies working with
-// asynchronous code without blocking the execution of the entire program. It provides a cleaner
-// and more synchronous-like way to handle promises, making asynchronous operations appear
-// more sequential.
+// Async/Await is a modern way to handle asynchronous operations in JavaScript,
+// introduced in ES2017 (ES8). It makes asynchronous code look and behave more like
+// synchronous code, which is easier to read and understand.
 
-// Async/Await makes it easier to write promises. The keyword ‘async’ before a function
-// makes the function return a promise, always. And the keyword await is used inside
-// async functions, which makes the program wait until the Promise resolves.
+// -> async and await make promises easier to write
+// -> async makes a function return a Promise.
+// -> await makes a function wait for a Promise.
+// -> So the async keyword is added to a function to tell them to return a promise
+//    rather than directing returning the value.
 
-// "async and await make promises easier to write"
-// async makes a function return a Promise.
-// await makes a function wait for a Promise.
-// So the async keyword is added to a function to tell them to return a promise
-// rather than directing returning the value.
+// 🧠 Why Use Async/Await?
+
+// Before Async/Await, we had:
+// Callbacks → Callback Hell 😵
+// Promises → Better, but can be confusing with .then() chaining
+// Async/Await simplifies this even more!
+
+// 🔑 Key Concepts
+
+// 1. async keyword
+// -> Used before a function to mark it as asynchronous.
+// -> It always returns a Promise, even if you return a non-promise value.
+
+// 2. await keyword
+// -> Used inside an async function.
+// -> It waits for the Promise to resolve and returns the resolved value.
+// -> It pauses the async function at that point until the Promise settles.
 
 // Traditional Promises :-
 
@@ -3349,15 +3362,7 @@
 
 // fetchData();
 
-// Async 👇
-
-// let test = async () => "Hello";
-
-// test().then((res) => {
-//   console.log(res);
-// })
-
-// Await 👇
+// Example 👇
 
 // async function test() {
 //   console.log(2);
@@ -3379,6 +3384,32 @@
 // console.log(1);
 // getData();
 // console.log(2);
+
+// One more exmaple 👇
+
+// function wait(ms) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
+
+// async function showMessages() {
+//   console.log("One");
+//   await wait(1000); // waits 1 second
+//   console.log("Two");
+// }
+
+// showMessages();
+
+// 💡 Key Points to Remember
+
+// -> You must use await inside an async function.
+// -> If the Promise is rejected, use try...catch to handle errors.
+// -> await only works with Promises.
+
+// 🧩 Use Cases
+
+// -> Fetching data from APIs
+// -> Waiting for timers (e.g., with setTimeout using a Promise wrapper)
+// -> Performing a sequence of asynchronous operations in a readable flow
 
 // ERROR HANDLING
 
