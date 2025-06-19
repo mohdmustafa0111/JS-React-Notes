@@ -2732,9 +2732,47 @@
 
 // But as per other it is simply the way to use the this keyword or another object
 
+// ✅ Constructor Function
+
+// A constructor function is a special kind of function used to create objects
+// with the same structure.
+// You use it when you want to create many similar objects (like many users, cars, etc.).
+
+// 🔹 Syntax
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+
+// -> this.name = name → assigns the value to the object being created.
+// -> Use new keyword to create the object.
+
+// ✅ Example
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+//   this.greet = function () {
+//     console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
+//   };
+// }
+
+// const p1 = new Person("Mustafa", 25);
+// const p2 = new Person("Musti", 22);
+
+// p1.greet();
+// p2.greet();
+
+// 🧠 Summary
+
+// -> It acts like a template for objects.
+// -> You use new to call it.
+// -> Inside, this refers to the new object being created.
+
 // // **********************************************************************
 
-// // 👉 Advanced and Asynchronous JavaScript
+// 👉 Advanced and Asynchronous JavaScript
 
 // // **********************************************************************
 
