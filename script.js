@@ -3587,9 +3587,43 @@
 // In simple terms, Call, apply, and bind are the functions that help you change the context
 // of the this keyword present inside the invoking function.
 
-// Call: call method invokes the function on given context and allows to pass arguments
-// individually one by one.
-// - Call is a function that helps you change the context of the invoking function.
+// 👉 Call Method
+
+// The call() method is a built-in JavaScript function that allows you to call a function
+// with a specific "this" value, and pass arguments one by one.
+
+// 🔸 Why do we use call() ?
+
+// We use call() when we want to:-
+// -> Borrow a method from another object.
+// -> Change the value of this when calling a function.
+
+// 🔸 Example 1: Borrowing a method
+
+// const person1 = {
+//   fullName: function () {
+//     return this.firstName + " " + this.lastName;
+//   },
+// };
+
+// const person2 = {
+//   firstName: "John",
+//   lastName: "Doe",
+// };
+
+// console.log(person1.fullName.call(person2));
+
+// 🔸 Example 2: Passing arguments
+
+// function greet(greeting, punctuation) {
+//   console.log(`${greeting}, ${this.name}${punctuation}`);
+// }
+
+// const user = {
+//   name: "Musti",
+// };
+
+// greet.call(user, "Hello", "!");
 
 // Apply: apply method invokes the function on given context and allows to pass arguments as an array.
 // - Apply is very similar to the call function. The only difference is that in apply
