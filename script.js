@@ -1793,6 +1793,8 @@
 //     acc = curr;
 //   }
 //   return acc;
+// OR
+//   return curr > acc ? curr : acc;
 // }, 0);
 
 // console.log(output);
@@ -3582,12 +3584,12 @@
 // };
 // console.log(obj3.getName());
 
-// CALL, APPLY and BIND Method in Javascript
+// ✔️ CALL, APPLY and BIND Method in Javascript
 
 // In simple terms, Call, apply, and bind are the functions that help you change the context
-// of the this keyword present inside the invoking function.
+// of the "this" keyword present inside the invoking function.
 
-// 👉 Call Method
+// 👉 CALL METHOD
 
 // The call() method is a built-in JavaScript function that allows you to call a function
 // with a specific "this" value, and pass arguments one by one.
@@ -3625,37 +3627,54 @@
 
 // greet.call(user, "Hello", "!");
 
-// Apply: apply method invokes the function on given context and allows to pass arguments as an array.
-// - Apply is very similar to the call function. The only difference is that in apply
-// you can pass an array as an argument list.
+// 👉 APPLY METHOD
 
-// By this method, we can bind an object to a function, so that a function gives different
-// result when it needs.
-// OR
-// Bind: bind method returns a new function by setting the provided context, and allows to pass
-// arguments one by one.
-// OR
-// The bind() method allows an object to borrow a method from another object without copying.
-// OR
-// The bind method just bind and keep the copy of method and use it later.
+// The apply() method is used to call a function, but it allows you to pass an array
+// of arguments instead of listing them one by one.
 
-// Notes: 👇
+// 🧠 Example:-
 
-// - Call and Apply both are similar only difference is the way we pass arguments.
-// - The mentioned methods do not work with arrow function.
-// - And the only difference between Call and Bind is that Bind method gives you the copy but
-// which can be invoked later rather than directly invoking it wherever we are writing code
-// just like in Call Method.
+// function greet(greeting, name) {
+//   console.log(`${greeting}, ${name}!`);
+// }
 
-// Example for CALL & APPLY Method 👇
-// ( Took example from Akshay Saini Youtube Channel )
+// greet.apply(null, ["Hello", "Mustafa"]);
+
+// -> greet is called with "this" as null
+// -> 'Hello' and 'Mustafa' are passed as an array of arguments
+
+// 📊 Real-World Example (Using Math.max with array):
+
+// const numbers = [5, 10, 20, 3];
+
+// const max = Math.max.apply(null, numbers);
+
+// console.log(`Max value is ${max}`);
+
+// ✔️ Math.max doesn’t accept an array directly, so we use apply() to spread the array
+// as individual arguments.
+
+// 🔁 Difference from call():
+
+// -> call() → arguments passed one by one
+// -> apply() → arguments passed as an array
+
+// Example:- 👇
+// greet.call(null, 'Hi', 'Mustafa');    // call: individual args
+// greet.apply(null, ['Hi', 'Mustafa']); // apply: array of args
+
+// ✅ Use Case Summary:
+
+// -> Use .apply() when you already have arguments in an array
+// -> Useful for borrowing methods or spreading array values>
+
+// Another example for CALL & APPLY Method 👇
+// (Took the examples from Akshay Saini Youtube Channel)
 
 // -> The only difference between Call and Apply method is the way we pass arguments.
 
 // let printFullName = function (hometown, state) {
-//   console.log(
-//     this.firstName + " " + this.lastName + " from " + hometown + " , " + state
-//   );
+//   console.log(`${this.firstName} ${this.lastName} from ${hometown}, ${state}`);
 // };
 
 // const name1 = {
@@ -3676,14 +3695,14 @@
 // printFullName.call(name2, "Mumbai", "Maharashtra");
 // printFullName.apply(name2, ["Mumbai", "Maharashtra"]);
 
-// Another Example for Call and Apply 👇
+// One more example for Call and Apply Method 👇
 
 // var obj = {
 //   name: "Sachin",
 // };
 
 // function sayHello(age, profession) {
-//   return "Hello " + this.name + " is " + age + " and is an " + profession;
+//   return `Hello ${this.name} is ${age} and is an ${profession}.`;
 // }
 
 // console.log(sayHello.call(obj, 24, "Software Engineer"));
@@ -3708,6 +3727,14 @@
 
 // console.log(bindFunc(23, "Software Engineer"));
 // console.log(bindFunc(28, "Doctor"));
+
+// Final Notes: 👇
+
+// -> Call and Apply both are similar only difference is the way we pass arguments.
+// -> The mentioned methods do not work with arrow function.
+// -> And the only difference between Call and Bind is that Bind method gives you the copy but
+//    which can be invoked later rather than directly invoking it wherever we are writing code
+//    just like in Call Method.
 
 // POLYFILL
 
