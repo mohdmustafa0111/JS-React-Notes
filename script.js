@@ -3604,7 +3604,7 @@
 
 // const person1 = {
 //   fullName: function () {
-//     return this.firstName + " " + this.lastName;
+//     return `${this.firstName} ${this.lastName}`;
 //   },
 // };
 
@@ -3708,25 +3708,76 @@
 // console.log(sayHello.call(obj, 24, "Software Engineer"));
 // console.log(sayHello.apply(obj, [24, "Software Engineer"]));
 
-// Example for BIND Method 👇
+// 👉 BIND METHOD
 
-// let printMyName = printFullName.bind(name1, "Gurgaon", "Haryana");
-// printMyName();
+// The bind() method creates a new function that, when called, has its "this" keyword
+// permanently set to a specific object.
+// It doesn't call the function right away — it just returns a new function with "this" fixed.
 
-// Another Example of Bind Method 👇
+// 🔍 Why is it Useful?
+
+// Sometimes when you pass a function somewhere (e.g., to an event listener or timer),
+// "this" can get lost or point to something unexpected.
+// But bind() locks "this" to the object you want.
+
+// 📦 Example 1 – Basic Usage:
+
+// const person = {
+//   name: "Mustafa",
+//   greet: function () {
+//     console.log(`Hello, my name is ${this.name}`);
+//   },
+// };
+
+// const greetFunction = person.greet;
+// greetFunction(); // ❌ undefined, because 'this' is lost
+
+// const boundGreet = person.greet.bind(person);
+// boundGreet(); // ✅ Hello, my name is Mustafa
+
+// 📦 Example 2 – With Arguments:
+
+// function multiply(a, b) {
+//   return a * b;
+// }
+
+// const double = multiply.bind(null, 2); // 'null' means we don't care about 'this'
+// console.log(double(5)); // ✅ 10
+
+// 📦 Example 3
 
 // var obj = {
 //   name: "Sachin",
 // };
 
 // function sayHello(age, profession) {
-//   return "Hello " + this.name + " is " + age + " and is an " + profession;
+//   return `Hello! ${this.name} is ${age} and is an ${profession}`;
 // }
 
 // const bindFunc = sayHello.bind(obj);
 
 // console.log(bindFunc(23, "Software Engineer"));
 // console.log(bindFunc(28, "Doctor"));
+
+// The code written above could have been written like this as well 👇
+
+// var obj = {
+//   name: "Sachin",
+// };
+
+// function sayHello(age, profession) {
+//   console.log(`Hello! ${this.name} is ${age} and is an ${profession}.`);
+// }
+
+// const bindFunc = sayHello.bind(obj, 23, "Software Engineer");
+// bindFunc();
+
+// 🧠 Key Points to Remember:
+
+// -> bind() returns a new function.
+// -> It permanently fixes the this value.
+// -> It’s not executed immediately.
+// -> Useful when this is getting lost.
 
 // Final Notes: 👇
 
