@@ -3779,13 +3779,36 @@
 // -> It’s not executed immediately.
 // -> Useful when this is getting lost.
 
+// 📊 Code Example for All 3 call(), apply(), and bind() Methods
+
+// function sayHi(greeting, punctuation) {
+//   console.log(`${greeting}, my name is ${this.name}${punctuation}`);
+// }
+
+// const person = { name: "Mustafa" };
+
+// // 🔹 call()
+// sayHi.call(person, "Hello", "!"); // ✅ Hello, my name is Mustafa!
+
+// // 🔹 apply()
+// sayHi.apply(person, ["Hi", "!!"]); // ✅ Hi, my name is Mustafa!!
+
+// // 🔹 bind()
+// const greet = sayHi.bind(person, "Hey");
+// greet("?"); // ✅ Hey, my name is Mustafa?
+
+// 🔍 In Short:
+
+// call() → Instant call with ","
+// apply() → Instant call with "[]"
+// bind() → Prepares function with locked this — you call it later
+
 // Final Notes: 👇
 
-// -> Call and Apply both are similar only difference is the way we pass arguments.
-// -> The mentioned methods do not work with arrow function.
-// -> And the only difference between Call and Bind is that Bind method gives you the copy but
-//    which can be invoked later rather than directly invoking it wherever we are writing code
-//    just like in Call Method.
+// -> Call and Apply both are similar, only difference is the way we pass arguments.
+// -> The mentioned methods do NOT work with arrow function.
+// -> And the only difference between Call and Bind is that Bind method gives you the copy
+//    that can be invoked later rather than directly invoking it.
 
 // POLYFILL
 
