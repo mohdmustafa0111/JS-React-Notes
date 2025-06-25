@@ -3530,59 +3530,72 @@
 
 // https://api.openweathermap.org/data/2.5/weather?q=London&appid=your_api_key
 
-// PROTOTYPE and PROTOTYPAL INHERITANCE
+// PROTOTYPE
 
-// Every object in JavaScript has a built-in property, which is called its prototype.
-// The prototype is itself an object, so the prototype will have its own prototype,
-// making what's called a prototype chain. The chain ends when we reach a prototype
-// that has null for its own prototype.
-// OR
-// JavaScript is a prototype based language, so, whenever we create a function using JavaScript,
-// JavaScript engine adds a prototype property inside a function, Prototype property is basically
-// an object (also known as Prototype object), where we can attach methods and properties in a
-// prototype object, which enables all the other objects to inherit these methods and properties.
-// OR
-// The prototype is an object that is associated with every functions and objects by default
-// OR
-// In JavaScript, objects can inherit features from one another via prototypes. Every object has
-// its own property called prototype.
-// Because a prototype itself is also another object, the prototype has its own prototype.
-// This creates a something called prototype chain. The prototype chain ends when a prototype
-// has null for its own prototype.
+// A prototype is a built-in object in JavaScript from which other objects can inherit
+// properties and methods.
+// You can access this hidden property using:-  obj.__proto__
 
-// Whenever we create any object , Javascript engine automatically puts hidden properties,
-// methods and functions into an object and attaches it to your object. That is how we get
+// Whenever we create any object, Javascript engine automatically puts hidden properties,
+// methods and functions into an object and attaches it to the object. That is how we get
 // access to these properties and methods by using dot operator. And all these come via
 // Prototype.
 
-// Everything in Javascript is nothing but a Object. Whether you create an array, object or
-// function, It is actually down the prototype Chain ends up being an object.
+// 🔹 Why Prototypes?
 
-// Example 👇
+// If you try to access a property or method on an object and it doesn’t exist,
+// JavaScript looks up the chain using the prototype. This is known as Prototype Chain.
 
-// const obj1 = {
-//   name: "Mohd. Mustafa",
-//   getName: function () {
-//     return this.name;
+// ✅ When does the Prototype Chain end?
+
+// The prototype chain ends when JavaScript reaches null.
+// there is nothing left to look up, and the chain stops there.
+
+// 🔹 Example 1: Basic Prototype Chain
+
+// const person = {
+//   greet() {
+//     console.log("Hello!");
 //   },
-//   getRoll: function () {
-//     return this.roll;
-//   },
 // };
-// console.log(obj1);
 
-// const obj2 = {
-//   roll: 23,
-//   name: "Sonu",
-//   __proto__: obj1,
+// const mustafa = {
+//   name: "Mustafa",
 // };
-// console.log(obj2.getRoll());
 
-// const obj3 = {
-//   class: "BTech",
-//   __proto__: obj2,
+// // Set prototype manually
+// mustafa.__proto__ = person;
+
+// mustafa.greet(); // Output: Hello!
+
+// -> Here, "mustafa" doesn't have greet() method, so it looks up to its prototype person.
+
+// 🔹 Example 2: Constructor Function + Prototype
+
+// function Person(name) {
+//   this.name = name;
+// }
+
+// // Add method to prototype
+// Person.prototype.sayHi = function () {
+//   console.log(`Hi, I'm ${this.name}`);
 // };
-// console.log(obj3.getName());
+
+// const user1 = new Person("Mustafa");
+// user1.sayHi(); // Output: Hi, I'm Mustafa
+
+//👆 What’s Happening Here?
+
+// -> "mustafa" object does not have sayHi method.
+// -> JavaScript looks into Person.prototype and finds it there.
+// -> So "mustafa" inherits the method from its prototype.
+
+// 🔹 Summary (Easy Points)
+
+// -> Every object has a prototype.
+// -> It's used to inherit properties/methods.
+// -> JavaScript looks up the prototype chain if a property/method is missing.
+// -> You can use .prototype to add shared methods to constructor-created objects.
 
 // ✔️ CALL, APPLY and BIND Method in Javascript
 
