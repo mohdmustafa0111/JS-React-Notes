@@ -2669,70 +2669,62 @@
 
 // console.log(bioData.myName.channelName );
 
-// 2️⃣ What is this Object?
+// ✅ CLASS
 
-// The definition  of "this" object is that it contain the current context.
+// A class is a blueprint for creating objects with the same properties and methods.
+// It helps you avoid repeating code when making many similar objects.
+// It’s syntactic sugar over JavaScript's prototype-based inheritance — which means
+// it's just a cleaner way to write constructor functions and methods.
 
-// The this object can have different values depending on where it is placed.
+// There is a method named Contructor() which is automatically invoked by "new".
 
-// For Example 1
-// console.log(this.alert('Awesome'));
-// it refers to the current context and that is window global object
+// 🟡 Example:-
 
-// // ex 2
-// function myName() {
-//     console.log(this);
-// }
-// myName();
+// Let’s say we want to create many students who all have a name and can introduce themselves.
 
-// // ex 3
-
-// var myNames = 'vinod';
-// function myName() {
-//     console.log(this.myNames);
-// }
-// myName();
-
-// // ex 4
-// const obj = {
-//     myAge : 26,
-//     myName() {
-//       console.log(this.myAge);
-//     }
-// }
-// obj.myName();
-
-// // ex 5
-// this object will not work with arrow function bcz arrow function is bound to class.
-
-// const obj = {
-//     myAge : 26,
-//     myName : () => {
-//       console.log(this);
-//     }
-// }
-// obj.myName();
-
-// // ex 6
-
-// let bioData = {
-//     myName : {
-//         realName : "vinod thapa",
-//         channelName : 'thapa technical'
-//     },
-//  things to remember is that the myName is the key and the object is act like a value
-//     myAge : 26,
-//     getData (){
-//       console.log(`My name is ${this.myName.channelName} and my age is ${this.myAge} `);
-//     }
+// class Student {
+//   constructor(name, grade) {
+//     this.name = name;
+//     this.grade = grade;
 //   }
 
-//   bioData.getData();
+//   introduce() {
+//     console.log(`Hi, I'm ${this.name} and I'm in grade ${this.grade}.`);
+//   }
+// }
 
-// call method is used to call the method of another object
-// or with call(), an object can use a method belonging to another object
+// // Creating objects using the class
+// const student1 = new Student("Mustafa", 10);
+// const student2 = new Student("Ayaan", 8);
 
-// But as per other it is simply the way to use the this keyword or another object
+// student1.introduce(); // Hi, I'm Mustafa and I'm in grade 10.
+// student2.introduce(); // Hi, I'm Ayaan and I'm in grade 8.
+
+// 🔹Important Key Points:
+
+// -> constructor() method is automatically called when you create an object using new.
+// -> this refers to the object being created.
+// -> You can define methods inside the class — no need to use the function keyword.
+// -> Classes are not hoisted, so you must define them before using.
+
+// 🔹Constructor in a Class
+
+// A constructor is a special method in a class that is automatically called
+// when a new object is created from that class.
+// -> It is used to initialize properties of the object.
+
+// 🟰 Key Points:-
+
+// -> Only one constructor is allowed in a class.
+// -> The keyword this refers to the current object.
+// -> If no constructor is defined, JavaScript adds an empty default
+//    constructor automatically.
+
+// 🧠 Why use a class?
+
+// -> It keeps your code clean and reusable.
+// -> You can create many objects with the same structure and behavior.
+// -> It makes object-oriented programming easier in JavaScript.
 
 // ✅ Constructor Function
 
@@ -2772,11 +2764,145 @@
 // -> You use new to call it.
 // -> Inside, this refers to the new object being created.
 
-// // **********************************************************************
+// ✅ Inheritance with Classes in JavaScript
+
+// -> Inheritance is a feature in JavaScript that allows one class to use the
+//    properties and methods of another class using the "extends" keyword.
+
+// -> It helps in code reuse and builds a relationship between classes like
+//    Parent → Child.
+
+// -> We use the "extends" keyword to create a subclass and "super()" to call the
+//    parent class constructor.
+
+// -> The super keyword is used to call the constructor of its parent class to
+//    access parent's properties and methods.
+
+// 🟡 Example:-
+
+// class Parent {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   greet() {
+//     console.log(`Hello, I am ${this.name}`);
+//   }
+// }
+
+// class Child extends Parent {
+//   constructor(name, age) {
+//     super(name); // calls Parent's constructor
+//     this.age = age;
+//   }
+
+//   showAge() {
+//     console.log(`I am ${this.age} years old`);
+//   }
+// }
+
+// const child1 = new Child("Mustafa", 25);
+// child1.greet(); // Output: Hello, I am Mustafa
+// child1.showAge(); // Output: I am 25 years old
+
+// 📌 Key Points:-
+
+// -> class Child extends Parent → establishes inheritance.
+// -> super(name) → calls the constructor of the Parent class.
+// -> The child class can:
+//    . Use parent class methods
+//    . Add its own methods
+
+// 🟡 One More Simple Example:-
+
+// // Parent class
+// class Animal {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   speak() {
+//     console.log(`${this.name} makes a sound`);
+//   }
+// }
+
+// // Child class
+// class Dog extends Animal {
+//   bark() {
+//     console.log(`${this.name} barks`);
+//   }
+// }
+
+// const dog1 = new Dog("Tommy");
+
+// dog1.speak(); // Output: Tommy makes a sound (inherited from Animal)
+// dog1.bark(); // Output: Tommy barks (own method)
+
+// 🟰 Explanation:-
+
+// -> Animal is the parent class.
+// -> Dog is the child class that inherits from Animal.
+// -> Dog can use:
+//    . speak() from Animal
+//    . its own method bark()
+
+// 🔵 Question for Practice 👇
+
+// Que1:- You are creating a website for college. Create a class User with two
+//        properties, name & email. It also has a method called viewData() that
+//        allows user to view website data?
+
+// Solution 👇
+
+// class User {
+//   constructor(name, email) {
+//     this.name = name;
+//     this.email = email;
+//   }
+
+//   viewData() {
+//     console.log(
+//       `This is ${this.name} and his/her mail address is ${this.email}.`
+//     );
+//   }
+// }
+
+// let student1 = new User("Musti", "abc@gmail.com");
+// let student2 = new User("Chusti", "xyz@gmail.com");
+
+// student1.viewData();
+// student2.viewData();
+
+// Que2:- Create a new class called Admin which inherits from User. Add a new
+//        Method called editData() to Admin that allows it to edit website data?
+
+// class User {
+//   constructor(name, email) {
+//     this.name = name;
+//     this.email = email;
+//   }
+
+//   viewData() {
+//     console.log(
+//       `This is ${this.name} and his/her mail address is ${this.email}.`
+//     );
+//   }
+// }
+
+// class Admin extends User {
+//   editData() {
+//     console.log(`${this.name} & ${this.email} has been edited.`);
+//   }
+// }
+
+// let student1 = new Admin("Musti", "abc@gmail.com");
+// student1.editData();
+
+// **********************************************************************
 
 // 👉 Advanced and Asynchronous JavaScript
 
-// // **********************************************************************
+// **********************************************************************
 
 // Higher Order Function ❓
 
