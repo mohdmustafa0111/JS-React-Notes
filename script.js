@@ -3193,6 +3193,13 @@
 // instead of var. (The other difference is that variables declared
 // with let are local to the surrounding block, not the entire function.)
 
+// Que: What is Garbage Collector in Javascript ?
+
+// Ans: Garbage collector is a program in Javascript Engine which freeze-up the
+// unutilized memory. Whenever there is some unused variables, Garbage Collector just
+// takes out/freeze-up of memory whenever it finds out that these variables no longer needed.
+// It basically tries to free up memory space whenever possible.
+
 // What is Scope Chain and Lexical Scoping in JavaScript ?
 
 // When a variable is used in JavaScript, the JavaScript engine will
@@ -3246,46 +3253,20 @@
 // console.log(b);
 // a();
 
-// 7️⃣ What is Closures in JavaScript 🤔
+// 🟡 CLOSURES
 
-// A closure is the combination of a function and its lexical scope bundled together
-// forms a Closure OR (enclosed) with reference to its surrounding state (the lexical environment).
-// OR
-// Function along with its lexical scope bundled together forms a Closure.
-// OR
-// Closure is basically an inner function which has access to variable of outer function.
+// A closure is a function that "remembers" the variables from its outer (lexical) scope,
+// even after that outer function has finished executing.
 
-// A closure is a function having access to the parent scope,
-// even after the parent function has closed.
+// In other words:
+// This means an inner function can access variables and parameters of its outer function,
+// even after that scope has closed.
 
-// In JavaScript, closures are created every time a function is created, at function creation time.
+// In JavaScript, closures are created every time a function is created,
+// at function creation time.
+// it same like lexical scoping.
 
-// it same like lexical scoping
-
-// Uses/Advantages of Closures:
-// - Module Design Pattern
-// - Currying
-// - Function like once
-// - Maintaining State in the async world
-// - setTimeouts
-// - Iterators
-// - and many more
-
-// Disadvantages of Closures
-// - there could be overconsumption of memory in Closures
-// - The variables declared inside a closure are not garbage collected.
-// - Too many closures can slow down your application.
-// This is actually caused by duplication of code in the memory.
-
-// Que: What is Garbage Collector in Javascript ?
-// Ans: Garbage collector is a program in Javascript Engine which freeze-up the unutilized memory.
-// OR
-// Whenever there is some unused variables , it just takes out/freeze-up of memory whenever it finds
-// out that these variables no longer needed.
-// OR
-// It basically tries to free up memory space whenever possible.
-
-// // For Example 👇
+// 🟰 Basic Example:
 
 // const outerFun = () => {
 //   let a = 10;
@@ -3298,47 +3279,49 @@
 // };
 // outerFun();
 
-// Another Example 👇
+// 🟰 Example of DATA PRIVACY using Closures
 
-// function x() {
-//   const a = 10;
-//   function y() {
-//     console.log(a);
-//   }
-//   y();
-// }
-// x();
+// function createCounter() {
+//   let count = 0;
 
-// Another Example (return case)👇
-
-// function x() {
-//   var a = 7;
-//   function y() {
-//     console.log(a);
-//   }
-//   return y;
-// }
-// var z = x();
-// console.log(z);
-// // ...... (consider thousand of line here)
-// z();
-
-// Example of Data Privacy using Closures 👇
-
-// function counter() {
-//   var count = 0;
 //   function incrementCounter() {
 //     count++;
-//     console.log(count);
+//     console.log(`Count is ${count}`);
 //   }
 //   return incrementCounter;
 // }
-// var z = counter();
-// z();
-// z();
-// z();
 
-// // : CallBack Hell
+// const counter = createCounter();
+
+// counter();
+// counter();
+// counter();
+
+// 📌 In Short:
+
+// Closure is being used here to "hide" the count variable from the outside world
+// and only allow controlled access — this is called Encapsulation or Data Privacy.
+
+// 🔁 Uses/Advantages of Closures:
+
+// - Data Privacy & Encapsulation
+// - Currying (Functional Programming Technique)
+// - Creating Modules (Module Pattern)
+// - Function like once
+// - Maintaining State in the async world
+// - SetTimeout / Async Function Access
+// - Iterators
+// - and many more
+
+// ❌ Disadvantages of Closures
+
+// - There could be overconsumption of memory in Closures
+// - The variables declared inside a closure are not garbage collected.
+// - Code with deep or nested closures can become hard to read and debug.
+// - Too many closures can slow down your application.
+//   This is actually caused by duplication of code in the memory.
+
+// 🟡 CALLBACK HELL
 
 // The phenomenon which happens when we nest multiple callbacks within a function is called
 // a callback hell. The shape of the resulting code structure resembles a pyramid and hence
