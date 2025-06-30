@@ -404,7 +404,7 @@
 
 // 🙋‍👨‍🏫 Interview Question 🙋‍👨‍🏫
 
-// var vs let vs const
+// VAR VS LET VS CONST
 
 // A variable is like a container that stores a value.
 
@@ -434,25 +434,35 @@
 
 // Ques: What is Temporal Dead Zone ?
 
-// console.log(a);
-// let a = 10;
+// The Temporal Dead Zone (TDZ) is the time between when a variable is hoisted
+// and when it is actually declared and initialized in the code.
 
-// Ans: We all know, accessing a ‘let’ before initializing results in a ‘ReferenceError’
-// whereas accessing a ‘var’ before its value is initialized we would get ‘undefined’.
-// So what happens in case of ‘let’ and ‘const’ before value assignment?
-// Variables defined using ‘let’ are in ‘Temporal Dead Zone’ from start of
-// the block until variable’s initialization.
+// During this time:
 
-// we can see variable defined with ‘let’ throws ReferenceError,
-// which means the variable doesn’t have any reference, so we can say the
-// variable is temporarily dead(till the time it is assigned value).
+// -> The variable exists (because of hoisting),
+// -> But you can’t use it — trying to do so will throw an error.
 
-// So the temporal dead zone is the time since when let variable is hoisted
-// till it initialized some value.
+// 🔍 Example:
 
-// The Temporal Dead Zone (TDZ) is a concept in JavaScript that refers to the period between
-// the creation and initialization of a variable or a constant declared with let or const.
-// During this period, accessing the variable will result in a runtime error.
+// console.log(x); // ❌ Error: Cannot access 'x' before initialization
+// let x = 5;
+
+// -> The line let x = 5; is hoisted to the top.
+// -> But JavaScript puts x in the TDZ until it reaches the actual line let x = 5;
+// -> So trying to access it before that line gives an error.
+
+// ✔️ Works fine after initialization:
+
+// let x = 5;
+// console.log(x); // ✅ Output: 5
+
+// No TDZ here👆, because you’re using x after it's declared.
+
+// 💡 Applies to:-
+
+// -> let
+// -> const
+// -> NOT var (because var gets undefined instead of an error)
 
 // Que: SyntaxError VS ReferenceError VS TypeError ??
 
@@ -3145,53 +3155,67 @@
 // But MicroTask queue has more priority, means it is pulled out first from the
 // callback queue by event loop.
 
-// Hoisting in JavaScript
+// 🟡 Hoisting
 
-// Hoisting is phenomena in Javascript by which you can access variables & function even before you
-// have initialized it.
+// Hoisting in JavaScript means JavaScript moves the declarations (like var, function)
+// to the top of their scope (global or function) before executing the code.
+
+//👆 This means you can access variables & function even before declaring them.
+// But how they behave depends on how they are declared (var, let, const, or function).
 
 // Basically, it gives us an advantage that no matter where functions and variables are declared,
 // they are moved to the top of their scope before the code execution regardless
 // of whether their scope is global or local.
 
-// Hoisting in Javascript is a mechanism where variables and functions
-// declarations are moved to the top of their scope before the code execute.
+// 🔍 Example 1: Hoisting with var
 
-//  In JavaScript, Hoisting is the default behavior of moving all the declarations at the top of the scope
-//  before code execution.
+// console.log(x); // Output: undefined
+// var x = 10;
 
-// For Example 👇
-// console.log(myName);
-// var myName;
-// myName = "thapa";
+// Explanation: 👇
 
-// Another Example 👇
-// getName();
-// function getName() {
-//   console.log("Hello g");
+// -> JavaScript sees this like:
+
+// var x; // Hoisted to the top (only declaration)
+// console.log(x); // undefined
+// x = 10; // Assignment happens later
+
+// 🔍 Example 2: Hoisting with let and const (But different behavior)
+
+// console.log(y); // ❌ Error: Cannot access 'y' before initialization
+// let y = 20;
+
+// Explanation: 👇
+
+// -> let and const are also hoisted, but they stay in a "temporal dead zone" until
+//    the line where they are defined.
+// -> So you cannot use them before their declaration.
+
+// 🔍 Example 3: Hoisting with Functions
+
+// sayHello(); // Output: Hello!
+
+// function sayHello() {
+//   console.log("Hello!");
 // }
 
-// Question 👇
+// Explanation: 👇
 
-// function abc() {
-//   console.log(a, b, c);
+// -> Function declarations are fully hoisted (both name and body).
+// -> So you can call them even before they are written in the code.
 
-//   const c = 30;
-//   let b = 20;
-//   var a = 10;
-// }
+// 🔍 Example 4: Function expression is NOT hoisted
 
-// abc();
+// greet(); // ❌ Error: Cannot access 'greet' before initialization
 
-// How it will be in output during creation phase
+// const greet = function () {
+//   console.log("Hi!");
+// };
 
-// 1: var myName = undefined;
-// 2: console.log(myName);
-// 3: myName = "thapa";
+// Explanation: 👇
 
-// 😲 In ES2015 (a.k.a. ES6), hoisting is avoided by using the let keyword
-// instead of var. (The other difference is that variables declared
-// with let are local to the surrounding block, not the entire function.)
+// -> This is a function expression stored in a const.
+// -> const is hoisted but not initialized — so you get an error.
 
 // Que: What is Garbage Collector in Javascript ?
 
