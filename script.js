@@ -3220,18 +3220,6 @@
 // The Event Loop allows JavaScript to handle asynchronous tasks (like timers, API calls)
 // without blocking the main code from running.
 
-// Event loop is just a guardian who keeps a good communication with Call Stack
-// and Callback Queue. It checks if the call stack is free, then lets know the callback queue.
-// Then Callback queue passes the callback function to Call stack to be executed. When all the
-// callback functions are executed, the call stack is out and global execution context is free.
-
-// Que: What are MicroTasks & Callback queue in Javascript ?
-// Ans: All the callback functions which comes through the promises will go in the MicroTask
-// Queue. And all the other callback functions which comes from setTimeout, DOM APIs like
-// event listeners, console etc all that go in the callback queue.
-// But MicroTask queue has more priority, means it is pulled out first from the
-// callback queue by event loop.
-
 // 🟡 Hoisting
 
 // Hoisting in JavaScript means JavaScript moves the declarations (like var, function)
