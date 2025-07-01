@@ -3138,10 +3138,87 @@
 
 // fun1();
 
-// What is Event Loop in JavaScript ?
+// 🟡 EVENT LOOP
 
 // The job of event loop is to pulls stuff out of the callback queue and places it onto
 // the call stack whenever the call stack becomes empty.
+
+// The Event Loop is a mechanism in JavaScript that helps the code run in a
+// non-blocking way, even though JavaScript is single-threaded.
+
+// 🧠 Simple Explanation:
+
+// JavaScript has:
+
+// -> A Call Stack → where code runs line by line.
+// -> A Web API → handles things like setTimeout, fetch, DOM events.
+// -> A Callback Queue → stores the results from Web APIs.
+// -> The Event Loop → keeps checking:
+//    “Is the call stack empty? If yes, push a task from the queue to the stack.”
+
+// 🟰 Simple Code Example:
+
+// console.log("1");
+
+// setTimeout(() => {
+//   console.log("2");
+// }, 1000);
+
+// console.log("3");
+
+// 🧩 Why this happens:
+
+// 1. console.log("1") runs → goes to stack → prints 1.
+// 2. setTimeout(...) is sent to Web APIs, waits 1 second.
+// 3. console.log("3") runs → prints 3.
+// 4. After 1 second, the callback console.log("2") moves to the Callback Queue.
+// 5. Event Loop checks stack is empty → pushes console.log("2") from queue → prints 2.
+
+// ➰ Event Loop prioritization:
+
+// There are 2 types of queues:
+
+// Queue Type	                          What Goes Here	                    Priority
+
+// Microtask Queue	            Promise.then(), catch(), finally()	            🥇 HIGH
+// Callback Queue(Task Queue)	setTimeout,setInterval,DOM events,fetch	        🥈 LOWER
+
+// 🔥 Which is given priority first?
+// 🥇 Microtask Queue is always emptied before the Callback Queue.
+
+// 🧠 Example:
+
+// console.log("1");
+
+// setTimeout(() => {
+//   console.log("2");
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log("3");
+// });
+
+// console.log("4");
+
+// 🧩 Why?
+
+// -> console.log("1") → synchronous → runs
+// -> setTimeout(..., 0) → goes to Callback Queue
+// -> Promise.then(...) → goes to Microtask Queue
+// -> console.log("4") → runs
+// -> Event loop sees stack is empty:
+// -> 🥇 First empties Microtask Queue → prints 3
+// -> 🥈 Then runs Callback Queue → prints 2
+
+// 📝 REMEMBER THIS!
+
+// -> Microtasks (Promises) always run before any tasks in the Callback Queue.
+// -> Even if setTimeout(..., 0) is "zero delay", it still waits after microtasks.
+
+// ✔️ Summary (In 1 Line):
+
+// The Event Loop allows JavaScript to handle asynchronous tasks (like timers, API calls)
+// without blocking the main code from running.
 
 // Event loop is just a guardian who keeps a good communication with Call Stack
 // and Callback Queue. It checks if the call stack is free, then lets know the callback queue.
