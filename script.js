@@ -2567,11 +2567,11 @@
 
 // **********************************************************************
 
-// 👉 object oriented Javascript
+// 🟡 OBJECT ORIENTED JAVASCRIPT
 
 // **********************************************************************
 
-// Objects in JavaScript ? ❓
+// 🟡 OBJECTS
 
 // In JavaScript, an object is a collection of key-value pairs, where the keys
 // (also called properties) are strings (or symbols), and the values can be anything,
@@ -2907,6 +2907,67 @@
 
 // let student1 = new Admin("Musti", "abc@gmail.com");
 // student1.editData();
+
+// 🟡 FOUR PILLARS OF OBJECT ORIENTED PROGRAMMING (OOP).
+
+// 🔰 1. Encapsulation
+
+// Encapsulation means wrapping data (variables) and methods (functions) together in a
+// single unit (object), and hiding some parts so others can't directly access or change them.
+
+// Think of it like a medicine capsule — the ingredients are inside, but you can’t touch them
+// directly. You only use it by taking the capsule.
+
+// 🧠 Simple Real-Life Analogy:
+
+// # ATM Machine
+// -> You don’t know how it works internally.
+// -> You just press buttons → withdraw cash.
+// -> The complex logic is hidden (encapsulated).
+
+// 🧑‍💻 Easy Example:
+
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     let _age = age; // private variable using closure
+
+//     this.getAge = function () {
+//       return _age;
+//     };
+
+//     this.setAge = function (newAge) {
+//       if (newAge > 0) _age = newAge;
+//     };
+//   }
+// }
+
+// const person1 = new Person("Mustafa", 25);
+
+// console.log(person1.name); // ✅ Access allowed
+// console.log(person1.getAge()); // ✅ Access via method: 25
+
+// person1.setAge(26); // ✅ Modify safely
+// console.log(person1.getAge()); // 26
+
+// console.log(person1._age); // ❌ Cannot access directly (undefined)
+
+// ✅ What's happening here?
+
+// -> name is public → you can access it directly.
+// -> _age is private → cannot access it directly.
+// -> You must use getAge() and setAge() → this is encapsulation.
+// -> This keeps the data safe and under control.
+
+// 🔒 Why Encapsulation is Useful?
+
+// -> Prevents accidental changes to data.
+// -> Protects the object’s internal state.
+// -> Allows controlled access using methods.
+
+// 🔰 2. Abstraction
+// 🔰 3. Inheritance
+// 🔰 4. Polymorphism
 
 // **********************************************************************
 
@@ -3762,7 +3823,7 @@
 
 // https://api.openweathermap.org/data/2.5/weather?q=London&appid=your_api_key
 
-// PROTOTYPE
+// 🟡 PROTOTYPE
 
 // A prototype is a built-in object in JavaScript from which other objects can inherit
 // properties and methods.
@@ -3829,7 +3890,7 @@
 // -> JavaScript looks up the prototype chain if a property/method is missing.
 // -> You can use .prototype to add shared methods to constructor-created objects.
 
-// ✔️ CALL, APPLY and BIND Method in Javascript
+// 🟡 CALL, APPLY and BIND Method in Javascript
 
 // In simple terms, Call, apply, and bind are the functions that help you change the context
 // of the "this" keyword present inside the invoking function.
@@ -4124,7 +4185,7 @@
 // let add = addition(2)(3)(4);
 // console.log(add);
 
-// THIS KEYWORD
+// 🟡 THIS KEYWORD
 
 // The this keyword in JavaScript refers to the object to which it belongs.
 // It has different values depending on where it is used.👇
@@ -4211,7 +4272,7 @@
 
 // user.greet();
 
-// Strict Mode
+// 🟡 STRICT MODE
 
 // The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
 // With strict mode, you can not use undeclared variables.
