@@ -2966,6 +2966,77 @@
 // -> Allows controlled access using methods.
 
 // 🔰 2. Abstraction
+
+// Abstraction means hiding the complex stuff and only showing the important and
+// useful part to the user or outside world.
+
+// Just like how you use a TV remote:
+
+// -> You press the “power” button — TV turns on.
+// -> You don’t need to know how the circuits work inside.
+// -> That’s abstraction — useful actions exposed, complex code hidden.
+
+// 🧑‍💻 Easy JavaScript Example:-
+
+// class CoffeeMachine {
+//   makeCoffee() {
+//     this.boilWater(); // internal detail
+//     this.grindBeans(); // internal detail
+//     console.log("☕ Coffee is ready!");
+//   }
+
+//   boilWater() {
+//     console.log("Boiling water...");
+//   }
+
+//   grindBeans() {
+//     console.log("Grinding coffee beans...");
+//   }
+// }
+
+// const machine = new CoffeeMachine();
+// machine.makeCoffee();
+
+// ✅ What’s happening?
+
+// -> You only call makeCoffee() → simple to use.
+// -> You don’t need to worry about boilWater() and grindBeans() → hidden logic.
+// -> That’s abstraction: showing only the necessary method (makeCoffee) and hiding the rest.
+
+// 🔐 Real-Life Example:-
+
+// class ATM {
+//   withdrawCash(amount) {
+//     this.checkBalance();
+//     this.verifyPIN();
+//     this.dispenseCash(amount);
+//   }
+
+//   checkBalance() {
+//     console.log("Checking balance...");
+//   }
+
+//   verifyPIN() {
+//     console.log("Verifying PIN...");
+//   }
+
+//   dispenseCash(amount) {
+//     console.log(`Dispensing ₹${amount}`);
+//   }
+// }
+
+// const atm = new ATM();
+// atm.withdrawCash(2000);
+
+// ✅ What’s happening?
+
+// -> You just want ₹2000.
+// -> You don’t care how balance is checked or how PIN is verified.
+// -> That’s the beauty of Abstraction.
+
+// 💡 Summary (in one line):-
+// Abstraction = Hiding complex code and exposing only what’s necessary.
+
 // 🔰 3. Inheritance
 // 🔰 4. Polymorphism
 
