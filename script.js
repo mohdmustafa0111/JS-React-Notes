@@ -2910,7 +2910,7 @@
 
 // 🟡 FOUR PILLARS OF OBJECT ORIENTED PROGRAMMING (OOP).
 
-// 🔰 1. Encapsulation
+// 🔰 1. ENCAPSULATION
 
 // Encapsulation means wrapping data (variables) and methods (functions) together in a
 // single unit (object), and hiding some parts so others can't directly access or change them.
@@ -2965,7 +2965,7 @@
 // -> Protects the object’s internal state.
 // -> Allows controlled access using methods.
 
-// 🔰 2. Abstraction
+// 🔰 2. ABSTRACTION
 
 // Abstraction means hiding the complex stuff and only showing the important and
 // useful part to the user or outside world.
@@ -3037,8 +3037,63 @@
 // 💡 Summary (in one line):-
 // Abstraction = Hiding complex code and exposing only what’s necessary.
 
-// 🔰 3. Inheritance
-// 🔰 4. Polymorphism
+// 🔰 3. INHERITANCE
+
+// Inheritance means one class (child) can reuse the features (properties and methods)
+// of another class (parent).
+// It helps us avoid repeating code and build a hierarchy of reusable components.
+
+// 🧑‍💻 Example:-
+
+// // Parent class
+// class Animal {
+//   eat() {
+//     console.log("Animal is eating");
+//   }
+// }
+
+// // Child class
+// class Dog extends Animal {
+//   bark() {
+//     console.log("Dog is barking");
+//   }
+// }
+
+// // Create object
+// const tommy = new Dog();
+
+// tommy.eat(); // ✅ Inherited from Animal
+// tommy.bark(); // ✅ Defined in Dog
+
+// ✅ What’s happening?
+
+// -> Dog is the child class.
+// -> Animal is the parent class.
+// -> Dog uses the keyword extends to inherit everything from Animal.
+// -> Now Dog can do both: eat() (from Animal) and bark() (its own method).
+
+// 🚗 Another Example:
+
+// class Vehicle {
+//   start() {
+//     console.log("Vehicle started");
+//   }
+// }
+
+// class Car extends Vehicle {
+//   drive() {
+//     console.log("Car is driving");
+//   }
+// }
+
+// const myCar = new Car();
+// myCar.start(); // ✅ Inherited
+// myCar.drive(); // ✅ Car's own method
+
+// 🔁 Summary in One Line:
+// Inheritance = One class getting features of another class using extends keyword.
+
+// 🔰 4. POLYMORPHISM
 
 // **********************************************************************
 
