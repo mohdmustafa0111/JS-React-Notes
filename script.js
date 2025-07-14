@@ -3090,6 +3090,12 @@
 // myCar.start(); // ✅ Inherited
 // myCar.drive(); // ✅ Car's own method
 
+// 🧠 Why use Inheritance?
+
+// -> Reusability: Don’t repeat code in every class.
+// -> Organized structure: Keep common behavior in parent, special behavior in child.
+// -> Clean and maintainable code.
+
 // 🔁 Summary in One Line:
 // Inheritance = One class getting features of another class using extends keyword.
 
