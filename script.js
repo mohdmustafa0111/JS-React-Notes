@@ -3156,6 +3156,15 @@
 // 🎯 Summary in One Line:
 // Polymorphism = One method name behaving differently for different objects.
 
+// ✅ Summary in One Line Each:
+
+// Pillar	                        One-Line Summary
+
+// Encapsulation	                Hide internal data using objects.
+// Abstraction	                  Show only important things, hide the rest.
+// Inheritance	                  Child class gets features from parent.
+// Polymorphism	                  Same method behaves differently.
+
 // **********************************************************************
 
 // 👉 Advanced and Asynchronous JavaScript
