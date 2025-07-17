@@ -3101,6 +3101,61 @@
 
 // 🔰 4. POLYMORPHISM
 
+// Polymorphism means:
+// Same method name, but different behavior depending on the object.
+
+// 📌 "Poly" = many
+// 📌 "Morph" = forms
+// So, Polymorphism = many forms
+
+// 🧒 Real-Life Analogy:
+
+// -> Imagine you say "draw()" —
+// -> A circle draws a round shape.
+// -> A square draws a box.
+// -> A triangle draws a pointed shape.
+// -> Even though the method name is same — draw() — each shape behaves differently.
+
+// 🧑‍💻 Example:
+
+// class Animal {
+//   makeSound() {
+//     console.log("Animal makes a sound");
+//   }
+// }
+
+// class Dog extends Animal {
+//   makeSound() {
+//     console.log("Dog barks 🐶");
+//   }
+// }
+
+// class Cat extends Animal {
+//   makeSound() {
+//     console.log("Cat meows 🐱");
+//   }
+// }
+
+// // Function that accepts any animal
+// function playSound(animal) {
+//   animal.makeSound();
+// }
+
+// const dog = new Dog();
+// const cat = new Cat();
+
+// playSound(dog); // Dog barks 🐶
+// playSound(cat); // Cat meows 🐱
+
+// ✅ What’s happening?
+
+// -> All classes have the same method name: makeSound().
+// -> But each class gives it its own meaning.
+// -> This is called method overriding — and it’s a key part of polymorphism.
+
+// 🎯 Summary in One Line:
+// Polymorphism = One method name behaving differently for different objects.
+
 // **********************************************************************
 
 // 👉 Advanced and Asynchronous JavaScript
