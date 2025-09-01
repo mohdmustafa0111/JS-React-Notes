@@ -319,7 +319,7 @@
 // var x;
 // console.log(x);
 
-// SCOPES EXPLANATIONS 👇 (Global Scope, Function Scope, Block Scope)
+// SCOPE EXPLANATIONS 👇 (Global Scope, Function Scope, Block Scope)
 
 // Scope determines the accessibility (visibility) of variables, functions and objects.
 
@@ -3156,14 +3156,14 @@
 // 🎯 Summary in One Line:
 // Polymorphism = One method name behaving differently for different objects.
 
-// ✅ Summary in One Line Each:
+// 🌟 Summary in One Line of Each Pillar of OOP:
 
 // Pillar	                        One-Line Summary
 
-// Encapsulation	                Hide internal data using objects.
-// Abstraction	                  Show only important things, hide the rest.
-// Inheritance	                  Child class gets features from parent.
-// Polymorphism	                  Same method behaves differently.
+// Encapsulation	                Hide internal data, show only what's needed
+// Abstraction	                    Hide complex logic, show only important actions
+// Inheritance	                    Child class gets features from parent
+// Polymorphism	                    Same method, different behavior per object
 
 // **********************************************************************
 
@@ -4470,13 +4470,27 @@
 
 // 🟡 STRICT MODE
 
-// The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
-// With strict mode, you can not use undeclared variables.
+// 🎯 Why use strict mode?
 
-// - Eliminates some JavaScript silent errors by changing them to throw errors.
-// - Fixes mistakes that make it difficult for JavaScript engines to perform optimizations:
-// - strict mode code can sometimes be made to run faster than identical code that's not strict mode.
-// - Prohibits some syntax likely to be defined in future versions of ECMAScript.
+// -> Catches common coding mistakes early.
+// -> Makes code more secure.
+// -> Prepares code for future JavaScript versions.
+
+// ✅ How to enable strict mode?
+
+// -> Add "use strict"; at the top of a file → applies to the whole script.
+// -> Add "use strict"; at the top of a function → applies only inside that function.
+
+// ⚡ Key Features of Strict Mode
+
+// -> No using undeclared variables
+// -> No deleting variables or functions
+// -> No duplicate parameter names
+// -> Prevents writing to read-only properties
+// -> Safer "this keyword" handling
+// -> No octal literals (0 prefix)
+
+// Example 👇
 
 // "use strict";
 
@@ -4490,6 +4504,11 @@
 
 // a = 10;
 // console.log(a);
+
+// 👉 In short:
+
+// -> Strict mode = “JavaScript with seatbelts” 🚗💨
+// -> It prevents silent errors and enforces better coding practices.
 
 // IIFE (Immediately Invoked Function Expression)
 
