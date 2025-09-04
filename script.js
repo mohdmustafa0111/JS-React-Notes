@@ -4383,90 +4383,173 @@
 
 // 🟡 THIS KEYWORD
 
-// The this keyword in JavaScript refers to the object to which it belongs.
-// It has different values depending on where it is used.👇
+// 🔑 What is "this" in JavaScript?
 
-// - Alone, this refers to the global object.
-// - In an object method, this refers to the object.
-// - In a function, this refers to the global object.
-// - In a function, in strict mode, this is undefined.
-// - In an event, this refers to the element that received the event.
-// - Methods like call(), apply(), and bind() can refer this to any object.
+// -> "this" is a special keyword that refers to the execution context (the object that is
+//    currently calling the function).
+// -> Its value depends on how the function is called, not where it is defined.
+// -> In short: "this" is dynamic in JavaScript.
 
-// 👉 Alone, this refers to the global object.
+// ⚡ Rules for this
+//    Let’s break down all scenarios:
 
-// - In a browser, this refers to the global object, which is window.
-// - In Node.js, this refers to an empty object ({}) or module.exports.
+// 1. Global Context 👇
 
-// Example
+// -> In the browser, "this" in the global scope refers to the "window" object.
+// -> In strict mode, "this" in the global scope becomes "undefined".
+
+// Example:
+
+// console.log(this);
+// "use strict";
 // console.log(this);
 
-// 👉 Inside an Object Method, this refers to the owner object.
+// 2. Inside a Function 👇 (Normal function calls)
 
-// - Here, this refers to the object (user) calling the method.
-// - This is the most common and expected behavior of this.
+// -> In non-strict mode → this = window.
+// -> In strict mode → this = undefined.
 
-// Example
+// Example:
 
-// const user = {
-//   firstName: "Mohd.",
-//   lastName: "Mustafa",
-//   printFullName: function () {
-//     console.log(`${this.firstName} ${this.lastName}`);
-//   },
-// };
-// user.printFullName();
+// "use strict";
 
-// 👉 In a regular function, this refers to the global object.
-
-// - When a regular function is called without an object,
-//   this refers to the global object (window in browser).
-// - But in strict mode, this will be undefined.
-// - ⚠️ this = global object (or undefined in strict mode) when the function is called normally.
-
-// Example
-
-// function user() {
-//   let username = "Musti";
-//   console.log(this.username);
+// function show() {
+//   console.log(this);
 // }
-// user();
+// show(); // window (non-strict) / undefined (strict)
 
-// In browser: window, in strict mode: undefined
+// 3. Inside an Object Method 👇
 
-// 👉 Inside a Function (called inside an object method)
+// -> When a function is called as a method of an object, this refers to that object.
 
-// - Even though inner() is inside a method, it’s still a regular function.
-// - So this in inner() points to the global object, not user.
-// - SO WE WILL HAVE TO FIX IT WITH ARROW FUNCTION
+// Example:
 
-// Example (with the regular function)
+// const person = {
+//   name: "Mustafa",
+//   greet() {
+//     console.log(this.name);
+//   }
+// };
+// person.greet();
 
-// const user = {
-//   name: "Bob",
-//   greet: function () {
+// 4. Nested Functions 👇
+
+// -> Inner functions do not inherit this from the outer function.
+// -> By default, they get window (non-strict) or undefined (strict).
+
+// Example:
+
+// const person = {
+//   name: "Mustafa",
+//   greet() {
 //     function inner() {
 //       console.log(this.name);
 //     }
 //     inner();
-//   },
+//   }
 // };
+// person.greet(); // undefined (because inner() is a normal call)
 
-// user.greet();
+// 5. Arrow Functions & this 👇
 
-// Example (with an Arrow function)
+// -> Arrow functions do not have their own this.
+// -> They lexically inherit this from the surrounding scope.
+// -> Arrow functions are often used to avoid this confusion.
 
-// const user = {
-//   name: "Bob",
-//   greet: function () {
+// Example:
+
+// const person = {
+//   name: "Mustafa",
+//   greet() {
 //     const inner = () => {
 //       console.log(this.name);
 //     };
 //     inner();
 //   },
 // };
+// person.greet();
 
+// 6. In a Constructor Function 👇
+
+// -> When using "new", "this" refers to the newly created object.
+
+// Example:
+
+// function Person(name) {
+//   this.name = name;
+// }
+// const user = new Person("Mustafa");
+// console.log(user.name);
+
+// 7. In a Class 👇
+
+// -> Same as constructor functions:
+// -> "this" refers to the created instance.
+
+// Example:
+
+// class Person {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   greet() {
+//     console.log(this.name);
+//   }
+// }
+// const user = new Person("Mustafa");
 // user.greet();
+
+// 8. Explicit Binding 👇 (call, apply, bind)
+
+// 🔹 call → invokes function immediately
+
+// Example:
+
+// function greet(greeting) {
+//   console.log(`${greeting}, ${this.name}`);
+// }
+// const user = { name: "Mustafa" };
+// greet.call(user, "Hello"); // Hello, Mustafa
+
+// 🔹 apply → same as call but arguments as an array
+
+// Example:
+
+// greet.apply(user, ["Hi"]); // Hi, Mustafa
+
+// 🔹 bind → returns a new function with fixed this
+
+// Example:
+
+// const boundGreet = greet.bind(user);
+// boundGreet("Hey"); // Hey, Mustafa
+
+// 9. this in Event Listeners 👇
+
+// -> In normal functions, this refers to the element that received the event.
+// -> In arrow functions, this is inherited from outer scope (not the element).
+
+// Example:
+
+// const button = document.querySelector("button");
+
+// button.addEventListener("click", function () {
+//   console.log(this); // the button element
+// });
+
+// button.addEventListener("click", () => {
+//   console.log(this); // window (not the button)
+// });
+
+// ✅ Summary (Key Takeaways)
+
+// -> this depends on how a function is called.
+// -> Global scope: window (non-strict) / undefined (strict).
+// -> Object method: the object itself.
+// -> Arrow functions: inherit this from surrounding scope.
+// -> new: this is the new object.
+// -> call, apply, bind: explicitly set this.
+// -> Event listeners: normal function → element, arrow → outer scope.
 
 // 🟡 STRICT MODE
 
