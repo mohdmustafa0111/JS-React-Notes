@@ -3252,7 +3252,7 @@
 // - modularity
 // lot of other things
 
-// Callback Function
+// 🟡 Callback Function
 
 // In JavaScript, a callback function is a function that is passed as an argument to another
 // function, with the intention of being called at a later time, usually after some
@@ -3260,7 +3260,35 @@
 // in scenarios like event handling, asynchronous programming, and in libraries that
 // utilize a "callback pattern" for handling the completion of tasks.
 
-// Callback function gives the power of a asynchronicity.
+// -> Callback function gives the power of a asynchronicity.
+
+// 🔷 Why do we use Callback Functions?
+
+// -> To execute code after another code has finished.
+// -> Helps in reusability (pass different functions).
+// -> Essential for handling asynchronous operations like API calls,timers,file reading,etc.
+
+// 🔷 Types of Callback Functions
+
+// ➖ (a) Synchronous Callback
+
+// -> Executed immediately during the function call.
+// -> Used in simple cases (like loops, calculations).
+
+// Example: 👇
+
+// function calculate(a, b, callback) {
+//   return callback(a, b);
+// }
+
+// function add(x, y) {
+//   return x + y;
+// }
+
+// var result = calculate(2, 3, add);
+// console.log(result);
+
+// Another Example 👇
 
 // function greet(name, callMe) {
 //   console.log("Hi " + name + callMe);
@@ -3270,95 +3298,88 @@
 //   return " I am callback function";
 // }
 
-// // passing function as an argument
 // greet("Peter", callMe());
 
-// Another Example 👇
+// ➖ (b) Asynchronous Callback
 
-// function greet(name, callback) {
-//   console.log("Hello, " + name + "!");
-//   callback();
-// }
+// -> Executed later, often after some operation finishes.
+// -> Common in setTimeout, event listeners, API calls.
 
-// function sayGoodbye() {
-//   console.log("Goodbye!");
-// }
+// Example: 👇
 
-// greet("Alice", sayGoodbye);
+// console.log("Start");
 
-// In the above program, there are two functions. While calling the greet() function,
-// two arguments (a string value and a function) are passed.
+// setTimeout(() => {
+//   console.log("This runs after 2 seconds");
+// }, 2000);
 
-// The callMe() function is a CALLBACK FUNCTION.
+// console.log("End");
 
-// ANOTHER EXAMPLE
+// ◻️ We need to create a Calculator
 
-// setTimeout(function () {
-//   console.log("timer");
-// }, 3000);
+// const add = (a, b) => {
+//   return a + b;
+// };
 
-// function x(y) {
-//   console.log("x");
-//   y();
-// }
+// const subs = (a, b) => {
+//   return Math.abs(a - b);
+// };
 
-// x(function y() {
-//   console.log("y");
-// });
+// const mult = (a, b) => {
+//   return a * b;
+// };
 
-// WE COULD HAVE WRITTEN IT THIS WAY TOO 👇
+// const div = (a, b) => {
+//   if (b === 0) {
+//     return "Error: Division by zero is not allowed";
+//   }
+//   return a / b;
+// };
 
-// function x(y) {
-//   console.log("x");
-//   y();
-// }
-// function y() {
-//   console.log("y");
-// }
-// x(y);
+// const calculator = (num1, num2, operator) => {
+//   return operator(num1, num2);
+// };
 
-// we need to create a calculator
+// var result = calculator(10, 5, div);
+// console.log(result);
 
-// const add = (a,b) => {
-//     return a+b;
-// }
-// console.log(add(5,2));
+// 🔷 Callback with Built-in Functions
 
-// const subs = (a,b) => {
-//     return Math.abs(a-b);
-// }
-// const mult = (a,b) => {
-//     return a*b;
-// }
+// -> Array methods → forEach, map, filter, reduce
+// -> Event Listeners → addEventListener
+// -> Timers → setTimeout, setInterval
 
-// const calculator = (num1,num2, operator) => {
-//   return operator(num1,num2);
-// }
+// 🔷 Callback Hell (The Problem)
 
-// calculator(5,2,subs)
+// -> If we nest too many callbacks → code becomes messy, hard to read.
+//    This is called “Callback Hell”.
 
-// console.log(calculator(5,2,subs));
+// Example: 👇
 
-// I have to do the hardcoded for each operation which is bad
-// we will use the callback and the HOF to make it simple to use
+// setTimeout(() => {
+//   console.log("Step 1");
+//   setTimeout(() => {
+//     console.log("Step 2");
+//     setTimeout(() => {
+//       console.log("Step 3");
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
 
-// Now instead of calling each function indivisually we can call it
-// by simply using one function that is calculator
+// 👆 Looks like a pyramid of doom ⛺ → hard to manage.
 
-// console.log(calculator(5,6,add));
-// console.log(calculator(5,6,subs));
-// console.log(calculator(5,6,mult));
+// 🔷 How to Avoid Callback Hell ?
 
-// In the above example, calculator is the higher-order function,
-// which accepts three arguments, the third one being the callback.
-// Here the calculator is called the Higher Order Function because it takes
-// another function as an argument
+// -> Use Promises.
+// -> Use async/await.
 
-// and add, sub and mult are called the callback function bcz they are passed
-// as an argument to another fucntion
+// 🔷 Key Points to Remember
 
-// InterView Question
-// Difference Between Higher Order Function and Callback Function ?
+// -> Callback = Function passed as argument and called later.
+// -> Can be synchronous or asynchronous.
+// -> Used heavily in event handling, API calls, timers, array methods.
+// -> Too many callbacks → callback hell.
+// -> Modern alternative: Promises & async/await.
 
 // 🏁🏁Asynchronous JavaScript
 
