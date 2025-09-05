@@ -3252,170 +3252,6 @@
 // - modularity
 // lot of other things
 
-// 🟡 Callback Function
-
-// In JavaScript, a callback function is a function that is passed as an argument to another
-// function, with the intention of being called at a later time, usually after some
-// asynchronous operation or event has occurred. Callback functions are commonly used
-// in scenarios like event handling, asynchronous programming, and in libraries that
-// utilize a "callback pattern" for handling the completion of tasks.
-
-// -> Callback function gives the power of a asynchronicity.
-
-// 🔷 Why do we use Callback Functions?
-
-// -> To execute code after another code has finished.
-// -> Helps in reusability (pass different functions).
-// -> Essential for handling asynchronous operations like API calls,timers,file reading,etc.
-
-// 🔷 Types of Callback Functions
-
-// ➖ (a) Synchronous Callback
-
-// -> Executed immediately during the function call.
-// -> Used in simple cases (like loops, calculations).
-
-// Example: 👇
-
-// function calculate(a, b, callback) {
-//   return callback(a, b);
-// }
-
-// function add(x, y) {
-//   return x + y;
-// }
-
-// var result = calculate(2, 3, add);
-// console.log(result);
-
-// Another Example 👇
-
-// function greet(name, callMe) {
-//   console.log("Hi " + name + callMe);
-// }
-
-// function callMe() {
-//   return " I am callback function";
-// }
-
-// greet("Peter", callMe());
-
-// ➖ (b) Asynchronous Callback
-
-// -> Executed later, often after some operation finishes.
-// -> Common in setTimeout, event listeners, API calls.
-
-// Example: 👇
-
-// console.log("Start");
-
-// setTimeout(() => {
-//   console.log("This runs after 2 seconds");
-// }, 2000);
-
-// console.log("End");
-
-// ◻️ We need to create a Calculator
-
-// const add = (a, b) => {
-//   return a + b;
-// };
-
-// const subs = (a, b) => {
-//   return Math.abs(a - b);
-// };
-
-// const mult = (a, b) => {
-//   return a * b;
-// };
-
-// const div = (a, b) => {
-//   if (b === 0) {
-//     return "Error: Division by zero is not allowed";
-//   }
-//   return a / b;
-// };
-
-// const calculator = (num1, num2, operator) => {
-//   return operator(num1, num2);
-// };
-
-// var result = calculator(10, 5, div);
-// console.log(result);
-
-// 🔷 Callback with Built-in Functions
-
-// -> Array methods → forEach, map, filter, reduce
-// -> Event Listeners → addEventListener
-// -> Timers → setTimeout, setInterval
-
-// 🔷 Callback Hell (The Problem)
-
-// -> If we nest too many callbacks → code becomes messy, hard to read.
-//    This is called “Callback Hell”.
-
-// Example: 👇
-
-// setTimeout(() => {
-//   console.log("Step 1");
-//   setTimeout(() => {
-//     console.log("Step 2");
-//     setTimeout(() => {
-//       console.log("Step 3");
-//     }, 1000);
-//   }, 1000);
-// }, 1000);
-
-// 👆 Looks like a pyramid of doom ⛺ → hard to manage.
-
-// 🔷 How to Avoid Callback Hell ?
-
-// -> Use Promises.
-// -> Use async/await.
-
-// 🔷 Key Points to Remember
-
-// -> Callback = Function passed as argument and called later.
-// -> Can be synchronous or asynchronous.
-// -> Used heavily in event handling, API calls, timers, array methods.
-// -> Too many callbacks → callback hell.
-// -> Modern alternative: Promises & async/await.
-
-// 🏁🏁Asynchronous JavaScript
-
-// 6️⃣:   Synchronous JavaScript Prog
-
-// 1work = 10min
-// 2work = 5s
-
-// const fun2 = () => {
-//   console.log(`Function 2️⃣ is called`);
-// }
-
-// const fun1 = () => {
-//   console.log(`Function 1 is called`);
-//   fun2();
-//   console.log(`Function 1 is called Again ✌`);
-// }
-
-// fun1();
-
-// Asynchronous JavaScript Prog
-
-// const fun2 = () => {
-//   setTimeout(()=> {
-//       console.log(`Function 2️⃣  is called`);
-//   }, 2000);
-// }
-
-// const fun1 = () => {
-//   console.log(`Function 1 is called`);
-//   fun2();
-//   console.log(`Function 1 is called Again ✌`);
-// }
-
-// fun1();
-
 // 🟡 EVENT LOOP
 
 // The job of event loop is to pulls stuff out of the callback queue and places it onto
@@ -3722,82 +3558,136 @@
 // - Too many closures can slow down your application.
 //   This is actually caused by duplication of code in the memory.
 
-// 🟡 CALLBACK HELL
+// 🟡 Callback Function
 
-// The phenomenon which happens when we nest multiple callbacks within a function is called
-// a callback hell. The shape of the resulting code structure resembles a pyramid and hence
-// callback hell is also called the “pyramid of the doom”. It makes the code very difficult
-// to understand and maintain.
+// In JavaScript, a callback function is a function that is passed as an argument to another
+// function, with the intention of being called at a later time, usually after some
+// asynchronous operation or event has occurred. Callback functions are commonly used
+// in scenarios like event handling, asynchronous programming, and in libraries that
+// utilize a "callback pattern" for handling the completion of tasks.
 
-// setTimeout(()=>{
-//     console.log(`1️⃣ works is done`);
-//     setTimeout(()=>{
-//         console.log(`2️⃣ works is done`);
-//         setTimeout(()=>{
-//             console.log(`3️⃣ works is done`);
-//             setTimeout(()=>{
-//                 console.log(`4️⃣ works is done`);
-//                 setTimeout(()=>{
-//                     console.log(`5️⃣ works is done`);
-//                     setTimeout(()=>{
-//                         console.log(`6️⃣ works is done`);
-//                     }, 1000)
-//                 }, 1000)
-//             }, 1000)
-//         }, 1000)
-//     }, 1000)
-// }, 1000)
+// -> Callback function gives the power of a asynchronicity.
 
-// // **********************************************************************
+// 🔷 Why do we use Callback Functions?
 
-// // 👉 // 🤩 Bonus JSON 🤩 JavaScript Object Notation
+// -> To execute code after another code has finished.
+// -> Helps in reusability (pass different functions).
+// -> Essential for handling asynchronous operations like API calls,timers,file reading,etc.
 
-// // **********************************************************************
+// 🔷 Types of Callback Functions
 
-// // 👉 JSON.stringify turns a JavaScript object into JSON text and
-// stores that JSON text in a string, eg:
+// ➖ (a) Synchronous Callback
 
-// var my_object = { key_1: "some text", key_2: true, key_3: 5 };
+// -> Executed immediately during the function call.
+// -> Used in simple cases (like loops, calculations).
 
-// var object_as_string = JSON.stringify(my_object);
-// // "{"key_1":"some text","key_2":true,"key_3":5}"
+// Example: 👇
 
-// console.log(object_as_string);
+// function calculate(a, b, callback) {
+//   return callback(a, b);
+// }
 
-// typeof(object_as_string);
-// "string"
+// function add(x, y) {
+//   return x + y;
+// }
 
-// // 👉 JSON.parse turns a string of JSON text into a JavaScript object, eg:
+// var result = calculate(2, 3, add);
+// console.log(result);
 
-// var object_as_string_as_object = JSON.parse(object_as_string);
-// // {key_1: "some text", key_2: true, key_3: 5}
+// Another Example 👇
 
-// typeof(object_as_string_as_object);
-// // "object"
+// function greet(name, callMe) {
+//   console.log("Hi " + name + callMe);
+// }
 
-// // 7️⃣ AJAX Call using XMLHttprequest
+// function callMe() {
+//   return " I am callback function";
+// }
 
-// // how to handled with the events and callback
+// greet("Peter", callMe());
 
-// // XMLHttpRequest (XHR) objects are used to interact with servers.
-// // You can retrieve data from a URL without having to do a full
-// // page refresh. This enables a Web page to update just part
-// // of a page without disrupting what the user is doing.
-// // XMLHttpRequest is used heavily in AJAX programming.
+// ➖ (b) Asynchronous Callback
 
-// const request = new XMLHttpRequest();
-// // we need to call the api or request the api using GET method ki, me jo
-// // url pass kar kr rha hu uska data chaiye
-// request.open('GET', "https://covid-api.mmediagroup.fr/v1");
-// request.send(); // we need to send the request and its async so we need to
-// // add the event to load the data adn get it
+// -> Executed later, often after some operation finishes.
+// -> Common in setTimeout, event listeners, API calls.
 
-// // to get the response
-// request.addEventListener("load", () => {
-//     console.log(this.responseText);
-// });
+// Example: 👇
 
-// PROMISES 🤞
+// console.log("Start");
+
+// setTimeout(() => {
+//   console.log("This runs after 2 seconds");
+// }, 2000);
+
+// console.log("End");
+
+// ◻️ We need to create a Calculator
+
+// const add = (a, b) => {
+//   return a + b;
+// };
+
+// const subs = (a, b) => {
+//   return Math.abs(a - b);
+// };
+
+// const mult = (a, b) => {
+//   return a * b;
+// };
+
+// const div = (a, b) => {
+//   if (b === 0) {
+//     return "Error: Division by zero is not allowed";
+//   }
+//   return a / b;
+// };
+
+// const calculator = (num1, num2, operator) => {
+//   return operator(num1, num2);
+// };
+
+// var result = calculator(10, 5, div);
+// console.log(result);
+
+// 🔷 Callback with Built-in Functions
+
+// -> Array methods → forEach, map, filter, reduce
+// -> Event Listeners → addEventListener
+// -> Timers → setTimeout, setInterval
+
+// 🔷 Callback Hell (The Problem)
+
+// -> If we nest too many callbacks → code becomes messy, hard to read.
+//    This is called “Callback Hell”.
+
+// Example: 👇
+
+// setTimeout(() => {
+//   console.log("Step 1");
+//   setTimeout(() => {
+//     console.log("Step 2");
+//     setTimeout(() => {
+//       console.log("Step 3");
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
+
+// 👆 Looks like a pyramid of doom ⛺ → hard to manage.
+
+// 🔷 How to Avoid Callback Hell ?
+
+// -> Use Promises.
+// -> Use async/await.
+
+// 🔷 Key Points to Remember
+
+// -> Callback = Function passed as argument and called later.
+// -> Can be synchronous or asynchronous.
+// -> Used heavily in event handling, API calls, timers, array methods.
+// -> Too many callbacks → callback hell.
+// -> Modern alternative: Promises & async/await.
+
+// 🟡 PROMISES
 
 // Promises are used to handle asynchronous operations in JavaScript.
 // They are easy to manage when dealing with multiple asynchronous operations
@@ -3851,7 +3741,7 @@
 //     console.log("Failed:", error);
 //   });
 
-// Async/await 🤞
+// 🟡 Async/await
 
 // Async/Await is a modern way to handle asynchronous operations in JavaScript,
 // introduced in ES2017 (ES8). It makes asynchronous code look and behave more like
