@@ -3851,7 +3851,7 @@
 // -> Waiting for timers (e.g., with setTimeout using a Promise wrapper)
 // -> Performing a sequence of asynchronous operations in a readable flow
 
-// ERROR HANDLING
+// 🟡 ERROR HANDLING
 
 // Error handling, as the name states, is a strategy that handles the errors or
 // exceptions which occur at runtime.
@@ -3869,7 +3869,7 @@
 // The throw statement lets you create custom errors.
 // The finally statement lets you execute code, after try and catch, regardless of the result.
 
-// Fetch API
+// 🟡 FETCH API
 
 // The fetch() method in JavaScript is used to request to the server
 // and load the information in the webpages. The request can be of any APIs
@@ -3879,12 +3879,10 @@
 
 // Parameters: This method accept two parameters as mentioned above and described below:
 
-// URL: It is the URL to which the request is to be made.
-// Options: It is an array of properties. It is an optional parameter.
+// -> URL: It is the URL to which the request is to be made.
+// -> Options: It is an array of properties. It is an optional parameter.
 
 // fetch API example in another file.
-
-// rest API :- rest stands for representational state transfer
 
 // HTTP STATUS CODE 👇
 
@@ -3896,7 +3894,7 @@
 
 // Example:- 404 - not found error - if we try to access something that doesn't exit.
 
-// What is an API ?
+// 🟡 API
 
 // API stands for Application Programming Interface.
 // It is a messenger or bridge that allows two different software systems
@@ -3929,6 +3927,67 @@
 // If you visit 👇. That’s you talking to the OpenWeather API
 
 // https://api.openweathermap.org/data/2.5/weather?q=London&appid=your_api_key
+
+// 🟡 REST API
+
+// -> REST (Representational State Transfer) is just a set of rules that many APIs follow.
+// -> It’s like saying: "In this restaurant, here’s how you should order food —
+//    use the menu, use clear words like order, update, delete."
+// -> So, a REST API is simply an API that follows these rules.
+
+// 🛠️ Example in Real Life (Non-Technical)
+
+// Imagine you have a mobile app for ordering food:
+
+// 1. GET → You want to see the menu.
+
+// -> You ask: “Show me all pizzas.”
+// -> REST API reply: “Here’s the list of pizzas.”
+
+// 2. POST → You want to order food.
+
+// -> You say: “I want to order a Margherita pizza.”
+// -> REST API reply: “Okay, order placed successfully.”
+
+// 3. PUT → You want to change your order.
+
+// -> You say: “Change my pizza to Pepperoni.”
+// -> REST API reply: “Order updated.”
+
+// 4. DELETE → You want to cancel your order.
+
+// -> You say: “Cancel my pizza order.”
+// -> REST API reply: “Order canceled.”
+
+// 🖥️ Example in Programming World
+
+// Let’s say there’s a website https://example.com/pizzas
+
+// 1. GET request:
+
+// GET https://example.com/pizzas
+// → Response: [{"id":1,"name":"Margherita"},{"id":2,"name":"Pepperoni"}]
+
+// 2. POST request:
+
+// POST https://example.com/pizzas with data { "name": "Veggie" }
+// → Response: { "message": "Pizza added successfully" }
+
+// 3. PUT request:
+
+// PUT https://example.com/pizzas/1 with data { "name": "Cheese Burst" }
+// → Response: { "message": "Pizza updated" }
+
+// 4. DELETE request:
+
+// DELETE https://example.com/pizzas/1
+// → Response: { "message": "Pizza deleted" }
+
+// ✅ In Short
+
+// -> API = waiter that takes your request and brings response.
+// -> REST API = waiter following certain rules (GET, POST, PUT, DELETE).
+// -> It’s how apps, websites, and servers talk to each other.
 
 // 🟡 PROTOTYPE
 
