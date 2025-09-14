@@ -3689,9 +3689,14 @@
 
 // 🟡 PROMISES
 
-// Promises are used to handle asynchronous operations in JavaScript.
+// Promises are used to handle asynchronous operations in JavaScript,
+// such as fetching data from an API, reading files, or handling user input.
 // They are easy to manage when dealing with multiple asynchronous operations
 // where callbacks can create callback hell leading to unmanageable code.
+
+// MDN Definition:
+// The Promise object represents the eventual completion (or failure) of an
+// asynchronous operation and its resulting value.
 
 // callback functions were used but they had limited functionalities
 // and created unmanageable code. Also it is not easy for any user to handle
