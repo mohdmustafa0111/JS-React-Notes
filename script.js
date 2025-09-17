@@ -3746,7 +3746,7 @@
 //     console.log("Failed:", error);
 //   });
 
-// 🟡 Async/await
+// 🟡 Async Await
 
 // Async/Await is a modern way to handle asynchronous operations in JavaScript,
 // introduced in ES2017 (ES8). It makes asynchronous code look and behave more like
@@ -4061,7 +4061,7 @@
 // -> JavaScript looks up the prototype chain if a property/method is missing.
 // -> You can use .prototype to add shared methods to constructor-created objects.
 
-// 🟡 CALL, APPLY and BIND Method in Javascript
+// 🟡 CALL APPLY and BIND Method in Javascript
 
 // In simple terms, Call, apply, and bind are the functions that help you change the context
 // of the "this" keyword present inside the invoking function.
@@ -4287,56 +4287,22 @@
 // -> And the only difference between Call and Bind is that Bind method gives you the copy
 //    that can be invoked later rather than directly invoking it.
 
-// POLYFILL
+// 🟡 POLYFILL
 
 // A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern
 // functionality on older browsers that do not natively support it.
 // Polyfills are used to make sure that your code works in all browsers,
 // even if the browser does not support the latest features.
 
-// CURRYING
+// 🟡 CURRYING
 
-// Currying is basically a transformation of the function of multiple arguments into several functions of
-// a single argument in sequence.
-// OR
-// Currying is a function that takes one argument at a time and returns a new function
-// expecting the new argument.
-// OR
-// Currying is an advanced technique of working with functions.
-// It is a transformation of functions that translate a function from callable as add(1, 2, 3)
-// into callable as add(1)(2)(3). It only transforms a function instead of calling it. It returns
-// a new function until all arguments get exhausted.
+// -> Currying is a technique in JavaScript where a function that takes multiple arguments
+//    is transformed into a function that takes one argument at a time.
+// -> Each function call returns another function until all arguments are provided.
 
-// That is, when we turn a function call sum(1,2,3) into sum(1)(2)(3)
+// 📌 Example with Currying (Using the concept of Closure)
 
-// Benefit of currying in JavaScript 👇
-
-// The main benefit of currying is when you need to use the same call with some of the same parameters
-// a lot i.e it helps to avoid passing the same variable again and again. In these situations,
-// currying becomes a good technique to use. Currying will make your code easier to refactor.
-
-// Two ways to curry a function 👇
-// - by using a bind function
-// - by using the concept of closure
-
-// Example 1 👇 (using bind function)
-
-// const multiply = function (x, y) {
-//   console.log(x * y);
-// };
-
-// const multipleByTwo = multiply.bind(this, 2);
-// multipleByTwo(5);
-
-// const multipleByThree = multiply.bind(this, 3);
-// multipleByThree(5);
-
-// We make a copy of this multiply method and we create more methods out of it by presetting some
-// arguments inside the functions.
-
-// Example 2 👇 (using concept of Closure)
-
-// function addition(a) {
+// function curryAdd(a) {
 //   return function (b) {
 //     return function (c) {
 //       return a + b + c;
@@ -4344,17 +4310,34 @@
 //   };
 // }
 
-// Bad Practice 👇
+// console.log(curryAdd(2)(3)(4));
 
-// let add = addition(2);
-// let data1 = add(3);
-// let data2 = data1(4);
-// console.log(data2);
+// Explanation 👇
 
-// Right way to do it 👇 (By using Currying)
+// -> First call curryAdd(2) returns a function waiting for b.
+// -> Then (3) passes b.
+// -> Then (4) passes c and finally gives 9.
 
-// let add = addition(2)(3)(4);
-// console.log(add);
+// 📌 Another Example
+
+// function multiply(a) {
+//   return function (b) {
+//     return a * b;
+//   };
+// }
+
+// const double = multiply(2);
+// const triple = multiply(3);
+
+// console.log(double(5));
+// console.log(triple(5));
+
+// 👉 Here we created double and triple easily using currying.
+
+// 📌 Why is Currying Useful?
+
+// -> Reusability:- You can fix some arguments and reuse the function.
+// -> Flexibility:- Helps when working with higher-order functions.
 
 // 🟡 THIS KEYWORD
 
