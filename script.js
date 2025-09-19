@@ -1048,7 +1048,7 @@
 
 // console.log(mult(3));
 
-// 4️⃣ Destructuring in ES6
+// 🟡 Destructuring in ES6
 
 // Destructuring in JavaScript allows you to extract values from arrays or objects and
 // assign them to variables in a more concise and readable manner.
@@ -1096,22 +1096,6 @@
 // const myBio = {myName,myAge}
 
 // console.log(myBio);
-
-// REST OPERATOR
-
-// The rest parameter syntax allows a function to accept
-// an indefinite number of arguments as an array.
-
-// function sum(...args) {
-// console.log(para);
-
-//   let sum = 0;
-//   for (const i of args) {
-//     sum = sum + i
-//   }
-//   console.log(sum);
-// }
-// sum(1,2,3,4,5);
 
 // 🟡 Spread Operator
 
@@ -1169,31 +1153,73 @@
 // The spread operator (...) lets you easily copy, merge, or expand
 // arrays, objects, or strings.
 
-// Rest Operator
+// 🟡 Rest Operator
 
-// The rest operator (...) in JavaScript collects multiple elements into a single array or object.
-// It’s used in function parameters and object destructuring to handle an indefinite number of values.
+// The rest operator (...) in JavaScript collects multiple elements or values
+// and puts them into a single array or object. It is mostly used in
+// function parameters and object destructuring to handle an indefinite number of values.
 
-// Example for Rest Operator
+// 🔷 Example:
 
-// const person = { name: "Alice", age: 25, city: "New York" };
-// const { name, ...rest } = person;
-// console.log(name);
-// console.log(rest);
+// 1. In Functions 👇 (most common use)
 
-// Another Example
+// function sum(...numbers) {
+//   return numbers.reduce((acc, curr) => acc + curr, 0);
+// }
 
-// const [first, ...rest] = [1, 2, 3, 4];
-// console.log(first);
-// console.log(rest);
+// console.log(sum(1, 2, 3)); // 6
+// console.log(sum(4, 5, 6, 7, 8)); // 30
 
-// REST VS SPREAD OPERATOR
+// 👆 "...numbers" collects all arguments into an array like [1, 2, 3].
+
+// 🔷 Example:
+
+// 2. In Destructuring 👇
+
+// const [first, second, ...rest] = [10, 20, 30, 40, 50];
+
+// console.log(first); // 10
+// console.log(second); // 20
+// console.log(rest); // [30, 40, 50]
+
+// 👆 "...others" gathers the remaining elements.
+
+// 🔷 Example:
+
+// 3. In Objects 👇
+
+// const user = { name: "Ali", age: 25, city: "Delhi", country: "India" };
+
+// const { name, ...details } = user;
+
+// console.log(name);    // Ali
+// console.log(details); // { age: 25, city: "Delhi", country: "India" }
+
+// 👆 "...details" collects all other properties except name.
+
+// ✅ In short:
+
+// The Rest Operator (...) is used to gather the "rest of the values"
+// into a single array or object.
+
+// 📌 Rest Operator VS Spread Operator
 
 // While Rest operator takes variable, number, parameters or arguments
 // and put them in a single array, the spread operator takes an array
 // and splits it in an individual element.
-// Rest is to combine.
-// Spread is to split.
+
+// 🔷 Difference in One Line:
+
+// Spread: Breaks apart values → Used in arrays, objects, function calls.
+// Rest: Gathers values → Used in function parameters and object/array destructuring.
+
+// 🔑 Key Idea:
+
+// Spread (...) → expands values (breaks them out).
+// Rest (...) → collects values (gathers them in).
+
+// -> Rest is to combine.
+// -> Spread is to split.
 
 // ES7 features
 
