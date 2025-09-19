@@ -1048,33 +1048,108 @@
 
 // console.log(mult(3));
 
-// 🟡 Destructuring in ES6
+// 🟡 DESTRUCTURING
 
-// Destructuring in JavaScript allows you to extract values from arrays or objects and
-// assign them to variables in a more concise and readable manner.
+// -> Destructuring in JavaScript means extracting values from arrays or objects and
+//    storing them into variables in a more concise and readable manner.
+// -> Instead of writing long code, destructuring helps us pick out the pieces we need.
 
-//  ➡ Array Destructuring  🏁
+// 🔷 Array Destructuring
 
-// const numbers = [1, 2, 3];
-// const [a, b] = numbers;
-// console.log(a);
-// console.log(b);
+// ➖ Example 1:
 
-// ➡ Object destructuring 🏁
+// const numbers = [10, 20, 30];
 
-// const myBioData = {
-//   myFname: "vinod",
-//   myLname: "thapa",
-//   myAge: 26,
+// // Without destructuring
+// console.log(numbers[0]);
+// console.log(numbers[1]);
+// console.log(numbers[2]);
+
+// // With destructuring
+// const [x, y, z] = numbers;
+
+// console.log(x);
+// console.log(y);
+// console.log(z);
+
+// ➖ Example 2:
+
+// -> You can also skip values: 👇
+
+// const [first, , third] = [1, 2, 3];
+// console.log(first); // 1
+// console.log(third); // 3
+
+// ➖ Example 3:
+
+// const [p, q = 50] = [10];
+// console.log(p); // 10
+// console.log(q); // 50
+
+// 🔷 Object Destructuring
+
+// const person = {
+//   name: "Mustafa",
+//   age: 24,
+//   country: "India",
 // };
 
-// console.log(myBioData.myAge); // // This is how we can access them.
+// // Without destructuring
+// console.log(person.name);
+// console.log(person.age);
 
-// let { myFname, myLname, myAge } = myBioData; // // After destructuring
-// console.log(myAge);
+// // With destructuring
+// const { name, age } = person;
 
-// let {myFname,myLname,myAge, myDegree="MCS"} = myBioData;
-// console.log(myDegree);
+// console.log(name); // "Mustafa"
+// console.log(age); // 24
+
+// 🔷 Nested Destructuring
+
+// const user = {
+//   id: 1,
+//   info: {
+//     username: "mustafa123",
+//     email: "mustafa@mail.com",
+//   },
+// };
+
+// const {
+//   info: { username, email },
+// } = user;
+// console.log(username); // "mustafa123"
+// console.log(email); // "mustafa@mail.com"
+
+// 🔷 Destructuring in Function Parameters
+
+// // Without destructuring
+// function display(personObj) {
+//   console.log(`${personObj.name} is ${personObj.age} years old.`);
+// }
+
+// const personObj = { name: "Mustafa", age: 24 };
+// display(personObj); // "Mustafa is 24 years old."
+
+// // With destructuring
+// function display({ name, age }) {
+//   console.log(`${name} is ${age} years old.`);
+// }
+
+// const personObj = { name: "Mustafa", age: 24 };
+// display(personObj); // Mustafa is 24 years old.
+
+// // With destructuring but different way
+// function display(personObj) {
+//   const { name, age } = personObj;
+//   console.log(`${name} is ${age} years old.`);
+// }
+
+// const personObj = { name: "Mustafa", age: 24 };
+// display(personObj); // "Mustafa is 24 years old."
+
+// ✅ In short:
+
+// Destructuring makes your code shorter, cleaner, and easier to read.
 
 // 5️⃣ Object Properties
 
