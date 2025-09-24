@@ -4734,54 +4734,44 @@
 // -> Strict mode = “JavaScript with seatbelts” 🚗💨
 // -> It prevents silent errors and enforces better coding practices.
 
-// IIFE (Immediately Invoked Function Expression)
+// 🟡 IIFE (Immediately Invoked Function Expression)
 
-// An Immediately-invoked Function Expression is a way to execute functions immediately,
-// as soon as they are created.
+// -> An IIFE is a function that runs immediately after it’s created.
+// -> You don’t need to call it separately — it executes itself instantly.
 
-// 👉 Why Use an IIFE?
+// 🔹 Why use IIFE ? Benefits:
 
-// - Avoid polluting the global scope
-// - Variables inside an IIFE can’t be accessed from outside it.
+// -> Avoid polluting the global scope → keeps variables private.
+// -> Variables inside an IIFE can’t be accessed from outside it.
+// -> Runs immediately → perfect for code that should execute once.
 
-// - Create a private scope
-// - Useful in situations where you want to isolate logic,
-//   especially before ES6 let/const and modules.
+// 🔹 Syntax
 
-// - Execute code immediately
-// - Sometimes you just want a chunk of code to run once (e.g., initialization code).
+// (function() {
+//   // code here
+// })();
 
-// Syntax:-
+// -> The function is wrapped inside parentheses () to turn it into an expression.
+// -> The trailing () executes or invokes it immediately.
 
-// - The function is wrapped inside parentheses () to turn it into an expression.
-// - The trailing () invokes it immediately.
+// 🔹 Example 1 (Basic)
 
-// Example
+// (function () {
+//   let message = "Hello, I am inside an IIFE!";
+//   console.log(message);
+// })();
 
-// General way of defining function 👇
+// 👉 Variable message is private (not accessible outside).
 
-// function authorName(name) {
-//   console.log(`Author name is ${name}`);
-// }
-// authorName("Mustafa");
+// 🔹 Example 2 (With Parameters)
 
-// This is IIFE 👇 contain Grouping Operator() & ()
-
-// (function (name) {
-//   console.log(`Author name is ${name}`);
+// (function(name) {
+//   console.log(`Hello ${name}, welcome to IIFE!`);
 // })("Mustafa");
 
-// Explanation:-
-// - message is not accessible outside the IIFE.
-// - The function runs immediately after being defined.
+// 👉 Passed "Mustafa" directly while invoking.
 
-// 👉 IIFE with Arrow Function (ES6+)
-
-// ((name) => {
-//   console.log(`Author name is ${name}`);
-// })("Musti");
-
-// 👉 Real-World Use Case Example
+// 🔹 Real-World Use Case Example
 
 // const result = (function () {
 //   let a = 3;
@@ -4789,6 +4779,26 @@
 //   return a + b;
 // })();
 // console.log(result);
+
+// 🔹 Quick Recap 📝
+
+// IIFE = Function + () → Runs immediately
+// -> Used for privacy (local scope)
+// -> Used for immediate execution
+
+// 🔎 Comparison Table
+
+// Feature	                     Normal Function 🛠	                         IIFE ⚡
+
+// Execution	                 Runs only when called	                   Runs immediately
+// Syntax	                     function name(){}	                     (function(){})()
+// Variable Scope 🔒	      Variables can leak to global scope	      Keeps variables private
+// Use Case 💡	                Reusable functions	                    One-time execution
+
+// ✅ In short:
+
+// -> Use Normal Function → when you want to reuse code.
+// -> Use IIFE → when you want code to run once immediately + keep things private.
 
 // Difference between map() and forEach()
 
