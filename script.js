@@ -1120,7 +1120,7 @@
 // console.log(username); // "mustafa123"
 // console.log(email); // "mustafa@mail.com"
 
-// 🔷 Destructuring in Function Parameters
+// 🔷 Destructuring in Function Parameters (most commonly used)
 
 // // Without destructuring
 // function display(personObj) {
@@ -4968,7 +4968,89 @@
 
 // In order to understand these concepts, watch some tutorials on Youtube.
 
-// BASIC GIT COMMANDS
+// 🟡 SHALLOW COPY AND DEEP COPY
+
+// 1. Shallow Copy
+
+// A shallow copy creates a new object or array, but only copies the first level.
+
+// ◻️ Explanation in simple words:
+
+// -> When you make a shallow copy, only the outer shell of the object is copied.
+// -> But if that object contains another object (nested), JavaScript doesn’t
+//    copy the inner one.
+// -> Instead, it just copies the reference (link/pointer) to that inner object.
+// -> So both the original and the copy point to the same nested object in memory.
+// -> That’s why changing the nested object through the copy also changes
+//    it in the original.
+
+// 🔷 Example:
+
+// let original = {
+//   name: "Mustafa",
+//   address: { city: "Delhi", country: "India" },
+// };
+
+// // Shallow copy using spread operator
+// let copy = { ...original };
+
+// // Modifying top-level property
+// copy.name = "Musti";
+
+// console.log(original.name); // Output: Mustafa (original not changed)
+// console.log(copy.name); // Output: Musti
+
+// // Modifying nested object
+// copy.address.city = "Mumbai";
+
+// console.log(original.address.city); // Output: "Mumbai"
+// console.log(copy.address.city); // Output: "Mumbai"
+
+// ✅ Notice: Changing name does not affect original, but changing address.city
+// does affect original because it’s nested.
+
+// 👉 Both original.address and copy.address are pointing to the same nested object.
+//    So changing one affects the other.
+
+// ➖ Why this happened?
+
+// -> original.address and copy.address are the same object in memory.
+// -> You only have one address object, and both original and copy are holding
+//    references (links) to it.
+
+// 2. Deep Copy
+
+// -> A deep copy creates a completely independent copy of the object/array,
+//    including all nested objects.
+// -> Changes in the copy won’t affect the original at all.
+
+// 🔷 Example:
+
+// let original = {
+//   name: "Mustafa",
+//   address: { city: "Delhi", country: "India" },
+// };
+
+// // Deep copy using JSON methods
+// let deepCopy = JSON.parse(JSON.stringify(original));
+
+// // Modifying nested object
+// deepCopy.address.city = "Mumbai";
+// console.log(original.address.city); // Delhi (original stays the same)
+// console.log(deepCopy.address.city); // Mumbai
+
+// ✅ Notice: Now even nested objects are completely independent.
+
+// 📌 Quick Comparison Table:
+
+// Feature	                             Shallow Copy	                     Deep Copy
+
+// Copy Level	                       First level only	              All levels (nested too)
+// Nested objects shared?	                 Yes	                             No
+// Changes affect original?	     Sometimes (nested objects)	                Never
+// Example methods	             Object.assign(), ...spread	       JSON.parse(JSON.stringify())
+
+// 🟡 BASIC GIT COMMANDS
 
 // What is Git ? ❓
 
