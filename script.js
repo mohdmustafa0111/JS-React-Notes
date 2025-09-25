@@ -4919,6 +4919,42 @@
 // outermost element to the target element. Whereas in case of event bubbling the flow goes
 // from target element to the outermost element.
 
+// 🟡 e.preventDefault()
+
+// e.preventDefault() is a method available on the event object in JavaScript.
+
+// It tells the browser:
+// -> “Don’t run the default action that usually happens for this event.”
+// -> Instead: “I’ll handle this event myself with my custom code.”
+
+// 🔹 Why is it Needed? (Default Behaviors)
+
+// Browsers come with built-in default actions. Some examples:
+
+// -> Submitting a form ➝ Refreshes the page.
+// -> Clicking an <a href="..."> ➝ Navigates to another page.
+// -> Right-click ➝ Opens the context menu.
+// -> Dragging files into a browser ➝ Opens the file.
+
+// But sometimes, as developers, we don’t want these defaults.
+// So we stop them using e.preventDefault().
+
+// 🔹 Easy Example 1 (Form Submission 🚫 Refresh)
+
+// -> Without e.preventDefault() → page reloads.
+// -> With e.preventDefault() → you can handle data with JavaScript (AJAX, React, etc) instead.
+// -> Form submitted, but page did NOT reload.
+
+// 🔹 Easy Example 2 (Anchor Tag 🚫 Navigation)
+
+// -> Without e.preventDefault() → navigate to Google.
+// -> With e.preventDefault() → stay on same page and run your logic.
+// -> Stop Navigation
+
+// 🔹 Shortcut for Remembering
+
+// preventDefault() -> Hey browser, stop your auto-behavior. I’ll take control now.
+
 // Debouncing & Throttling
 
 // Debouncing and throttling techniques are used to limit the number of times a function can execute.
