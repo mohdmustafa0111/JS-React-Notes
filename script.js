@@ -4904,14 +4904,56 @@
 // };
 // arrowFunction(1, 2);
 
-// Event Bubbling
+// 🟡 Event Bubbling
 
-// When an event happens on an element, it first runs the handlers on it, then on its parent,
-// then all the way up on other ancestors.
-// OR
-// Event Bubbling is a concept in the DOM (Document Object Model). It happens when an element
-// receives an event, and that event bubbles up (or you can say is transmitted or propagated)
-// to its parent and ancestor elements in the DOM tree until it gets to the root element.
+// Event bubbling in JavaScript is a mechanism where an event, triggered on a
+// specific HTML element, propagates upwards through its parent elements in the
+// Document Object Model (DOM) tree. This means that if you click on a child
+// element, the click event will first be handled by that child, then by its
+// immediate parent, then by its grandparent, and so on, until it reaches
+// the document object. (parent → grandparent → document → window).
+
+// 👉 In short: Event flows upward from the clicked element to its parents.
+
+// 📌 Important Points
+
+// -> Default behavior of events is bubbling.
+// -> If you don’t want bubbling, use: event.stopPropagation();
+// -> There’s also Event Capturing (opposite direction: top → down),
+// -> but bubbling is used more often.
+
+// ☑️ Practical use of Event Bubbling
+
+// Problem Without Bubbling 👇
+
+// Imagine you have a list of 100 items.
+// If you want to do something when any <li> is clicked, the naive way would be.
+// Add addEventListener on every <li>.
+// But that’s inefficient and messy.
+
+// Solution With Event Bubbling 👇 (Event Delegation)
+
+// Instead of adding listeners to each <li>
+// You add one listener to the parent <ul> (because events bubble up).
+
+// 🔎 How it works?
+
+// -> You click on <li> → event triggers on that <li>.
+// -> Then event bubbles up to <ul>.
+// -> <ul> listener checks if the click came from <li>.
+// -> Only one event listener is needed, no matter how many <li> items exist.
+
+// ⚡ Benefits
+
+// -> Efficient (fewer event listeners).
+// -> Works even for dynamically added elements.
+// -> Keeps code clean and maintainable.
+
+// 🔷 Real-life usage:
+
+// Handling clicks on menus, lists, tables, buttons inside a container.
+// Infinite scroll or dynamic content apps.
+// Frameworks like React also internally rely on this principle.
 
 // Event Capturing
 
