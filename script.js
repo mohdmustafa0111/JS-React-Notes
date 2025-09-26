@@ -4911,7 +4911,7 @@
 // Document Object Model (DOM) tree. This means that if you click on a child
 // element, the click event will first be handled by that child, then by its
 // immediate parent, then by its grandparent, and so on, until it reaches
-// the document object. (parent → grandparent → document → window).
+// the document object. (child → parent → grandparent → document → window).
 
 // 👉 In short: Event flows upward from the clicked element to its parents.
 
@@ -4924,14 +4924,14 @@
 
 // ☑️ Practical use of Event Bubbling
 
-// Problem Without Bubbling 👇
+// ➖ Problem Without Bubbling 👇
 
 // Imagine you have a list of 100 items.
 // If you want to do something when any <li> is clicked, the naive way would be.
 // Add addEventListener on every <li>.
 // But that’s inefficient and messy.
 
-// Solution With Event Bubbling 👇 (Event Delegation)
+// ➖ Solution With Event Bubbling 👇 (Event Delegation)
 
 // Instead of adding listeners to each <li>
 // You add one listener to the parent <ul> (because events bubble up).
@@ -4954,6 +4954,52 @@
 // Handling clicks on menus, lists, tables, buttons inside a container.
 // Infinite scroll or dynamic content apps.
 // Frameworks like React also internally rely on this principle.
+
+// 🟡 Event Delegation
+
+// Event Delegation is a technique in JavaScript where instead of adding event
+// listeners to many child elements, we add just one listener to their common parent
+// and use event bubbling to handle events for all children.
+
+// ➖ In simple words:
+// -> Let the parent "delegate" the work of handling events for its children.
+
+// ➖ Delegate meaning in general:
+// -> to give somebody with a lower job or position a particular task to do
+
+// 👉 Without Delegation
+
+// -> If there are 100 <li>, this creates 100 event listeners.
+// -> But that's Inefficient and Messy!
+
+// 👉 With Delegation
+
+// -> Only one listener on <ul> handles all <li> clicks.
+
+// ⚡ Benefits
+
+// -> Fewer event listeners → better performance.
+// -> Works even if new child elements are added later (dynamic elements).
+// -> Cleaner and easier code.
+
+// 🎯 Real-Life Usage
+
+// -> Menus (<ul>, <li> items)
+// -> Tables (handle clicks on cells/rows)
+// -> Forms (handle input focus/validation)
+// -> Shopping carts (many "Add to Cart" buttons)
+
+// 📌 So in short:
+
+// Event Bubbling -> how events move upward.
+// Event Delegation -> a smart technique that uses bubbling to manage many children
+//                     with one parent listener.
+
+// ✅ Main Difference between Bubbling and Delegation
+
+// Event Bubbling -> (Default Behaviour) How the event moves up from child → parent.
+// Event Delegation -> (Technique) Using bubbling to manage multiple children with
+//                     one parent listener.
 
 // Event Capturing
 
