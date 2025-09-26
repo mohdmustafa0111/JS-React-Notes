@@ -4904,6 +4904,34 @@
 // };
 // arrowFunction(1, 2);
 
+// 🟡 Event Propagation
+
+// Event propagation is the way events travel (or "propagate") through the DOM tree
+// when an event (like a click) happens on an element.
+// When you click an element, the event doesn’t just stay there — it moves through
+// different phases.
+
+// 🛤️ Phases of Event Propagation
+
+// There are 3 phases:-
+
+// 1. Capturing Phase (Event Capturing) 🔽
+// -> The event starts from the top/root (document) and moves downward through
+//    ancestors until it reaches the target element.
+
+// 2. Target Phase 🎯
+// -> The event actually reaches the element you clicked (the target).
+
+// 3. Bubbling Phase (Event Bubbling) 🔼
+// -> After reaching the target, the event travels upward from the target element
+//    back through its ancestors until it reaches the root again.
+
+// ✅ In Short:
+
+// Event Propagation -> the journey of an event through the DOM.
+// It has Capturing → Target → Bubbling phases.
+// By default, JavaScript uses bubbling phase (but you can enable capturing).
+
 // 🟡 Event Bubbling
 
 // Event bubbling in JavaScript is a mechanism where an event, triggered on a
