@@ -5001,11 +5001,49 @@
 // Event Delegation -> (Technique) Using bubbling to manage multiple children with
 //                     one parent listener.
 
-// Event Capturing
+// 🟡 Event Capturing
 
-// Event capturing is opposite to the event bubbling. In event capturing the flow goes from
-// outermost element to the target element. Whereas in case of event bubbling the flow goes
-// from target element to the outermost element.
+// Event Capturing (also called trickling phase) is the phase where an event
+// moves from the root (window/document) down to the target element in the DOM tree.
+
+// -> It is the opposite of bubbling.
+// -> By default, JavaScript event listeners use bubbling, but you can enable capturing
+//    by passing true as the third argument in addEventListener.
+
+// 👉 So in short:
+
+// ➖ Capturing = event goes top ➝ down (parent → child).
+// ➖ Bubbling = event goes bottom ➝ up (child → parent).
+
+// 📌 Example
+
+// const parent = document.getElementById("parent");
+// const child = document.getElementById("child");
+
+// // Capturing phase 👇
+
+// parent.addEventListener("click", () => {
+//   console.log("Parent (capturing)");
+// }, true); // true = capturing
+
+// child.addEventListener("click", () => {
+//   console.log("Child (capturing)");
+// }, true);
+
+// // Bubbling phase (default) 👇
+
+// parent.addEventListener("click", () => {
+//   console.log("Parent (bubbling)");
+// }); // false = bubbling (default)
+
+// child.addEventListener("click", () => {
+//   console.log("Child (bubbling)");
+// });
+
+// 🎯 Key Point to Remember
+
+// -> Capturing is rarely used compared to bubbling.
+// -> But it’s useful when you want a parent element to catch events before the child does.
 
 // 🟡 e.preventDefault()
 
