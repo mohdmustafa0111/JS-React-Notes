@@ -5109,64 +5109,138 @@
 
 // preventDefault() -> Hey browser, stop your auto-behavior. I’ll take control now.
 
-// Debouncing & Throttling
+// 🟡 Debouncing & Throttling
 
-// Debouncing and throttling techniques are used to limit the number of times a function can execute.
-// Generally, how many times or when a function will be executed is decided by the developer.
-// But in some cases, developers give this ability to the users. Now, it is up to the user to decide
-// when and how many times to execute that function.
+// Debouncing and throttling techniques are used to limit the number of times
+// a function can execute. Generally, how many times or when a function will be
+// executed is decided by the developer. But in some cases, developers give this
+// ability to the users. Now, it is up to the user to decide when and how many times
+// to execute that function.
 
-// Debouncing is a method used in JavaScript to increase browser performance. There may be some
-// features on a web page that needs time-consuming computations. If such type of method is applied
-// frequently, it may greatly affect the browser's performance because Javascript is a single-threaded
-// language. Debouncing is a programming technique that assures that time-consuming activities do
-// not trigger the web page's performance decreases. In other words, the Debounce methods do not
-// run when invoked. Instead, they wait a predetermined period of time until executing. When we call
-// the same process again, the previous process is canceled, and the timer is reset.
+// 1. Debouncing
 
-// A debounce is a throttle cousin, and they both help improve the web application's performance.
-// Although, they are seen in different situations. When we just think about the final state,
-// a debounce is used. For example, they are waiting until a user has finished typing to retrieve
-// typeahead search results. If we want to manage all intermediate states at a regulated pace,
-// a throttle is the best tool to use.
+// Debouncing is a technique in JavaScript (and other programming) where we delay
+// the execution of a function until a certain amount of time has passed since the
+// last time the function was called.
 
-// OR
+// ➖ In short
 
-// The debounce() function forces a function to wait a certain amount of time before running again.
-// The function is built to limit the number of times a function is called.
+// If an event keeps firing continuously (like typing, scrolling, resizing),
+// Debounce ensures the function runs only once after the activity stops.
 
-// OR
+// Example:
 
-// There are many events in JS that trigger super quickly.
-// When you scroll the page, or resize the window, or move your mouse, the browser captures dozens
-// and dozens of events per second.
-// In many cases, you don't need to capture every single intermediate step; you're only
-// interested in capturing the end state (when the user finishes scrolling, or finishes
-// resizing the window).
-// Debouncing is a strategy that lets us improve performance by waiting until a certain amount
-// of time has passed before triggering an event. When the user stops triggering the event,
-// our code will run.
-// In some cases, this isn't necessary. But, if any network requests are involved, or if the
-// DOM changes (eg. re-rendering a component), this technique can drastically improve the
-// smoothness of your application.
+// -> Imagine you are typing in a search box. Without debouncing,
+//    every keystroke will call the API:
+// -> After applying debouncing, the function will only run once the user has
+//    stopped typing for the given delay time.
 
-// OR Explanation in hindi
+// function debounce(fn, delay) {
+//   let timerId;
 
-// Debouncing and Throttling are not the part of Javascript. In concept ko achieve kiya jata hai
-// setTimeout web API k through , jo ki web browser ka part hai. When you scroll the page, or
-// resize the window, or move your mouse, the browser captures dozens and dozens of events per second.
-// to us time par jo unwanted functions call hote hain usko stop karne k lie hum Debouncing or
-// throttling concept ka istemal karte hain. or jab wo unwanted function baar baar call hote hain to
-// application ki performance ko down kar dete hain. To application ki performfance ko down hone se
-// bachaane k lie hum aisa code likhte hain jisse ki wo unwanted functions baar baar call na ho.
-// balki kisi specific time interval k baad call ho.
+//   return function (...args) {
+//     clearTimeout(timerId);
+//     timerId = setTimeout(() => {
+//       fn(...args);
+//     }, delay);
+//   };
+// }
 
-// Throttling
+// const search = (query) => {
+//   console.log(`Searching for`, query);
+// };
+
+// const searchWithDebounce = debounce(search, 1000);
+
+// searchWithDebounce("h");
+// searchWithDebounce("he");
+// searchWithDebounce("hel");
+// searchWithDebounce("hell");
+// searchWithDebounce("hello");
+// searchWithDebounce("hello J");
+// searchWithDebounce("hello JS");
+
+// ⚡ How it works:
+
+// -> If user types h, he, hel, hell, hello quickly → Only one final API call will be
+//    made after 500ms of no typing.
+// -> Without debounce → 5 API calls would be made.
+
+// 🔷 Real-world Use Cases of Debouncing
+
+// -> Search Bars → Prevents too many API requests while typing.
+// -> Resize Event → Window resize can fire hundreds of times, debounce ensures
+//    function runs only after resizing stops.
+// -> Button Clicks → Prevents accidental double form submissions.
+// -> Scroll Event → Optimizes performance by limiting function execution
+//    when user is scrolling.
+
+// ✅ In short:
+
+// Debouncing = “Wait until user stops doing something, then take action.”
+
+// 2. Throttling
 
 // Throttling is a technique in which, no matter how many times the user fires the event,
 // the attached function will be executed only once in a given time interval.
 
-// In order to understand these concepts, watch some tutorials on Youtube.
+// -> In simple words → it limits the rate at which a function runs.
+
+// 📝 Example of Throttling
+
+// function throttle(fn, delay) {
+//   let lastCall = 0;
+
+//   return function (...args) {
+//     const now = new Date().getTime();
+
+//     if (now - lastCall < delay) {
+//       return;
+//     }
+//     lastCall = now;
+//     return fn(...args);
+//   };
+// }
+
+// function sendChatMessage(message) {
+//   console.log(`Sending Message`, message);
+// }
+
+// const sendChatMessageWithSlowMode = throttle(sendChatMessage, 2 * 1000);
+
+// sendChatMessageWithSlowMode("Hello");
+// sendChatMessageWithSlowMode("Hello bro");
+// sendChatMessageWithSlowMode("Hello bro! What's Happening?");
+// sendChatMessageWithSlowMode("Hello bro! How are you doing?");
+// sendChatMessageWithSlowMode("Hello bro! What are you doing nowadays?");
+
+// 🎯 Use Cases of Throttling
+
+// -> Window Resize → Running calculations only once every few seconds instead
+//    of on every pixel change.
+// -> Scroll Events → Lazy-loading images or infinite scroll without overloading
+//    performance.
+// -> Mouse Move / Dragging → Tracking position updates smoothly without calling the
+//    function hundreds of times.
+// -> API Calls → Limiting requests to avoid hitting server limits (like pressing a
+//    button rapidly).
+
+// ⚡ In short:
+
+// -> Ensures function runs at regular intervals, even while user is continuously
+//    triggering the event.
+
+// 📌 Comparing Debouncing vs Throttling
+
+// ✅ Shortcut to remember:
+
+// -> Debounce = 🕒 "Execute after inactivity"
+// -> Throttle = ⏱️ "Execute at intervals during activity"
+
+// 👉 Example to stick in mind:
+
+// -> Typing in search box = Debounce (wait till you stop typing 🏁).
+// -> Scrolling = Throttle (report scroll position every 1s 🚦).
 
 // 🟡 SHALLOW COPY AND DEEP COPY
 
