@@ -5380,6 +5380,52 @@
 // -> Objects → {}, [], function() {}
 // -> BigInt (except 0n) → 1n, -5n
 
+// 🟡 Local Storage vs Session Storage vs Cookies
+
+// 🗂️ 1. Local Storage
+
+// -> Stores data in the browser with no expiration (stays even after closing browser).
+// -> Good for long-term data like user preferences, theme, language.
+// -> Storage capacity: ~5–10 MB (much larger than cookies).
+// -> Data is accessible only on the same domain.
+// -> Not automatically sent to the server with requests (client-side only).
+
+// 🔷 Example:
+
+// localStorage.setItem("theme", "dark");
+// console.log(localStorage.getItem("theme")); // "dark"
+
+// 🗂️ 2. Session Storage
+
+// -> Similar to local storage but cleared when the tab/browser is closed.
+// -> Good for temporary data like form inputs, user logins, session-based states.
+// -> Storage capacity: ~5 MB (same as local storage).
+// -> Not shared across browser tabs/windows (only works in the tab where stored).
+// -> Not sent automatically to the server.
+
+// 🔷 Example:
+
+// sessionStorage.setItem("token", "12345");
+// console.log(sessionStorage.getItem("token")); // "12345"
+
+// 🍪 3. Cookies
+
+// -> Small pieces of data stored in the browser, can be set by client or server.
+// -> Automatically sent with every HTTP request → useful for authentication.
+// -> Storage capacity: ~4 KB (much smaller).
+// -> Can have an expiration time (short or long).
+// -> Can be HttpOnly (not accessible by JS → safer for sensitive data).
+
+// 🔷 Example:
+
+// document.cookie = "username=Mustafa; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/";
+
+// 👉 Shortcut to remember:
+
+// -> Local Storage = 🏠 "Permanent house" (data stays).
+// -> Session Storage = 🚪 "Temporary guest room" (gone after leaving).
+// -> Cookies = 📦 "Small delivery package" (sent with every request).
+
 // 🟡 BASIC GIT COMMANDS
 
 // What is Git ? ❓
