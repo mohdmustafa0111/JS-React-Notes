@@ -5324,6 +5324,62 @@
 // Changes affect original?	     Sometimes (nested objects)	                Never
 // Example methods	             Object.assign(), ...spread	       JSON.parse(JSON.stringify())
 
+// 🟡 Coercion
+
+// Coercion in JavaScript means 👉 converting one data type into another
+// automatically or manually.
+
+// ⚡ Types of Coercion
+
+// 1. Implicit Coercion (Automatic 🔄)
+
+// -> Happens when JavaScript converts types behind the scenes.
+
+// Example:
+
+// console.log(5 + "2"); // "52"  (Number → String)
+// console.log(5 - "2"); // 3     (Number → String)
+// console.log("5" * 2); // 10    (String → Number)
+
+// 2. Explicit Coercion (Manual ✋)
+
+// -> When you intentionally convert using functions/operators.
+
+// Example:
+
+// console.log(Number("123")); // 123 (String → Number)
+// console.log(String(99)); // "99" (Number → String)
+// console.log(Boolean(0)); // false
+// console.log(Boolean(1)); // true
+
+// 🧠 Shortcut to Remember
+
+// -> Implicit = JS does it for you 🤖
+// -> Explicit = You do it yourself 🧑‍💻
+
+// ✅ Common Conversions
+
+// -> + with string → Converts other value to string
+// -> - with string → Converts other value to number
+// -> Math operations (- * /) → Convert to number
+// -> Boolean() → Converts to true/false based on truthy/falsy rules
+
+// 🟢 Truthy vs 🔴 Falsy in JavaScript
+
+// 🧠 Shortcut to Remember:
+
+// -> Only 8 values are Falsy, everything else is Truthy.
+
+// -> Falsy Pack = false, 0, -0, 0n, "", null, undefined, NaN
+// -> Everything else is Truthy 👇
+
+// ✅ Everything else!
+
+// -> Non-empty strings → "0", "false", "hello"
+// -> Numbers (except 0 & NaN) → 42, -7, Infinity
+// -> Objects → {}, [], function() {}
+// -> BigInt (except 0n) → 1n, -5n
+
 // 🟡 BASIC GIT COMMANDS
 
 // What is Git ? ❓
