@@ -5426,6 +5426,34 @@
 // -> Session Storage = 🚪 "Temporary guest room" (gone after leaving).
 // -> Cookies = 📦 "Small delivery package" (sent with every request).
 
+// 🟡 Authentication VS Authorization
+
+// 🔑 Authentication (AuthN)
+
+// ➖ What it is: Process of verifying who you are.
+// ➖ Goal: Confirm identity.
+// ➖ Example:
+// -> Entering username + password.
+// -> OTP verification on phone.
+// -> Using Google login.
+
+// 👉 Think of it as: “Prove you are Mustafa.”
+
+// 🔐 Authorization (AuthZ)
+
+// ➖ What it is: Process of verifying what you can do.
+// ➖ Goal: Grant or deny access to resources.
+// ➖ Example:
+// -> After login, deciding if you can access the admin dashboard.
+// -> Normal user can watch videos, but only admins can delete them.
+
+// 👉 Think of it as: “Now that I know you are Mustafa, what are you allowed to do?”
+
+// 🎯 Shortcut to Remember
+
+// -> Authentication = Identity (Who are you?)
+// -> Authorization = Permissions (What can you do?)
+
 // 🟡 BASIC GIT COMMANDS
 
 // What is Git ? ❓
