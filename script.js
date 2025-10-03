@@ -24,16 +24,16 @@
 //  1. Memory component ( aka Memory Creation/Allocation Phase)
 //  2. Code component ( aka Code Execution Phase)
 
-// > In memory component
-// - The engine parses the code.
-// - It allocates memory for variables and functions (this is where hoisting happens).
-// - Functions are stored in memory, variables are set to undefined.
+// ➖ In memory component
+// -> The engine parses the code.
+// -> It allocates memory for variables and functions (this is where hoisting happens).
+// -> Functions are stored in memory, variables are set to undefined.
 
-// > Code component is a place where whole JavaScript code is executed.
-//   the engine executes the code line by line.
-// - Values are assigned.
-// - Functions are invoked.
-// - Statements are evaluated.
+// ➖ Code component is a place where whole JavaScript code is executed.
+//    the engine executes the code line by line.
+// -> Values are assigned.
+// -> Functions are invoked.
+// -> Statements are evaluated.
 
 // 👉 3. CALL STACK
 
@@ -98,7 +98,7 @@
 
 // main();
 
-// Explanation of CALL STACK by AKSHAY SAINI
+// 📌 Explanation of CALL STACK by AKSHAY SAINI
 
 // CALL STACK is a stack where all these global execution context are kept.
 // the main job of call stack is to execute whatever comes inside it. That's all it does.
@@ -137,7 +137,7 @@
 // - For asynchronous operations, it relies on Web APIs, Callback Queue, and
 //   the Event Loop to handle them without blocking the stack.
 
-// HEAP & STACK
+// 🟡 HEAP & STACK
 
 // Inside Browser, there is a Javascript engine (we are considering V8 for chrome.),
 // an environment to run javascript properly. Javascript engine has two parts,
@@ -146,20 +146,20 @@
 // Think of your computer's memory like a big toolbox.
 // JavaScript uses two main sections of this toolbox:
 
-// STACK
+// ➖ STACK
 
 // - Stores: Primitive values (like number, string, boolean, etc.)
 // - Fast access and small in size
 // - Follows Last In, First Out (LIFO) – like a stack of plates
 
-// HEAPS or Memory Heap
+// ➖ HEAPS or Memory Heap
 
 // - Stores: Non-primitive values (like objects, arrays, functions)
 // - Slower access, but more flexible and holds more data
 // - JavaScript stores a reference (address) to the object in the stack,
 //   but the actual object goes in the heap
 
-// Garbage Collector
+// 🟡 Garbage Collector
 
 // It basically tries to free up memory space whenever possible.
 // OR
@@ -168,7 +168,7 @@
 // Whenever there is some unused variables , it just takes out/freeze-up of memory whenever it finds
 // out that these variables no longer needed.
 
-// WEB APIs 👇
+// 🟡 WEB APIs
 
 // - setTimeout
 // - DOM API's
@@ -189,7 +189,7 @@
 // - Promise
 // - async await
 
-// JAVASCRIPT RUNTIME ENVIRONMENT
+// 🟡 JAVASCRIPT RUNTIME ENVIRONMENT
 
 // JRE is like a big container which has all the things required to run JavaScript code.
 
@@ -206,7 +206,111 @@
 // which is required to run javascript piece of code. Node JS can run the JS code outside the
 // browser by installing it in PC.
 
-/**** values and variables in JavaScript ****/
+// 🟡 How a browser renders a web page?
+
+// Let’s go step by step 👇
+
+// 🌍 1. Loading the Page
+
+// -> You type a URL and hit Enter.
+// -> Browser sends a request to the server to fetch HTML.
+// -> Server responds with the HTML document.
+// -> Browser starts downloading linked resources (CSS, JS, images, fonts, etc.).
+
+// 📝 2. Parsing HTML → DOM
+
+// -> Browser reads the HTML line by line.
+// -> Creates a DOM (Document Object Model) tree structure.
+// -> Each HTML tag → becomes a node in this tree. Example: <div>, <p>, <img>.
+// -> DOM = structure of the page content.
+
+// 🎨 3. Parsing CSS → CSSOM
+
+// -> Browser downloads and parses all CSS files.
+// -> Creates a CSSOM (CSS Object Model) tree.
+// -> Represents styles like color, font, size, layout, etc.
+// -> CSSOM = structure of the styles.
+
+// 🔗 4. Combine DOM + CSSOM → Render Tree
+
+// -> Browser merges DOM + CSSOM.
+// -> Forms a Render Tree (only visible elements).
+// -> Hidden elements (display: none) are not included.
+// -> Elements like opacity: 0 or visibility: hidden are included but just invisible.
+// -> Render Tree = what will be painted.
+
+// 📏 5. Layout (Reflow)
+
+// -> Browser calculates the size and position of each element.
+// -> Takes into account:
+//    - Box model (margin, border, padding, width, height)
+//    - Viewport size
+//    - Relative units (%, em, rem, etc.)
+// -> Layout = "Where does each element go?"
+
+// 🖌️ 6. Painting
+
+// -> Browser fills in pixels:
+//    - Colors
+//    - Text
+//    - Backgrounds
+//    - Borders
+//    - Shadows
+//    - Images
+// -> Painting = "What does each element look like?"
+
+// 🖼️ 7. Compositing
+
+// -> Page is divided into layers (like Photoshop).
+// -> Browser decides which layers are on top of others.
+//    - Browsers create new layers for performance and visual correctness.
+//    - Common cases where new layers are created:
+//    - Elements with 3D transforms (transform: translateZ(0), rotate, etc.)
+//    - Elements with CSS animations or transitions
+//    - Elements with position: fixed or position: sticky
+//    - Elements with opacity or will-change property
+//    - Video, canvas, and iframe elements
+// -> GPU may be used to speed up this step.
+// -> Compositing = "Combine everything to final image."
+
+// ⚡ Final Step: Display on Screen
+
+// -> Browser sends the final pixels to your screen → 🎉 Webpage appears!
+
+// 🖼️ Visual diagram:👇 browser rendering (step-by-step arrows)
+
+// (1) Type URL / Click link 🖱️
+//     ↓
+// (2) Browser sends HTTP request  →  Server responds with HTML 📥
+//     ↓
+//        [ PARSING ]  ←—— "Parsing" = reading text and converting it into a structured tree
+//     ↓
+// (3) HTML (raw)  ─parse→  DOM (Document Object Model) 🌳
+//        ↑
+//        │
+// (4) CSS files  ─parse→  CSSOM (CSS Object Model) 🎨
+//        │
+//        └─────────┬─────────┘
+//                  ↓
+// (5) DOM + CSSOM  →  Render Tree (visible nodes only) 🧩
+//                  ↓
+// (6) Layout / Reflow — compute sizes & positions (box model, viewport, flow) 📏
+//                  ↓
+// (7) Paint — fill pixels (text, backgrounds, borders, images) 🖌️
+//                  ↓
+// (8) Compositing — layers combined (GPU may accelerate) 🖼️
+//                  ↓
+// (9) Final pixels → Screen 🖥️
+
+// 🔷 Where does JavaScript come into rendering?
+
+// -> When the HTML parser encounters a <script> tag, it pauses HTML parsing.
+// -> It fetches (if external) and executes the script immediately.
+// -> Because the script can modify the DOM and CSSOM, the browser must wait.
+// -> This is why it's recommended to use the async or defer attributes on
+//    <script> tags to prevent parser-blocking.
+
+// 🟡 /**** values and variables in JavaScript ****/
 
 // Variable is a name given to a storage area that our program can manipulate.
 
