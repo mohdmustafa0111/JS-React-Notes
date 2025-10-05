@@ -310,6 +310,68 @@
 // -> This is why it's recommended to use the async or defer attributes on
 //    <script> tags to prevent parser-blocking.
 
+// 🟡 Web App Optimisation Tips
+
+// Optimising a web application means making it faster, smoother, and more efficient
+// both for users 👩‍💻 and servers ⚙️.
+
+// Here’s a 👇 breakdown with categories and techniques:
+
+// ⚡ Frontend Optimisations (Client-Side)
+
+// -> Minify & Bundle Assets → Remove unnecessary spaces, comments, etc.
+//    in JS, CSS, and HTML.
+// -> Code Splitting → Load only the required JS for each page (using tools like
+//    Webpack, Vite, Next.js).
+// -> Lazy Loading → Load images, videos, or components only when they’re needed.
+// -> Use CDN (Content Delivery Network) → Deliver static files (images, CSS, JS)
+//    from servers closest to users.
+// -> Image Optimisation → Compress, use WebP/AVIF formats, responsive images (srcset).
+// -> Caching (Browser & Service Workers) → Store files so repeat visits are faster.
+// -> Reduce Repaints & Reflows → Avoid heavy DOM manipulations and inline styles.
+// -> Use Efficient CSS → Avoid unused CSS (tree-shaking with PurgeCSS, Tailwind’s JIT).
+// -> Preloading & Prefetching → Preload critical assets and prefetch likely next pages.
+
+// 🖥️ Backend Optimisations (Server-Side)
+
+// -> Database Indexing → Speed up queries with proper indexes.
+// -> Caching Layer → Use Redis, Memcached for frequently requested data.
+// -> Pagination & Infinite Scroll → Don’t fetch all records at once.
+// -> Compression (Gzip/Brotli) → Reduce payload size before sending to the client.
+// -> Load Balancing & Scaling → Distribute traffic across multiple servers.
+// -> Use Efficient Frameworks & APIs → Optimise server logic and remove bottlenecks.
+// -> Database Optimisation → Normalisation where needed, avoid N+1 queries.
+
+// 🌐 Network Optimisations
+
+// -> HTTP/2 or HTTP/3 → Faster multiplexed requests.
+// -> Reduce Round Trips → Combine requests, use GraphQL or batched APIs.
+// -> Keep-Alive Connections → Reuse TCP connections instead of re-opening.
+// -> DNS Prefetching → Resolve domains in advance.
+
+// 🔐 Security Optimisations (Performance-related too)
+
+// -> Use HTTPS with HTTP/2 → Secure + faster transfer.
+// -> Content Security Policy (CSP) → Reduce unnecessary requests.
+
+// 📊 Performance Monitoring
+
+// -> Tools → Lighthouse, WebPageTest, GTMetrix, Chrome DevTools.
+// -> Real User Monitoring (RUM) → Track how real users experience your app.
+// -> Error Tracking → Use Sentry, LogRocket for monitoring.
+
+// 🧑‍💻 Developer Best Practices
+
+// -> Avoid memory leaks in JS (clean up event listeners, intervals).
+// -> Use debouncing & throttling on scroll, resize, input events.
+// -> Apply memoization & React hooks optimisations (React.memo, useMemo, useCallback).
+// -> Write clean, modular code → Easier to maintain and optimise later.
+
+// ✅ Shortcut to Remember:
+
+// ➖ F-B-N-S-M → Frontend, Backend, Network, Security, Monitoring
+// ➖ (Optimise in all 5 areas)
+
 // 🟡 /**** values and variables in JavaScript ****/
 
 // Variable is a name given to a storage area that our program can manipulate.
