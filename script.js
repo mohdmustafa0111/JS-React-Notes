@@ -2905,7 +2905,7 @@
 // const { brand, model, year } = car;
 // console.log(model);
 
-// 1️⃣ What is Object Literal?
+// 🔷 What is Object Literal ?
 
 // (This is only one way of writing object which is object literal, but there are two other way
 // as well to write object by using constructors and classes.)
@@ -2977,7 +2977,7 @@
 
 // console.log(bioData.myName.channelName );
 
-// ✅ CLASS
+// 🟡 CLASS
 
 // A class is a blueprint for creating objects with the same properties and methods.
 // It helps you avoid repeating code when making many similar objects.
@@ -2986,7 +2986,9 @@
 
 // There is a method named Contructor() which is automatically invoked by "new".
 
-// 🟡 Example:-
+// It defines how an object should look (its properties) and what it can do (its methods).
+
+// Example:-
 
 // Let’s say we want to create many students who all have a name and can introduce themselves.
 
@@ -3010,6 +3012,8 @@
 
 // 🔹Important Key Points:
 
+// -> The new keyword is used to create an object (instance) from a class.
+//    It tells JavaScript “Make a new copy of this class with its own data”
 // -> constructor() method is automatically called when you create an object using new.
 // -> this refers to the object being created.
 // -> You can define methods inside the class — no need to use the function keyword.
@@ -3020,6 +3024,77 @@
 // A constructor is a special method in a class that is automatically called
 // when a new object is created from that class.
 // -> It is used to initialize properties of the object.
+
+// ⚙️ What are Instance Methods ?
+
+// -> Instance methods are the regular methods of a class.
+// -> They belong to the objects (instances) created from the class.
+// -> To use them, you must create an instance of the class first.
+// -> Inside these methods, you can access instance properties using this.
+
+// Example: Instance Method 👇
+
+// class Student {
+//   constructor(naam) {
+//     this.kabootar = naam;
+//   }
+
+//   // Instance method
+//   introduce() {
+//     console.log(`Hello, my name is ${this.kabootar}`);
+//   }
+// }
+
+// const student1 = new Student("Mustafa");
+// student1.introduce(); // ✅ Output: Hello, my name is Mustafa
+
+// Here 👆
+
+// -> introduce() is an instance method.
+// -> You must first create an instance (student1) to call it.
+// -> It uses this.name → property of the instance.
+
+// ⚡ What are Static Methods?
+
+// -> Static methods belong to the class itself, not to its instances.
+// -> They are often used for utility/helper functions related to the class.
+// -> You call them directly on the class, not on objects.
+// -> They can’t access instance properties using this (because they’re not
+//    tied to any specific object).
+
+// Example: Static Method 👇
+
+// class Student {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   // Static method
+//   static schoolName() {
+//     console.log("ABC International School");
+//   }
+// }
+
+// Student.schoolName(); // ✅ Output: ABC International School
+
+// const student1 = new Student("Mustafa");
+// student1.schoolName(); ❌ Error: student1.schoolName is not a function
+
+// Here 👆
+
+// -> schoolName() is a static method.
+// -> It’s called using the class name → Student.schoolName().
+// -> It doesn’t depend on any particular student object.
+
+// ⚖️ Summary Table
+
+// Feature	                        Instance Method	                   Static Method
+
+// Belongs To	                      Object (instance)	                  Class itself
+// Called Using	                     object.method()	                 Class.method()
+// Access Instance Data	          ✅ Yes (this.property)	                  ❌ No
+// Typical Use	              Actions on individual objects	       Utility / helper functions
+// Example	                      student1.introduce()	              Student.schoolName()
 
 // 🟰 Key Points:-
 
@@ -3034,11 +3109,13 @@
 // -> You can create many objects with the same structure and behavior.
 // -> It makes object-oriented programming easier in JavaScript.
 
-// ✅ Constructor Function
+// 🟡 Constructor Function
 
-// A constructor function is a special kind of function used to create objects
-// with the same structure.
-// You use it when you want to create many similar objects (like many users, cars, etc.).
+// -> A constructor function is a special kind of function used to create objects
+//    with the same structure.
+// -> You use it when you want to create many similar objects (like many users, cars,etc).
+// -> Its main job is to set up (initialize) the new object’s data — like giving it
+//    its starting values.
 
 // 🔹 Syntax
 
@@ -3050,7 +3127,7 @@
 // -> this.name = name → assigns the value to the object being created.
 // -> Use new keyword to create the object.
 
-// ✅ Example
+// Example:
 
 // function Person(name, age) {
 //   this.name = name;
@@ -3072,7 +3149,7 @@
 // -> You use new to call it.
 // -> Inside, this refers to the new object being created.
 
-// ✅ Inheritance with Classes in JavaScript
+// 📌 Inheritance with Classes in JavaScript
 
 // -> Inheritance is a feature in JavaScript that allows one class to use the
 //    properties and methods of another class using the "extends" keyword.
@@ -3086,7 +3163,7 @@
 // -> The super keyword is used to call the constructor of its parent class to
 //    access parent's properties and methods.
 
-// 🟡 Example:-
+// Example:-
 
 // class Parent {
 //   constructor(name) {
@@ -3121,7 +3198,7 @@
 //    . Use parent class methods
 //    . Add its own methods
 
-// 🟡 One More Simple Example:-
+// One More Simple Example:-
 
 // // Parent class
 // class Animal {
