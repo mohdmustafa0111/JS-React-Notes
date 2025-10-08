@@ -5,21 +5,69 @@
 // It is a case sensitive language.
 // It was invented by Brenden Eich in 1995 and became an ECMA standard in 1997.
 
-// Ques: How does JavaScript execute code ? ❓
+// 🟡 How does JavaScript execute code ?
 
-// Ans: Let's break it down in simple and detailed steps:
+// Quick summary 👉 JavaScript code is read as text, turned into a structured representation
+// (AST), set up with scopes/hoisting, then executed by the engine (interpreter + JIT).
+// In the browser the runtime coordinates async work with the event loop (microtasks vs
+// macrotasks). Below are the main steps with short examples.
+
+// Let's break it down in simple steps:
+
+// 1️⃣ Loading → source as text
+
+// -> Browser (or Node) takes your .js file or script text.
+
+// 2️⃣ Lexical analysis (tokenization)
+
+// -> The engine breaks the text into tokens (identifiers, operators, literals).
+// -> Detects invalid characters early.
+
+// 3️⃣ Parsing → AST (Abstract Syntax Tree)
+
+// -> Tokens become an AST (structure of the program).
+// -> Syntax errors are reported here.
+
+// 4️⃣ Creation / Scope setup (often called “hoisting” phase)
+
+// -> For each execution context (global, function) the engine creates a
+//    Lexical Environment:
+// -> var declarations: hoisted and initialized to undefined.
+// -> function declarations: hoisted as callable functions.
+// -> let/const: declared but uninitialized → Temporal Dead Zone (TDZ) until evaluated.
+// -> Memory references (names) are bound to environment records.
+
+// 5️⃣ Compilation / Bytecode / JIT preparation
+
+// -> Engine transforms AST into bytecode or intermediate representation.
+// -> Modern engines (V8, SpiderMonkey) use JIT compilers to produce optimized
+//    machine code at runtime, based on observed types and patterns.
+
+// 🎯 In simple words:
+
+// -> JavaScript doesn’t run your code directly.
+// -> It first translates it (AST → Bytecode → Machine Code),
+// -> then optimizes it while running — making JS both flexible and fast ⚡.
+
+// 6️⃣ Execution phase (call stack & execution contexts)
+
+// -> The interpreter/JIT runs code:
+// -> A call stack holds execution frames (global → function calls).
+// -> Statements and expressions are executed synchronously in LIFO order.
+// -> Function calls push new frames; returns pop them.
 
 // 👉 1. JavaScript is Single-Threaded
 
 // - Everything in JavaScript happens inside an Execution Context.
-// - Javascript is synchronous single-threaded language meaning it execute one command at a time in
-//   a specific order (Single Threaded). That means it can only go to the next line once the current
-//   line has been finished executing (Synchronous).
+// - Javascript is synchronous single-threaded language meaning it execute one command
+//   at a time in a specific order (Single Threaded). That means it can only go to the
+//   next line once the current line has been finished executing (Synchronous).
 
 // 👉 2. How JavaScript Executes Code (Step-by-Step)
 
-// You can assume this execution context to be a big container in which whole Javascript code
-// is executed and it has two components inside it. (Variable Environment of Execution Context)
+// You can assume this execution context to be a big container in which whole Javascript
+// code is executed and it has two components inside it. (Variable Environment of
+// Execution Context)
 
 //  1. Memory component ( aka Memory Creation/Allocation Phase)
 //  2. Code component ( aka Code Execution Phase)
@@ -29,7 +77,7 @@
 // -> It allocates memory for variables and functions (this is where hoisting happens).
 // -> Functions are stored in memory, variables are set to undefined.
 
-// ➖ Code component is a place where whole JavaScript code is executed.
+// ➖ In code component is a place where whole JavaScript code is executed.
 //    the engine executes the code line by line.
 // -> Values are assigned.
 // -> Functions are invoked.
@@ -63,7 +111,7 @@
 
 // first();
 
-// What happens in the call stack:
+// What happens in the call stack: 👇
 
 // 1. The first() function is added to the stack and starts executing.
 // - Logs: "This is the first function."
@@ -110,32 +158,115 @@
 // It works in LIFO style. That is Last In First Out.
 // Call Stack maintains the order of execution of execution contexts.
 
-// 👉 4. What about Async Code? (setTimeout, fetch, etc.)
+// 7️⃣ Memory heap & garbage collection
 
-// JavaScript itself doesn't handle async — the browser/web APIs do.
+// -> Objects and closures are stored in the heap.
+// -> Garbage collector (e.g., mark-and-sweep) frees memory that is no longer reachable.
+
+// 8️⃣ Concurrency model — Web APIs, Event Loop, Task Queues (IMPORTANT)
+
+// -> JS is single-threaded for execution, but browsers provide Web APIs (timers,
+//    DOM events, fetch) that run outside the call stack.
+// -> When those APIs finish they queue callbacks into task queues. The event loop
+//    pulls tasks and runs them when the stack is empty.
+
+// Crucial Ordering: 👇
+
+// -> Microtasks (Promise .then, queueMicrotask) run immediately after the current
+//    call stack finishes and before the next macrotask.
+// -> Macrotasks (also just “tasks”: setTimeout, setInterval, I/O callbacks, UI events)
+//    run after microtasks and between rendering frames.
+
+// Example — microtask vs macrotask: 👇
+
+// console.log(`${1}`);
+
+// setTimeout(() => console.log(`${3}`), 0); // macrotask
+// Promise.resolve().then(() => console.log(`${2}`)); // microtask
+
+// ✔️ Output order: 1 → 2 → 3.
 
 // Here's how it works:-
 
+// - JavaScript itself doesn't handle async — the browser/web APIs do.
 // - Async function like setTimeout is sent to Web API.
 // - After delay, callback is moved to Callback Queue.
 // - Event Loop checks if the call stack is empty.
 // - If yes, it pushes the callback onto the call stack, and it runs.
 
-// Visual Summary:-
-
-// Call Stack        Web APIs       Callback Queue
-// ----------        --------       ----------------
-//    |                 |                  |
-//    |-- setTimeout -->|                  |
-//    |                 |--(after delay)-> |-- callback -->
-//    |                 |                  |              |
-//    |<-- Event Loop checks -------------<---------------|
-
 // 👉 Final Takeaway
 
-// - JavaScript uses a Call Stack to manage function execution in a synchronous manner.
-// - For asynchronous operations, it relies on Web APIs, Callback Queue, and
-//   the Event Loop to handle them without blocking the stack.
+// -> JavaScript uses a Call Stack to manage function execution in a synchronous manner.
+// -> For asynchronous operations, it relies on Web APIs, Callback Queue, and
+//    the Event Loop to handle them without blocking the stack.
+
+// 9️⃣ Optimizations & de-optimizations (runtime tuning)
+
+// -> JIT collects type info and optimizes hot functions.
+// -> If assumptions fail, engine may deoptimize and recompile.
+
+// 🔟 Browser rendering & paint interaction
+
+// -> Long JS tasks block rendering (frames).
+// -> requestAnimationFrame callbacks run before the browser repaints.
+// -> Best practice: keep JS tasks short to avoid jank.
+
+// 🔷 Tiny cheat-sheet (terms)
+
+// -> AST: structured tree of code.
+// -> Lexical Environment: scope + variable bindings.
+// -> Call stack: where functions run.
+// -> Heap: object memory.
+// -> Event loop: scheduler for async callbacks.
+// -> Microtask queue: promises, queueMicrotask — higher priority.
+// -> Macrotask queue: setTimeout, UI events — lower priority.
+// -> TDZ: let/const are unusable before initialization.
+// -> JIT: runtime compiler that optimizes hot code.
+
+// ⚡ JavaScript Code Execution Flow
+
+//    Source Code (script.js)
+//               |
+//               v
+//      1. Lexical Analysis (tokenization)
+//               |
+//               v
+//      2. Parsing → AST (Abstract Syntax Tree)
+//               |
+//               v
+//      3. Creation Phase (Scopes & Hoisting)
+//          - var → hoisted as undefined
+//          - function → hoisted with definition
+//          - let/const → TDZ (not initialized yet)
+//               |
+//               v
+//      4. Compilation → Bytecode
+//          - JIT optimization ready
+//               |
+//               v
+//      5. Execution Phase
+//          - Call Stack (sync code runs here)
+//          - Memory Heap (objects, closures)
+//               |
+//               v
+//      6. Web APIs (async work: setTimeout, fetch, DOM events)
+//               |
+//               v
+//      7. Task Queues
+//          - Microtask Queue (Promises, queueMicrotask) [HIGH priority]
+//          - Macrotask Queue (setTimeout, setInterval, I/O) [LOW priority]
+//               |
+//               v
+//      8. Event Loop
+//          - Picks microtasks first
+//          - Then macrotasks
+//          - Coordinates with Rendering
+//               |
+//               v
+//      9. Browser Render / Repaint
+
+// 👉 This diagram shows the pipeline:
+// Code→Parsing→Scope Setup →Execution→Async tasks handled by Event Loop→Final Rendering.
 
 // 🟡 HEAP & STACK
 
