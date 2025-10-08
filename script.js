@@ -753,37 +753,49 @@
 // They are all hoisted to the top of their scope. But while var variables are initialized
 // with undefined, let and const variables are not initialized.
 
-// Ques: What is Temporal Dead Zone ?
+// 🟡 What is Temporal Dead Zone ?
 
-// The Temporal Dead Zone (TDZ) is the time between when a variable is hoisted
-// and when it is actually declared and initialized in the code.
+// The Temporal Dead Zone (TDZ) is the time between when a variable is declared and
+// when it is initialized, during which the variable cannot be accessed.
 
-// During this time:
+// 📅 In simple words:
 
-// -> The variable exists (because of hoisting),
-// -> But you can’t use it — trying to do so will throw an error.
+// If you try to use a variable before it’s initialized, JavaScript throws a ReferenceError,
+// even though it’s declared using let or const.
 
 // 🔍 Example:
 
-// console.log(x); // ❌ Error: Cannot access 'x' before initialization
-// let x = 5;
+// console.log(a); // ❌ ReferenceError
+// let a = 10;
 
-// -> The line let x = 5; is hoisted to the top.
-// -> But JavaScript puts x in the TDZ until it reaches the actual line let x = 5;
-// -> So trying to access it before that line gives an error.
+// 🔹 Here’s what happens:
 
-// ✔️ Works fine after initialization:
+// -> The variable a is declared when the code starts running (🔸hoisted).
+// -> But it’s not initialized yet — it’s in the Temporal Dead Zone.
+// -> You try to access it before it’s initialized → 💥 Error!
 
-// let x = 5;
-// console.log(x); // ✅ Output: 5
+// ✅ After Initialization:
 
-// No TDZ here👆, because you’re using x after it's declared.
+// let a = 10;
+// console.log(a); // ✅ 10
 
-// 💡 Applies to:-
+// 👉 Now a is initialized, so you can safely use it.
+
+// 🕒 Why “Temporal”?
+
+// -> Because the “dead zone” exists for a temporary time —
+// -> from the start of the block to the line where the variable gets initialized.
+
+// 📍 TDZ applies to:
 
 // -> let
 // -> const
-// -> NOT var (because var gets undefined instead of an error)
+// -> Not to var (because var is initialized as undefined during hoisting)
+
+// 🧩 Quick Visual:
+
+// |----------- TDZ -----------|  initialized
+// let x;  ❌ cannot use yet      ✅ can use now
 
 // Que: SyntaxError VS ReferenceError VS TypeError ??
 
