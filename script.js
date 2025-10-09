@@ -298,21 +298,39 @@
 // an environment to run javascript properly. Javascript engine has two parts,
 // Heap and Call Stack. And the engine has some assistant named Web APIs and Callback Queue.
 
-// Think of your computer's memory like a big toolbox.
-// JavaScript uses two main sections of this toolbox:
+// 🧠 In JavaScript, memory is divided into two main parts:
 
-// ➖ STACK
+// -> Heap
+// -> Stack
 
-// - Stores: Primitive values (like number, string, boolean, etc.)
-// - Fast access and small in size
-// - Follows Last In, First Out (LIFO) – like a stack of plates
+// 🧩 1. Stack (Call Stack)
 
-// ➖ HEAPS or Memory Heap
+// A place where JavaScript keeps track of function calls and local variables.
 
-// - Stores: Non-primitive values (like objects, arrays, functions)
-// - Slower access, but more flexible and holds more data
-// - JavaScript stores a reference (address) to the object in the stack,
-//   but the actual object goes in the heap
+// 📍 How it works:
+
+// -> Stack follows LIFO (Last In, First Out).
+// -> Each time you call a function, it’s pushed onto the stack.
+// -> When the function finishes, it’s popped off.
+
+// 📍 Stores:
+
+// -> Primitive values (like number, string, boolean, etc.)
+// -> Function calls and execution context
+
+// 🗃️ 2. Heap
+
+// A large, unstructured memory area used to store objects and reference types.
+
+// 📍 Stores:
+
+// -> Non-Primitive Values (like Object, Array, Functions (as objects))
+// -> Stored in the heap, but their reference (address) is stored in the stack.
+
+// 💡 Tip:
+
+// -> Stack → small & fast
+// -> Heap → big & flexible
 
 // 🟡 Garbage Collector
 
