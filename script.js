@@ -316,12 +316,26 @@
 
 // 🟡 Garbage Collector
 
-// It basically tries to free up memory space whenever possible.
-// OR
-// Garbage collector is a program in Javascript Engine which freeze-up the unutilized memory.
-// OR
-// Whenever there is some unused variables , it just takes out/freeze-up of memory whenever it finds
-// out that these variables no longer needed.
+// The Garbage Collector in JavaScript is a built-in automatic memory management system
+// that frees up memory by removing data (objects, variables, etc.) that are no longer
+// needed or reachable in your program.
+
+// 🧠 How it works (in simple words)
+
+// -> When you create variables or objects → JavaScript allocates memory to store them.
+// -> The Garbage Collector keeps checking which values are still reachable or still in use.
+// -> If something becomes unreachable (no variable points to it anymore),
+// -> It is automatically deleted from memory.
+
+// ⚠️ Note
+
+// -> You don’t manually manage memory in JavaScript (unlike C/C++).
+// -> The Garbage Collector handles it for you automatically.
+
+// 🪄 In short:
+
+// Garbage Collector => Memory cleaner that automatically removes unused objects
+// from memory to keep your app efficient.
 
 // 🟡 WEB APIs
 
@@ -3937,13 +3951,6 @@
 
 // -> This is a function expression stored in a const.
 // -> const is hoisted but not initialized — so you get an error.
-
-// Que: What is Garbage Collector in Javascript ?
-
-// Ans: Garbage collector is a program in Javascript Engine which freeze-up the
-// unutilized memory. Whenever there is some unused variables, Garbage Collector just
-// takes out/freeze-up of memory whenever it finds out that these variables no longer needed.
-// It basically tries to free up memory space whenever possible.
 
 // 🟡 SCOPE CHAIN
 
