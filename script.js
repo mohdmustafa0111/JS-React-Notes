@@ -360,17 +360,32 @@
 // Garbage Collector => Memory cleaner that automatically removes unused objects
 // from memory to keep your app efficient.
 
-// 🟡 WEB APIs
+// 🟡 Commonly Used Web APIs — Summary Chart
 
-// - setTimeout
-// - DOM API's
-// - fetch()
-// - local storage
-// - console
-// - location
+// 🧩 Category	                                  ⚙️ API Name(s)
+
+// DOM API	                     Document, Element, Node, document.querySelector()
+// CSSOM API	                CSSStyleSheet, CSSRule, insertRule(), deleteRule()
+// Timers API	              setTimeout(), setInterval(), clearTimeout(), clearInterval()
+// Fetch / XHR API	                          fetch(), XMLHttpRequest
+// Storage APIs	                   localStorage, sessionStorage, IndexedDB, Cookies
+// Location & History API	                  window.location, history
+// Geolocation API	                           navigator.geolocation
+// Media & Device APIs	          MediaDevices.getUserMedia(), MediaRecorder, Battery API
+// Notification API	                                 Notification
+// Clipboard API	                              navigator.clipboard
+// Web Workers API	                                     Worker
+// Canvas & WebGL APIs	                               Canvas, WebGL
+// Audio & Video APIs	                    HTMLMediaElement, Web Audio API
+// Drag and Drop API	                        DragEvent, DataTransfer
+// Intersection Observer API	                  IntersectionObserver
+// WebSocket API	                                     WebSocket
+// Web Speech API	                         SpeechSynthesis, SpeechRecognition
+// Payment Request API	                               PaymentRequest
+// Credential & Auth APIs	                 navigator.credentials, WebAuthn
 
 // 👆 These are not the part of Javascript.
-// So All these are WEB APIs above which the browser have it.
+// So all these are WEB APIs above which the browser have it.
 // Browser gives access to javascript engine to use all these web APIs.
 
 // ASYNCHRONOUS JAVASCRIPT 👇
