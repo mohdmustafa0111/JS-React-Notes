@@ -430,22 +430,24 @@
 // wait for slow tasks. It achieves this using callbacks, promises, async/await, and
 // the browser’s Web APIs, all coordinated by the event loop.
 
-// 🟡 JAVASCRIPT RUNTIME ENVIRONMENT
+// 🟡 JavaScript Runtime Environment (JRE)
 
-// JRE is like a big container which has all the things required to run JavaScript code.
+// The JavaScript Runtime Environment (JRE) is the environment where JavaScript code
+// is executed. It provides everything JavaScript needs to run — such as:
 
-// These things can be :-
-// - JS Engine
-// - Set of API's to connect to the outer environment
-// - Event Loop
-// - callback queue
-// - Microtask queue
-// etc
+// -> The JavaScript Engine (to interpret and execute code),
+// -> APIs (like setTimeout, fetch, console.log, etc.),
+// -> Callback Queue and Event Loop (to handle asynchronous tasks).
 
-// Every browser has a Javascript Runtime Environment
-// Node JS has also JRE. Node JS is open source Javascript runtime that means it has everything
-// which is required to run javascript piece of code. Node JS can run the JS code outside the
-// browser by installing it in PC.
+// 🧩 In short:
+
+// JavaScript Runtime Environment = JavaScript Engine + Extra features provided by
+//                                  host (browser or Node.js)
+
+// ➖ Every browser has a Javascript Runtime Environment.
+// ➖ Node JS has also JRE. Node JS is open source Javascript runtime that means it has
+//    everything which is required to run javascript code. Node JS can run the
+//    JavaScript code outside the browser by installing it in PC.
 
 // 🟡 How a browser renders a web page?
 
