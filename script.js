@@ -109,13 +109,18 @@
 
 // 👉 3. CALL STACK
 
-// The Call Stack is a data structure that keeps track of function calls.
-// It operates on a Last-In-First-Out (LIFO) principle, meaning the last function called is
-// the first one to be removed from the stack.
+// -> The Call Stack is a data structure that keeps track of function calls.
+// -> It’s like a manager that keeps track of “which function is currently running” and
+//    “which one to go back to” once it finishes.
+// -> It operates on a Last-In-First-Out (LIFO) principle, meaning the last function called
+//    is the first one to be removed from the stack.
 
-// - When a function is invoked, it is pushed onto the top of the stack.
-// - When a function returns, it is popped off the stack.
-// - The engine runs whatever is on top of the stack.
+// ⚙️ The Actual Job of the Call Stack
+
+// -> Keep track of function calls in the order they need to be executed.
+// -> When a function is invoked, it is pushed onto the top of the stack.
+// -> When a function is finished executing, it is popped off the stack.
+// -> The engine runs whatever is on top of the stack.
 
 // Example 1:-
 
