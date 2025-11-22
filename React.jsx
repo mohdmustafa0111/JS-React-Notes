@@ -202,3 +202,111 @@
 
 // -> Wrong way (may use outdated value):- setCount(count + 1);
 // -> Correct way (functional update):- setCount(prev => prev + 1);
+
+// 🔴 useEffect Hook
+
+// ⚛️ What is useEffect and when does it run?
+
+// useEffect is a React Hook that lets us run side effects in function components.
+// Side effects are things that happen outside the normal UI rendering flow.
+
+// Examples of side effects:
+
+// -> Fetching data from an API
+// -> Setting up event listeners (scroll, resize, etc.)
+// -> Working with setTimeout / setInterval
+// -> Subscribing to WebSocket, Firebase, etc.
+// -> Updating document.title
+
+// When does it run?
+
+// -> useEffect runs after the component renders (after the UI is painted), not during rendering.
+
+// Why not during render?
+
+// -> Because useEffect is meant for side-effects (API calls, event listeners, timers,
+//    subscriptions) which should not block rendering.
+
+// Cases When It Runs:
+
+// Code	                              When It Runs?
+
+// useEffect(() => {})	              (No dependency array) After every render
+// useEffect(() => {}, [])	          (Empty array) Only once after first render
+// useEffect(() => {}, [value])	      After first render and when dependency changes
+
+// ⚛️ Difference between useEffect(() => {}, []) and useEffect(() => {})?
+
+// useEffect(() => {}, []) -> Runs once
+
+// -> This has an empty dependency array [].
+// -> It runs only once after the first render (on mount).
+
+// useEffect(() => {}) → Runs after every render
+
+// -> No dependency array means: React will run this effect after every render.
+// -> This can easily cause performance issues or even infinite loops if we update
+//    state inside it.
+
+// ⚛️ What is the cleanup function in useEffect?
+
+// -> Cleanup function = a function returned from inside useEffect.
+// -> It is used to clean or undo whatever the effect did.
+
+// Example:
+
+// useEffect(() => {
+//   const id = setInterval(() => {
+//     console.log("tick");
+//   }, 1000);
+
+//   // Cleanup function
+//   return () => {
+//     clearInterval(id); // stop the interval
+//   };
+// }, []);
+
+// Use cleanup for:
+
+// -> Clearing intervals / timeouts
+// -> Removing event listeners
+// -> Unsubscribing from APIs / WebSocket / Firebase
+// -> Canceling ongoing requests (with AbortController, etc.)
+
+// ⚛️ Why does React warn about missing dependencies in useEffect?
+
+// You see warnings like:
+
+// React Hook useEffect has a missing dependency: 'value'. Either include it or remove
+// the dependency array.
+
+// -> React warns about missing dependencies because useEffect depends on the values you
+//    use inside it.
+// -> If you read a variable/state/prop inside the effect but don’t include it in the
+//    dependency array, React thinks:
+// -> "You are using something that can change, but I don't know when to re-run this effect!"
+
+// What problem does it prevent?
+
+// -> Stale / outdated values
+// -> Effects running with old state/props
+// -> Hard-to-debug bugs & inconsistent UI
+// -> Missed re-renders when values change
+
+// ⚛️ Infinite re-render issue in useEffect — why does it happen?
+
+// Infinite re-render = component keeps rendering again and again.
+
+// This usually happens when:
+
+// -> The useEffect updates state
+// -> That state is part of the effect’s dependencies or effect has no dependency array.
+
+// Effect runs → updates state → state change triggers re-render → effect runs again → & so on…
+
+// How to avoid infinite re-renders?
+
+// -> Add a proper dependency array and conditional logic:
+// -> Only call setState when needed (not on every render)
+// -> Use the functional update form only when it makes logical sense
+// -> Sometimes use [] if the effect should run only once
