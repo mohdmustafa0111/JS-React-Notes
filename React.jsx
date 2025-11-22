@@ -170,3 +170,35 @@
 
 // Bad example: state.count = 5;
 // Correct example: setCount(5);
+
+// 🔴 useState Hook
+
+// ⚛️ What is useState and how does it work?
+
+// useState is a React Hook that lets functional components store and manage state.
+// (data that changes over time).
+
+// How it works:
+
+// -> You call useState(initialValue)
+// -> It returns → an array with [stateValue, setStateFunction]
+// -> React stores this value internally and re-renders the component whenever setState is called
+
+// const [count, setCount] = useState(0);
+
+// Explanation:
+
+// - count → holds current value
+// - setCount → updates value and triggers re-render
+
+// ⚛️ Why does React not update state immediately?
+
+// -> Because state updates are asynchronous.
+// -> React groups multiple state updates into one re-render.
+// -> Updates go to a queue, not applied instantly.
+// -> This avoids unnecessary UI updates and improves speed.
+
+// ⚛️ How to update state based on previous state?
+
+// -> Wrong way (may use outdated value):- setCount(count + 1);
+// -> Correct way (functional update):- setCount(prev => prev + 1);
