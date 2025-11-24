@@ -310,3 +310,88 @@
 // -> Only call setState when needed (not on every render)
 // -> Use the functional update form only when it makes logical sense
 // -> Sometimes use [] if the effect should run only once
+
+// 🔴 useMemo & useCallback (Optimization Hooks)
+
+// useMemo and useCallback are React Hooks used for performance optimization through
+// memoization. They prevent unnecessary re-renders and re-computations by caching
+// values and functions.
+
+// ⚛️ Difference between useMemo and useCallback?
+
+// 🔹useMemo:-
+
+// useMemo memorizes (caches) the result of a function so React doesn’t re-calculate it
+// on every render.
+
+// When it is used? Use useMemo when:
+
+// -> You have heavy calculations ⏱
+// -> You want to avoid recalculating values unnecessarily
+// -> You want to prevent child re-renders when passing expensive values
+
+// Keywords:
+
+// Caches = Caching means React saves (stores) the previous result so it can reuse it
+//          instead of calculating it again.
+
+// heavy calculations = code that takes noticeable time to run, these are operations that
+//                      use a lot of CPU or process a lot of data.
+
+// Example:
+
+// const expensiveValue = useMemo(() => {
+//   return slowCalculation(count);
+// }, [count]);
+
+// Think of it like:
+// -> "If the dependencies didn't change, return the old result."
+
+// 🔹useCallback:-
+
+// useCallback memorizes (caches) a function so React doesn’t recreate that function
+// on every render.
+
+// When it is used? Use useCallback when:
+
+// -> You pass a function to a child component
+// -> And that child is wrapped with React.memo()
+// -> You want to prevent the child from re-rendering unnecessarily
+
+// Example:
+
+// const handleClick = useCallback(() => {
+//   setCount(c => c + 1);
+// }, []);
+
+// Think of it like:
+// -> “Return the same function unless dependencies change.”
+
+// 🔹useMemo vs useCallback — Comparison Table
+
+// Feature	                            useMemo	                         useCallback
+
+// What it caches?	                 Value / Result	                       Function
+
+// Used for?	                  Expensive calculations	 Stable functions (avoid re-creation)
+
+// Returns?	                       The calculated value	          The same function reference
+
+// Prevents?	                Unnecessary recalculations	    Unnecessary child re-renders when
+//                                                                      passing functions
+
+// Works well with?	            Heavy logic, large arrays, 	       React.memo() child components
+//                                  filtering, sorting
+
+// Dependency array?	        Recalculates value only if           Recreates function only if
+//                                 dependencies change                   dependencies change
+
+// Example output	      number, object, array, computed result	A memoized function like ()=>{..}
+
+// When NOT to use?	          For small/cheap calculations	         When child isn’t memoized or
+//                                                                    function isn’t passed down
+
+// Common mistake	        Using it everywhere → unnecessary 	    Thinking it improves performance
+//                                      overhead                                on its own
+
+// Easy way to remember	        Memo = Memory of a value	         Callback = Memory of a function
