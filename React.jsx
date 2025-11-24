@@ -395,3 +395,132 @@
 //                                      overhead                                on its own
 
 // Easy way to remember	        Memo = Memory of a value	         Callback = Memory of a function
+
+// ⚛️ When should you NOT use useMemo and useCallback?
+
+// Important point: These hooks themselves have a cost (extra memory + extra comparison).
+// So using them everywhere can hurt performance instead of helping.
+
+// -> The calculation is cheap/simple
+//    Example: a + b, string concatenation, small arrays – no need for useMemo.
+
+// -> The component doesn’t re-render very often
+//    Optimization is pointless if the component already rarely re-renders.
+
+// -> The function is not passed to child components
+//    If the function is only used inside the component, useCallback usually doesn’t
+//    give a real benefit.
+
+// -> You are using them “just in case”
+//    Premature optimization makes the code more complex.
+
+// use useMemo and useCallback only when there is a proven or very likely performance issue,
+// not by default. Overusing them can actually reduce performance and code readability.
+
+// ⚛️ What is memoization in React?
+
+// Memoization is an optimization technique where the result of a function is
+// stored (cached), and when the same inputs occur again, the stored result is
+// returned instead of recomputing the function.
+
+// In simple words:
+
+// React remembers the previous value or function so it doesn’t recalculate or
+// recreate it again.
+
+// 🔹In React, memoization helps with:
+
+// -> Avoiding expensive calculations on every render             → useMemo
+// -> Avoiding creating new function references on every render   → useCallback
+// -> Avoiding unnecessary re-renders of components               → React.memo
+
+// 🔹Memoization in React happens through:
+
+// -> useMemo      →    memoizes (stores) a value
+// -> useCallback  →    memoizes (stores) a function
+// -> React.memo   →    memoizes (stores) a component’s rendered output
+
+// ⚛️ How does React.memo() work?
+
+// React.memo is a higher-order component that wraps a functional component and stops it
+// from re-rendering if its props have not changed (based on a shallow comparison).
+
+// Think of it like this: React.memo tells React:
+
+// “If the props are the same as last time, don’t re-render this component.
+// Just reuse the previous output.”
+
+// Example:
+
+// -> Without React.memo — always re-renders
+
+// function Child({ count }) {
+//   console.log("Child rendered");
+//   return <div>{count}</div>;
+// }
+
+// -> With React.memo — re-renders only when count changes
+
+// const Child = React.memo(function Child({ count }) {
+//   console.log("Child rendered");
+//   return <div>{count}</div>;
+// });
+
+// ⚛️ Real interview scenario: Why is my component re-rendering even after using memo()?
+
+// -> This is a very common interview question.
+// -> Even if we wrap a component with React.memo,
+//    it can still re-render for several reasons:
+
+// 🔹1. Props are new references every time (objects/arrays/functions)
+
+// Example:
+
+// <Child data={{ a: 1 }} />
+// <Child items={[1, 2, 3]} />
+// <Child onClick={() => setCount(c + 1)} />
+
+// -> Here, on every render, new object/array/function references are created.
+// -> React.memo does a shallow comparison, so:
+//    - { a: 1 } !== { a: 1 }
+//    - [] !== []
+//    - () => {} !== () => {}
+// -> So React thinks: “Props changed → re-render”.
+
+// ✅ Fix: Memoize values and functions:
+
+// const data = useMemo(() => ({ a: 1 }), []);
+// const items = useMemo(() => [1, 2, 3], []);
+// const handleClick = useCallback(() => setCount(c => c + 1), []);
+
+// <Child data={data} items={items} onClick={handleClick} />
+
+// 🔹2. Parent component keeps changing props
+
+// If the parent state or props change, and that causes real change in child props,
+// React.memo won’t stop re-render.
+
+// Example: passing count, user, etc. that update frequently.
+
+// ✅ Fix:
+
+// -> Ensure only necessary props are passed.
+// -> Split large components into smaller memoized components.
+
+// 🔹3. Component uses Context or Redux/ Zustand / etc.
+
+// -> If the memoized component calls useContext(SomeContext):
+// -> Whenever the context value changes, the component will re-render,
+//    even if wrapped in React.memo.
+
+// ✅ Fix:
+
+// -> Reduce how much is stored in context.
+// -> Split context into smaller contexts.
+// -> Or move heavy components outside of frequently changing context.
+
+// 🔹4. Changing key prop
+
+// -> If the component is rendered in a list and the key changes,
+//    React will unmount + remount it.
+// -> In that case, React.memo cannot help.
