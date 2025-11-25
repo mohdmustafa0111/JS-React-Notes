@@ -487,7 +487,7 @@
 //    - () => {} !== () => {}
 // -> So React thinks: “Props changed → re-render”.
 
-// ✅ Fix: Memoize values and functions:
+// ✔ Fix: Memoize values and functions:
 
 // const data = useMemo(() => ({ a: 1 }), []);
 // const items = useMemo(() => [1, 2, 3], []);
@@ -502,7 +502,7 @@
 
 // Example: passing count, user, etc. that update frequently.
 
-// ✅ Fix:
+// ✔ Fix:
 
 // -> Ensure only necessary props are passed.
 // -> Split large components into smaller memoized components.
@@ -513,7 +513,7 @@
 // -> Whenever the context value changes, the component will re-render,
 //    even if wrapped in React.memo.
 
-// ✅ Fix:
+// ✔ Fix:
 
 // -> Reduce how much is stored in context.
 // -> Split context into smaller contexts.
@@ -524,3 +524,151 @@
 // -> If the component is rendered in a list and the key changes,
 //    React will unmount + remount it.
 // -> In that case, React.memo cannot help.
+
+// 🔴 React.memo
+
+// ⚛️ What does React.memo do?
+
+// React.memo is a performance optimization tool for functional components.
+
+// -> React.memo() wraps a component and prevents unnecessary re-renders.
+// -> It only re-renders when props actually change
+//    (by comparing previous props vs next props).
+// -> Think of it as: “Don’t re-render me unless my props have changed.”
+
+// In short:
+
+// -> Memoized component ➝ skips re-render
+// -> Works like PureComponent for functional components
+// -> Uses shallow comparison of props
+
+// ⚛️ When does memo fail to optimize? (Very important)
+
+// -> React.memo fails when props look the same BUT their reference changes.
+
+// ❌ Cases where optimization fails
+
+// 🔹1. Passing objects
+
+// <Component data={{ name: `Mustafa` }} />
+
+// -> Every render creates a new object, so memo thinks props changed.
+
+// ✔ Fix:
+
+// const data = useMemo(() => ({ name: `Mustafa` }), []);
+// return <Component data={data} />;
+
+// Why this works?
+// -> useMemo stores the object once.
+// -> On re-renders, React reuses the same object reference.
+// -> Now React.memo can compare old vs new props correctly.
+// -> As long as the dependency array doesn’t change → no re-render.
+
+// 🔹2. Passing arrays
+
+// <Component list={[1, 2, 3]} />
+
+// -> New array → memo sees it as changed.
+
+// ✔ Fix:
+
+// const list = useMemo(() => [1, 2, 3], []);
+// <Component list={list} />
+
+// 🔹3. Passing functions (most common)
+
+// <Component onClick={() => handleClick()} />
+
+// -> Functions also create new references → memo re-renders.
+
+// ✔ Fix:
+
+// const onClick = useCallback(() => handleClick(), []);
+// <Component onClick={onClick} />;
+
+// 🔹 Summary Table
+
+// Problem (new reference)	               Why memo fails	                       Fix
+
+// Objects {}	                        New object every render	         useMemo(() => obj, [])
+
+// Arrays []	                        New array every render	         useMemo(() => arr, [])
+
+// Functions () => {}	                New function each render	       useCallback(fn, [])
+
+// 🔹4. Parent re-renders too frequently
+
+// -> Even if props don’t change, expensive parent renders can still indirectly cause
+//    child renders unless memoized well.
+
+// 🔹5. Heavy comparison cost
+
+// -> If props are big objects, comparing them is expensive → memo can slow down performance
+//    instead of improving it.
+
+// ⚛️ Shallow comparison vs Deep comparison?
+
+// 🔹Shallow Comparison (React.memo uses this)
+
+// -> React.memo only does shallow comparison of props.
+
+// What is shallow comparison?
+
+// -> It checks only the reference, not the internal values.
+// -> Compares top-level properties only, not nested ones.
+// -> It’s fast but not always accurate for complex objects.
+
+// Example:
+
+// prevProps.obj === nextProps.obj
+
+// This checks reference, not the content.
+
+// Result:
+
+// -> If the reference is the same, React.memo skips re-render.
+// -> If the reference changes, React.memo re-renders (even if values inside are same).
+
+// Shallow comparison is good for:
+
+// -> Primitive values → number, string, boolean
+// -> Stable reference objects using → useCallback, useMemo, memoized objects
+
+// 🔹Deep Comparison
+
+// -> Deep compare checks every nested value inside objects.
+// -> But React.memo does NOT perform deep comparison because it’s expensive.
+
+// What is deep comparison?
+
+// -> It checks every nested value inside an object/array.
+// -> It compares the actual contents, not just reference.
+// -> It walks through the entire object recursively.
+
+// Example:
+
+// prev = { a: 1, b: { c: 10 } }
+// next = { a: 1, b: { c: 10 } }
+
+// Why React.memo avoids deep comparison?
+
+// -> Deep comparison is slow.
+// -> It causes performance issues in large apps.
+// -> It costs more time than simply re-rendering the component.
+
+// 🔹Shallow vs Deep Comparison (Quick Comparison Table)
+
+// Feature	                       Shallow Comparison	               Deep Comparison
+
+// Depth	                       Only first level	                   All nested levels
+
+// Compare	                           Reference	                    Actual values
+
+// Speed	                              Fast 	                             Slow
+
+// Used by	                    React.memo, PureComponent	        Custom compare functions
+
+// Works well for	            Primitives, memoized refs	      Complex deeply nested objects
+
+// React default	                       Yes	                               No
