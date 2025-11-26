@@ -672,3 +672,67 @@
 // Works well for	            Primitives, memoized refs	      Complex deeply nested objects
 
 // React default	                       Yes	                               No
+
+// 🔴 Custom Hooks
+
+// ⚛️ What is a custom hook? Why do we create one?
+
+// -> A custom hook is just a normal JavaScript function whose name starts with use and
+//    it reuses some React logic.
+// -> When two components need the same logic, we don’t want to copy-paste it.
+// -> So we create a function → extract that logic → and reuse it anywhere.
+// -> Think of it like a reusable piece of code that contains state, effects, or any React
+//    logic you want to share across multiple components.
+
+// Example Use Cases:
+
+// Fetching API data        →   useFetch
+// Handling form input      →   useForm
+// Managing localStorage    →   useLocalStorage
+// Window size listener     →   useWindowSize
+
+// Why do we create a custom hook?
+
+// -> To reuse logic (like fetching data)
+// -> To reduce code duplication
+// -> To keep components clean and small
+// -> To improve readability
+// -> To separate UI from logic
+
+// ⚛️ What are the Rules of Hooks?
+
+// 🔹Rule 1. Only call hooks at the top level
+
+// Don’t call hooks inside:
+// -> loops
+// -> conditions
+// -> nested functions
+// Always call them at the top of the component.
+
+// 🔹Rule 2. Only call hooks inside React functions
+
+// You can call hooks inside:
+// -> Functional components
+// -> Custom hooks
+
+// You cannot call hooks inside:
+// -> Normal JS functions
+// -> Class components
+// -> Event handlers
+
+// ⚛️ Why must hooks begin with the word “use”?
+
+// Hooks must start with use because React uses this naming convention to identify it
+// as a hook and apply the Rules of Hooks automatically.
+
+// 🔹When React sees a function starting with useSomething(), it knows:
+
+// -> This function uses hooks inside
+// -> It must enforce hook rules
+// -> It should track state and effects inside this function
+
+// 🔹If a hook does NOT start with use:
+
+// -> React will NOT treat it like a hook
+// -> The Rules of Hooks will NOT be applied
+// -> You’ll get unpredictable behavior
