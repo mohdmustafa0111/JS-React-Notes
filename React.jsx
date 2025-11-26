@@ -736,3 +736,77 @@
 // -> React will NOT treat it like a hook
 // -> The Rules of Hooks will NOT be applied
 // -> You’ll get unpredictable behavior
+
+// 🔴 Conditional Rendering
+
+// Conditional rendering means:
+// -> Show something in the UI only when a condition is true.
+// -> Just like if-else in JavaScript but used inside JSX.
+// -> React gives us different ways to do it.
+
+// 🔹1. Ternary Operator (Most common)
+
+// condition ? <ComponentA /> : <ComponentB />
+
+// When to use:
+
+// -> When you want to show one thing OR another.
+// -> Best for if-else situations.
+
+// Example:
+
+// isLoggedIn ? <Dashboard /> : <Login />
+
+// 🔹2. Logical AND (&&) Operator
+
+// condition && <Component />
+
+// When to use:
+
+// -> When you want to show something only if the condition is true.
+// -> No else case.
+
+// Example:
+
+// cart.length > 0 && <CartItems />
+
+// 🔹3. Early Return (Very clean and readable)
+
+// Instead of writing nested conditions in JSX,
+// you check the condition at the top and return early.
+
+// Example:
+
+// if (!user) {
+//   return <Login />;
+// }
+// return <Dashboard />;
+
+// Why used?
+
+// -> Avoids deeply nested JSX
+// -> Makes component easy to read & maintain
+
+// 🔹4. Separate Rendering Functions (Cleanest pattern)
+
+// -> You move conditional logic into separate functions.
+
+// Example:
+
+// function renderContent() {
+//   if (isLoading) return <Loading />
+//   if (error) return <Error />
+//   return <Data />
+// }
+
+// return (
+//   <div>
+//     {renderContent()}
+//   </div>
+// )
+
+// Why used?
+
+// -> Improves readability
+// -> Keeps JSX small and clean
+// -> Useful when logic is complex
