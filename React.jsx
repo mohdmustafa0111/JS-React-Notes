@@ -810,3 +810,21 @@
 // -> Improves readability
 // -> Keeps JSX small and clean
 // -> Useful when logic is complex
+
+// 🔴 Lists & Keys
+
+// ⚛️ Why are keys required?
+
+// -> A key is a unique identifier for each element in a list.
+// -> Keys help React identify which items in a list have changed, added, or removed.
+// -> React uses keys during reconciliation to compare old vs new UI.
+// -> Helps React update only the changed items instead of re-rendering the entire list.
+// -> Without keys, React may update wrong elements, causing bugs in UI.
+
+// ⚛️ Why using index as key is a bad idea?
+
+// -> Using array index as key can cause wrong UI updates when the list changes.
+// -> Index changes when order changes → keys become unstable.
+// -> Leads to incorrect re-renders.
+// -> Items may maintain wrong state.
+// -> Causes performance issues and UI bugs.
