@@ -828,3 +828,88 @@
 // -> Leads to incorrect re-renders.
 // -> Items may maintain wrong state.
 // -> Causes performance issues and UI bugs.
+
+// 🔴 API Calls
+
+// ⚛️ Where do you make API calls in React and why?
+
+// We make API calls inside useEffect because it runs after the component renders and
+// prevents unnecessary repeated API requests.
+
+// Why?
+
+// -> React renders UI first.
+// -> After rendering, React runs side-effects like:
+//    - API calls
+//    - timers
+//    - subscriptions
+
+// If you call API inside component body:
+
+// -> It will run on every render ❌
+// -> It can cause:
+//    - infinite loops
+//    - multiple API calls
+//    - performance issues
+
+// -> So the correct place:
+
+// useEffect(() => {
+//   fetchData();
+// }, []);
+
+// ⚛️ Why do we use useEffect for fetching data?
+
+// useEffect gives full control over when to execute the API call and prevents
+// unnecessary re-renders.
+
+// Key reasons:
+
+// -> useEffect is built for side effects.
+// -> Fetching data is not part of UI rendering.
+// -> It allows us to control WHEN to fetch:
+//    - on mount
+//    - on state change
+//    - on props change
+
+// Example:
+
+// useEffect(() => {
+//   getUsers();
+// }, []);
+
+// Benefits:
+
+// -> Avoids infinite re-renders
+// -> Helps in cleanup
+// -> Runs only when dependencies change
+
+// ⚛️ Cleanup for AbortController?
+
+// What is AbortController?
+
+// -> Used to cancel an ongoing API request if the component unmounts.
+
+// Why?
+
+// -> User may navigate away
+// -> Component may unmount
+// -> Avoid memory leaks
+
+// What does cleanup do?
+
+// -> Cancels pending request
+// -> Ensures no state update after unmount
+// -> Prevents “memory leak” warnings
+
+// Example:
+
+// useEffect(() => {
+//   const controller = new AbortController();
+
+//   fetch(URL, { signal: controller.signal });
+
+//   return () => {
+//     controller.abort(); // cleanup
+//   };
+// }, []);
