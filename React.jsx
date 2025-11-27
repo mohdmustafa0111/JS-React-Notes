@@ -846,7 +846,7 @@
 
 // If you call API inside component body:
 
-// -> It will run on every render ❌
+// -> It will run on every render.
 // -> It can cause:
 //    - infinite loops
 //    - multiple API calls
@@ -913,3 +913,155 @@
 //     controller.abort(); // cleanup
 //   };
 // }, []);
+
+// 🔴 React Router DOM
+
+// ⚛️ Difference between BrowserRouter, Routes, and Route?
+
+// 🔹BrowserRouter
+
+// -> It is the parent router component.
+// -> It enables routing in a React app.
+// -> It listens to URL changes and renders components.
+
+// -> Think of it like:
+//    “Router system ON.”
+
+// 🔹Routes
+
+// -> It contains a group of routes.
+// -> React router will match only one route at a time.
+
+// -> Think of it like:
+//    “A container for all the Route rules.”
+
+// 🔹Route
+
+// -> Maps a specific path to a component.
+// -> If path matches → React renders the component.
+
+// Example:
+
+// <Route path="/home" element={<Home />} />
+
+// 🔹Summary Table
+
+// Component	                        Meaning
+
+// BrowserRouter	                Enables routing
+
+// Routes	                        Holds all routes
+
+// Route	                       Defines each route
+
+// ⚛️ How does navigation work in React Router?
+
+// -> When you click a link or change URL
+// -> URL changes but page does NOT reload
+// -> BrowserRouter listens
+// -> It matches the Route
+// -> Correct component is rendered
+
+// This is called Client-Side Routing, very fast & smooth.
+
+// ⚛️ How do you get URL params?
+
+// -> Using useParams() hook.
+// -> URL Params = Values passed in the URL to identify something dynamic.
+
+// Examples:
+
+// -> Product Page → /product/:id
+// -> User Profile → /user/:id
+// -> Show Blog → /blog/:slug
+
+// - The value in URL is NOT fixed
+// - It is coming from the backend or user click
+// - These are called Dynamic Segments.
+
+// -> URL params allow us to build dynamic pages using a single component.
+
+// ⚛️ What is the difference between <Link> and <NavLink>?
+
+// <NavLink> is used when you want to highlight the current page automatically.
+// <Link> is just a basic navigation component without styling support.
+
+// 🔹<Link> Component
+
+// -> <Link> is used for normal navigation between pages.
+// -> It simply changes the URL without reloading the page.
+// -> It doesn’t care which link is currently active.
+
+// Example:
+
+// <Link to="/home">Home</Link>
+
+// 🔹<NavLink> Component
+
+// -> <NavLink> is basically Link + active state feature.
+// -> It automatically adds an active class or style when the route matches the current URL.
+// -> Used often in navigation menus, sidebars, header tabs.
+
+// Example:
+
+// <NavLink to="/home">Home</NavLink>
+
+// Final summary:
+
+// <Link> ➝ Just navigate.
+// <NavLink> ➝ Navigate + show active state.
+
+// ⚛️ What is the useNavigate hook?
+
+// -> A hook used to navigate programmatically.
+// -> No need to click on a link.
+
+// Example:
+
+// const navigate = useNavigate();
+// navigate("/dashboard");
+
+// Use cases:
+
+// -> After login redirect
+// -> After form submit
+// -> After API success
+
+// It is similar to:
+
+// -> history.push() in older versions.
+
+// ⚛️ What is nested routing?
+
+// Nested routing means: A component inside another component has its own routes.
+
+// Structure:
+
+// -> Dashboard is parent
+// -> profile & settings are child routes
+
+//<Routes>
+//  <Route path="/dashboard" element={<Dashboard />}>
+//    <Route path="profile" element={<Profile />} />
+//    <Route path="settings" element={<Settings />} />
+//  </Route>
+//</Routes>
+
+// Benefits:
+
+// -> Cleaner code
+// -> Real world structure like:
+
+// -> /dashboard/profile
+// -> /dashboard/settings
+
+// 🔹Final Takeaways
+
+// -> BrowserRouter starts routing.
+// -> Routes is a container of Route.
+// -> Route maps URL → Component.
+// -> Link for navigation.
+// -> NavLink shows active link styling.
+// -> useNavigate for redirect using JavaScript.
+// -> useParams reads dynamic values from URL.
+// -> Nested routing allows child pages inside parent route.
