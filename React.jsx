@@ -1375,3 +1375,76 @@
 
 // -> Use Context API → child reads data directly from context.
 // -> For complex apps, use Redux / other state management.
+
+// 🔴 JSX + Rendering Rules
+
+// ⚛️ What is JSX? Why is React using JSX?
+
+// -> JSX = JavaScript XML
+// -> JSX is a syntax that lets us write HTML-like UI inside JavaScript.
+// -> JSX is not HTML. It is JavaScript syntax extension.
+// -> Browsers cannot read JSX directly → it gets converted into JavaScript by Babel.
+// -> JSX makes component code clean, readable, and maintainable.
+
+// Why React uses JSX?
+
+// -> JSX keeps UI + logic together in one place.
+// -> Easier to read and write compared to React.createElement().
+// -> Better developer experience.
+
+// ⚛️ Why must components start with capital letters?
+
+// -> React differentiates Components vs Normal HTML tags using capitalization.
+
+// React uses the first letter to identify:
+
+// -> Lowercase = built-in DOM element (div, span, p)
+// -> Capitalized = custom React component
+
+// If we write lowercase: React thinks it’s a normal HTML tag and won’t treat it
+// as a component.
+
+// Example:
+
+// <button />  ->  browser element
+// <Button />  ->  custom React Component
+
+// ⚛️ Why can’t we return multiple JSX elements without a wrapper?
+
+// Core rule: React components must return only one parent element.
+
+// Wrong 👇:
+
+// return (
+//   <h1>Hello</h1>
+//   <p>World</p>
+// )
+
+// Why?
+
+// -> JSX compiles into JavaScript React.createElement() calls.
+// -> return must return one single value.
+// -> Returning siblings breaks the structure.
+
+// Allowed solution: Use a wrapper element.
+
+// Option 1: <div> wrapper
+
+// return (
+//   <div>
+//     <h1>Hello</h1>
+//     <p>World</p>
+//   </div>
+// );
+
+// Option 2: React Fragment (recommended)
+
+// return (
+//   <>
+//     <h1>Hello</h1>
+//     <p>World</p>
+//   </>
+// );
+
+// -> React needs one root element because JSX compiles into one single JavaScript
+//    function call. Multiple siblings cannot be returned directly.
