@@ -1306,3 +1306,72 @@
 // -> createSlice = combines reducers + actions + initial state in one place.
 // -> useSelector = read data from Redux store in a component.
 // -> useDispatch = send actions to the store to update the state.
+
+// 🔴 Context API
+
+// Context API is a way in React to share data between components without passing props
+// manually at every level.
+
+// Key points:
+
+// -> Context API is a built-in feature in React (no extra library).
+// -> It is used to share data globally across many components.
+// -> It helps to avoid prop drilling.
+// -> Used for things like:
+//    - Theme (light/dark mode)
+//    - Logged-in user info
+//    - Language / localization
+//    - App settings
+
+// How it works (just names, not code):
+
+// createContext()      →  creates a context.
+// Context.Provider     →  wraps components and provides the value.
+// useContext(Context)  →  any child component can consume that value directly.
+
+// ⚛️ When should we use Context vs Redux?
+
+// Both Context and Redux can share data across the app, but they are not the same thing.
+// We choose them based on complexity and requirements.
+
+// 🔹Use Context API when:
+
+// -> The state is simple.
+// -> You just need to share a few values like:
+//    - Theme, language, current user
+//    - Simple UI state (e.g., sidebar open/close)
+
+// -> You don’t need advanced features like:
+//    - Time-travel debugging
+//    - Middleware
+//    - Complex async logic (e.g., thunks, sagas)
+
+// Simple global data → Context is enough.
+
+// 🔹Use Redux when:
+
+// -> The app is large and state is complex.
+// -> Many components, in different parts of the tree, depend on the same data.
+// -> You need:
+//    - Predictable state management (single store, pure reducers)
+//    - Debugging tools (Redux DevTools)
+//    - Middleware for async logic (API calls, logging, etc.)
+//    - Clear structure: actions → reducers → store.
+
+// -> Big, growing app + complex state + need for tooling → Redux is better.
+
+// ⚛️ What is prop drilling?
+
+// Prop drilling means passing data through multiple components so a deep child can use it.
+
+// Problems with prop drilling:
+
+// -> Components get crowded with props they don’t use.
+// -> Code becomes hard to read and maintain.
+// -> Changing the data flow later becomes risky and confusing.
+// -> Every level in the tree is now tightly coupled to that prop.
+
+// How we solve prop drilling:
+
+// -> Use Context API → child reads data directly from context.
+// -> For complex apps, use Redux / other state management.
