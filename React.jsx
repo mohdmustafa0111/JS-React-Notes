@@ -1065,3 +1065,244 @@
 // -> useNavigate for redirect using JavaScript.
 // -> useParams reads dynamic values from URL.
 // -> Nested routing allows child pages inside parent route.
+
+// 🔴 Redux (Redux Toolkit)
+
+// ⚛️ What is Redux? Why do we use it?
+
+// -> Redux is a state management library for JavaScript apps (mostly used with React).
+// -> It keeps all important state in one central place called the store.
+// -> React components then read from this store and update it using actions.
+
+// Why do we use Redux?
+
+// Single source of truth -> all global state is in one place (store), not in many components.
+// Avoid prop drilling    -> no need to pass props through 5 levels just to reach a child.
+// Predictable            -> state can only change in a controlled way via reducers and actions.
+// Easy to debug & test   -> since logic is in pure functions (reducers), it’s easier to test.
+// Time-travel debugging  -> we can see how state changed over time (Redux DevTools).
+
+// ⚛️ What is a reducer?
+
+// A reducer is a pure function that takes:
+// -> the current state
+// -> an action
+// -> and returns a new state
+
+// (state, action) => newState
+// It is the only way to change the state in a Redux application.
+
+// Key points:
+
+// -> It does NOT mutate the old state; it returns a new copy.
+// -> It has no side effects (no API calls, no random values, etc.).
+// -> It is the only place where the Redux state is updated.
+
+// Example:
+
+// const initialState = {
+//   counter: 0,
+// };
+
+// function counterReducer(state = initialState, action) {
+//   switch (action.type) {
+//     case "INCREMENT":
+//       return { ...state, counter: state.counter + 1 };
+//     case "DECREMENT":
+//       return { ...state, counter: state.counter - 1 };
+//     default:
+//       return state;
+//   }
+// }
+
+// ⚛️ What is an action?
+
+// -> An action is a simple JavaScript object that describes what happened.
+// -> It must have a type field (string) and can have extra data in payload.
+
+// Example:
+
+// { type: "cart/addItem", payload: { id: 1, name: "Book" } }
+
+// Key points:
+
+// -> Actions do not update the state directly.
+// -> They are just messages sent to the store.
+// -> Reducers listen to actions and decide how to change the state.
+
+// -> “Actions describe what happened; reducers decide how the state changes
+//     based on that action.”
+
+// 🔹What is a Payload?
+
+// -> Payload is the data we send along with an action.
+
+// -> An action only tells what happened:
+//    { type: "cart/addItem" }
+
+// But usually we need to send extra information.
+// For example: which item?
+
+// -> So we add payload:
+
+// {
+//   type: "cart/addItem",
+//   payload: { id: 1, name: "Book" }
+// }
+
+// -> Why do we need a payload?
+
+// Without payload:
+
+// - reducer has no idea what to update
+// - reducer can’t modify the state correctly
+
+// Simple analogy:
+
+// -> Think of an action as a package:
+// -> type = label on the package
+// -> payload = items inside the package
+
+// ⚛️ What is a store?
+
+// The store is the central container that holds the entire Redux state/global state
+// of your application.
+
+// It also:
+
+// -> Keeps the current state
+// -> Lets you dispatch actions
+// -> Lets components subscribe to state changes
+
+// In short:
+
+// “The store is the single source of truth for our app’s global state.”
+
+// Example:
+
+// import { configureStore } from '@reduxjs/toolkit';
+// import rootReducer from './reducers/rootReducer'; // Your combined reducers
+
+// const store = configureStore({
+//   reducer: rootReducer,
+// });
+
+// ⚛️ Why is Redux called a “predictable state container”?
+
+// Redux is called predictable because:
+
+// -> State is read-only – you cannot change state directly; you must dispatch actions.
+// -> State changes are done by pure reducers:– same state + same action → always same result.
+// -> Single source of truth – all global state lives in one store.
+
+// So:
+
+// Given:
+// -> the initial state
+// -> the sequence of actions
+
+// You can exactly predict what the final state will be.
+// That’s why we call it a predictable state container.
+
+// ⚛️ Difference between Redux and React Context?
+
+// 🔹 React Context:
+
+// -> Built into React.
+// -> Good for simple global values:
+//    - theme (light/dark),
+//    - current user,
+//    - language, etc.
+
+// -> Not opinionated about how to update state.
+// -> Can cause re-renders of many components if not used carefully.
+
+// 🔹 Redux:
+
+// -> A separate library for managing state.
+// -> Designed for complex/global state and business logic.
+
+// Has a clear pattern:
+
+// store → actions → reducers.
+
+// -> Comes with DevTools, middleware, time-travel, etc.
+// -> Better for larger apps with complex state and logic.
+
+// In short:
+
+// “React Context is good for passing simple data globally. Redux is better when your
+// app has complex state and you need predictable updates, debugging tools, and a
+// structured way to manage business logic.”
+
+// ⚛️ Why is Redux Toolkit (RTK) recommended over classic Redux?
+
+// -> Redux Toolkit is the official, recommended way to write Redux now.
+// -> RTK reduces boilerplate, avoids common mistakes, and gives you modern tools
+//    like createSlice and createAsyncThunk, so it’s easier and safer than classic Redux.
+
+// Redux Toolkit is preferred because:
+
+// -> Less boilerplate
+//    No need to manually write tons of action types, action creators, switch cases.
+
+// -> Uses Immer under the hood
+//    You can “mutate” state in reducers, but RTK converts it to immutable updates internally.
+
+// -> Batteries included
+//    - configureStore – sets up the store with DevTools & middleware.
+//    - createSlice – generates actions + reducer together.
+//    - createAsyncThunk – helps with async logic (API calls).
+
+// -> Best practices by default
+//    Encourages good file structure and patterns.
+
+// ⚛️ What is createSlice in RTK?
+
+// createSlice is a function in Redux Toolkit that combines:
+
+// -> state initial value
+// -> reducer functions
+// -> and action creators
+
+// into one slice of the Redux store.
+
+// ⚛️ What are useSelector and useDispatch?
+
+// -> These are React-Redux hooks used inside functional components.
+
+// 🔹useSelector:
+
+// -> useSelector lets a component subscribe to the Redux store and read specific
+//    pieces of state.
+// -> useSelector is used to read data from the Redux store.
+// -> You pass a function that selects a part of the state.
+// -> Component will re-render when that selected part of the state changes.
+
+// Example:
+
+// const cartItems = useSelector((state) => state.cart.items);
+
+// 🔹useDispatch:
+
+// -> useDispatch is used to send actions to the Redux store so that reducers can
+//    update the state.
+// -> useDispatch gives you the dispatch function.
+// -> You use it to dispatch actions to the store.
+
+// Example:
+
+// const dispatch = useDispatch();
+// dispatch(addItem({ id: 1, name: "Book" }));
+
+// 🔹Quick Summary
+
+// -> Redux = global state manager.
+// -> Store = holds all global state.
+// -> Actions = tell what happened.
+// -> Payload = extra data sent with action.
+// -> Reducer = pure function that updates state.
+// -> RTK = modern, simplified Redux.
+// -> createSlice = combines reducers + actions + initial state in one place.
+// -> useSelector = read data from Redux store in a component.
+// -> useDispatch = send actions to the store to update the state.
