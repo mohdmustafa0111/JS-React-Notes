@@ -1448,3 +1448,92 @@
 
 // -> React needs one root element because JSX compiles into one single JavaScript
 //    function call. Multiple siblings cannot be returned directly.
+
+// 🔴 Lifecycle of Functional Components
+
+// ⚛️ How do functional components handle lifecycle phases?
+
+// -> In functional components, we don’t have traditional lifecycle methods like
+//    componentDidMount, componentDidUpdate, or componentWillUnmount.
+// -> Instead, we manage all lifecycle phases using useEffect hook.
+// -> Empty array for Mount, dependencies for Update, and cleanup function for Unmount.
+
+// 🔹1. Mount Phase (component first loads)
+
+// -> Equivalent of: componentDidMount
+
+// -> We use:
+
+// useEffect(()=>{
+//   // runs only once when component loads
+// }, [])
+
+// Explanation:
+
+// -> Passing an empty dependency array [] means:
+// -> Run this code only first time.
+// -> Not on updates.
+
+// What we commonly do here:
+
+// -> API call
+// -> Subscribing to a service
+// -> Initial setup
+
+// 🔹2. Update Phase (re-render happens)
+
+// -> Equivalent of: componentDidUpdate
+
+// -> We use:
+
+// useEffect(()=>{
+//   // runs on every update
+// })
+
+// (or)
+
+// useEffect(() => {
+//   // runs only when count changes
+// }, [count]);
+
+// Explanation:
+
+// -> No array → runs on every render.
+// -> With dependency → runs only when that value changes.
+
+// What we commonly do here:
+
+// -> Update DOM
+// -> Sync with localStorage
+// -> Condition-based re-renders
+
+// 🔹3. Unmount Phase (component removed from UI)
+
+// -> Equivalent of: componentWillUnmount
+
+// -> We use a cleanup function:
+
+// useEffect(()=>{
+//   return ()=>{
+//     // cleanup here
+//   }
+// }, [])
+
+// When cleanup runs:
+
+// -> When component unmounts
+// -> Before next Effect runs
+
+// Common cases:
+
+// -> Removing event listeners
+// -> Stopping a timer
+// -> Canceling API requests
+
+// 🔹Quick Formula
+
+// Lifecycle	            How functional components handle it
+
+// Mount	      ->        useEffect(() => {}, [])
+// Update	      ->        useEffect(() => {}) or useEffect(() => {}, [deps])
+// Unmount	      ->        Cleanup: return () => {}
