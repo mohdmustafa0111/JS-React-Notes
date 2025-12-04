@@ -1829,3 +1829,200 @@
 //    - useCallback → memoize functions so their reference doesn’t change unnecessarily
 //    - useMemo → memoize expensive calculations / derived data
 //    - Split and colocate state → updates affect only what’s needed
+
+// 🔴 Common React Bugs
+
+// ⚛️ Why does React show “Too many re-renders ?
+
+// What it means:
+
+// -> React detected that a component keeps rendering in a loop and stopped
+//    to avoid freezing the app.
+
+// Common causes:
+
+// -> Calling a state setter directly inside render or body of component
+//    (not inside an event or effect).
+// -> Updating state during render based on derived values without guards.
+// -> A function component that returns a component which triggers state change on
+//    mount repeatedly.
+
+// ❌ Buggy Code
+
+// function Counter() {
+//   const [count, setCount] = useState(0);
+//   setCount(1); // -> causes infinite re-render, runs every render
+//   return <div>{count}</div>;
+// }
+
+// 🔹 Fixed Code
+
+// -> Only call state setters inside event handlers, useEffect, or conditionally where
+//    they won’t run every render.
+// -> Use useEffect with correct dependency array if you need to update state after mount.
+// -> Guard updates: if (prev !== next) setState(next);
+
+// -> Move update into useEffect OR event
+
+// ➖ Option A: Run only once (mount)
+
+// function Counter() {
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     setCount(1); // ✔ runs only once on mount
+//   }, []);
+
+//   return <div>{count}</div>;
+// }
+
+// ➖ Option B: Update on button click
+
+// function Counter() {
+//   const [count, setCount] = useState(0);
+
+//   const handleClick = () => setCount(1);
+
+//   return <button onClick={handleClick}>{count}</button>;
+// }
+
+// 🔹 useEffect causing infinite loop
+
+// ❌ Buggy Code
+
+// useEffect(() => {
+//   setCount(count + 1); //  changes “count” every render
+// }, [count]);
+
+// 🔹 Fixed Code
+
+// ➖ Option A: Run effect only once (mount)
+
+// useEffect(() => {
+//   setCount((c) => c + 1); // ✔ safe
+// }, []); // runs once
+
+// ➖ Option B: Conditionally update
+
+// useEffect(() => {
+//   if (count < 5) {
+//     setCount((c) => c + 1); // ✔ guarded update
+//   }
+// }, [count]);
+
+// 🔹 Guard updates: if(prev !== next) setState(next)
+
+// ❌ Buggy Code (sets same value every render)
+
+// function App() {
+//   const [value, setValue] = useState(0);
+
+//   useEffect(() => {
+//     setValue(0); // sets 0 again → React thinks nothing changed but still runs effect
+//   });
+// }
+
+// 🔹 Fixed Code
+
+// function App() {
+//   const [value, setValue] = useState(0);
+
+//   useEffect(() => {
+//     const next = 0;
+
+//     setValue((prev) => (prev !== next ? next : prev)); // ✔ only updates if needed
+//   }, []);
+// }
+
+// ⚛️ Why does useEffect cause infinite loop?
+
+// What it means:
+
+// -> useEffect keeps re-running on every render because its dependency list or effect
+//    body triggers state/props changes that cause another render.
+
+// Common causes:
+
+// -> Missing or wrong dependency array ([] vs omitted).
+// -> Adding a value to dependencies that changes each render (like non-memoized object/array
+//    or function).
+// -> Setting state inside effect without correct conditions.
+
+// Example (bug)
+
+// useEffect(() => {
+//   setCount((c) => c + 1); // updates state every effect run
+// }, [count]); // dependency triggers effect again → loop
+
+// Fixes:
+
+// -> If you want run once on mount → use useEffect(() => {...}, []).
+// -> Avoid putting values that change every render into dependencies (memoize functions/
+//    objects with useCallback/useMemo).
+// -> When updating state inside effect, derive new state carefully or add condition checks.
+
+// Short answer:
+
+// Loop occurs when effect updates values listed in its dependencies. Fix by correcting
+// dependencies or adding guards/memoization.
+
+// ⚛️ Why isn’t my component updating even though state changed?
+
+// What it means:
+
+// React didn’t detect a change that should trigger re-render, usually because the state
+// was mutated or the state update was ignored.
+
+// Common causes:
+
+// -> Mutating state directly (for objects/arrays) instead of creating a new reference.
+// -> Using stale closure (reading old state inside a callback without proper deps).
+// -> Setting state to the same reference/value (React shallow compares).
+// -> Parent prevents re-render (e.g., React.memo with wrong props).
+
+// Example (bug — mutation)
+
+// const [user, setUser] = useState({ name: "Ali" });
+// user.name = "Mustafa"; // mutated in place
+// setUser(user); // React may not re-render because reference didn't change
+
+// Fixes:
+
+// -> Always return new object/array: setUser(prev => ({ ...prev, name: 'Mustafa' }));
+// -> For derived updates, use functional updater: setCount(c => c + 1).
+// -> Check memoization (React.memo) and props equality if parent uses it.
+
+// Short Answer
+
+// Usually because of direct mutation or same reference — create new objects/arrays
+// (immutably) or use functional updates.
+
+// ⚛️ Why list items are not updating properly? (key bug)
+
+// What it means:
+
+// -> React reuses DOM nodes for list items when keys are wrong, causing wrong item content
+//    or state to persist.
+
+// Common causes:
+
+// -> Using index as key when list can reorder, add, or remove items.
+// -> Keys not unique or unstable across renders (e.g., using timestamp or random value
+//    each render).
+
+// Example (bug):
+
+// {items.map((item, idx) => (
+//   <li key={idx}>{item.text}</li> // index key — fails on reorder/remove
+// ))}
+
+// Fixes:
+
+// -> Use a stable, unique id from data: key={item.id}.
+// -> Avoid index as key except for static lists that never change order.
+// -> Ensure keys don’t change between renders.
+
+// Short answer:
+
+// Wrong keys (like index) cause React to reuse wrong DOM nodes. Use stable unique ids so
+// React can match items correctly.
