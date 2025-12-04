@@ -1599,3 +1599,233 @@
 
 // 5. Easier to debug
 //    -> Because you always know what value React has.
+
+// 🔴 Performance Optimization
+
+// ⚛️ Why use React.lazy and Suspense?
+
+// React.lazy and Suspense are used for code splitting at the component level.
+// They help us load components only when needed, which makes:
+
+// -> Initial bundle size smaller
+// -> First page load faster
+// -> User experience smoother
+
+// 🔹What is React.lazy?
+
+// -> React.lazy lets you import a component lazily (on demand).
+// -> Instead of importing at the top, we write something like:
+
+// const About = React.lazy(() => import('./About'));
+
+// This tells React:
+// -> Don’t load About component code in the main bundle.
+// -> Load it only when we actually render <About />.
+
+// 🔹What is Suspense?
+
+// Suspense is a wrapper component that shows a fallback UI (like a loader) while the
+// lazy component is being loaded.
+
+// <Suspense fallback={<div>Loading...</div>}>
+//   <About />
+// </Suspense>;
+
+// -> React.lazy = how to lazy load component
+// -> Suspense = what to show while it’s loading
+
+// 🔹Why do we use them?
+
+// -> Better performance: smaller initial JS, faster first render
+// -> Automatic code splitting: no manual Webpack config needed
+// -> Cleaner code: easy to lazy load route components, modals, big feature modules, etc.
+
+// So we use React.lazy with Suspense to do component-level code splitting and load
+// components only when they are needed, which improves performance and reduces the
+// initial bundle size.
+
+// ⚛️ Code splitting vs lazy loading
+
+// Code splitting is about breaking your code into smaller chunks, and lazy loading is
+// about loading those chunks only when they are needed. In React, React.lazy + Suspense
+// gives us lazy-loaded components using code splitting behind the scenes.
+
+// 🔹 Code splitting (concept)
+
+// Code splitting = breaking your JavaScript bundle into smaller chunks instead of one big file.
+// It’s a build-time optimization (done by bundlers like Webpack, Vite, etc.).
+// Goal:
+// -> Don’t send unnecessary code on first load
+// -> Load some parts later when needed
+
+// You can do code splitting by:
+
+// -> Dynamic import()
+// -> Route-based splitting
+// -> Using tools like React.lazy, etc.
+
+// 🔹 Lazy loading (behavior)
+
+// -> Lazy loading = loading something later, only when it’s needed.
+// -> In React, this usually means:
+//    - Lazy loading components (with React.lazy)
+//    - Lazy loading images, routes, etc.
+
+// 🔹 Relation between them
+
+// -> Code splitting is the technique of splitting the bundle.
+// -> Lazy loading is the strategy of when to load those split chunks.
+
+// ⚛️ How to avoid unnecessary re-renders?
+
+// -> We want components to re-render only when needed.
+
+// Some main tools:
+
+// -> React.memo
+// -> useMemo
+// -> useCallback
+// -> Splitting state smartly
+
+// 🔹 React.memo
+
+// -> React.memo is a higher-order component that memoizes a component.
+// -> It tells React only re-render this component if its props have changed.
+
+// -> React.memo prevents unnecessary re-renders of functional components by re-rendering
+//    only when their props change. It’s useful for optimizing performance for components
+//    that are pure and rendered many times.
+
+// Example:
+
+// const MyComponent = React.memo(function MyComponent(props) {
+//   // ...
+// });
+
+// When does it help? When you have:
+
+// -> Pure components (output depends only on props)
+// -> Components that are expensive to render
+// -> Components that receive props from parents that re-render often
+
+// Important point:
+
+// -> React.memo does a shallow comparison of props.
+// -> If you pass new object/array/function every time, it may still re-render.
+// -> That’s why we often combine it with useCallback / useMemo.
+
+// 🔹 useMemo
+
+// useMemo is a React hook that remembers (memoizes) the result of a calculation and
+// only re-calculates it when its dependencies change.
+
+// In very easy words:
+
+// -> It saves the result of an expensive calculation
+// -> So React doesn’t redo that calculation every time the component re-renders
+
+// Why do we use it?
+
+// -> To avoid doing heavy/expensive work again and again
+// -> To keep stable object/array values (so child components don’t re-render)
+
+// When to use? When:
+
+// -> Computation is expensive (heavy loops, large arrays)
+// -> You pass objects/arrays to React.memo children and need stable reference
+
+// Example:
+
+// const expensiveResult = useMemo(() => {
+//   return heavyCalculation(data);
+// }, [data]);
+
+// -> Heavy work runs only when data changes
+// -> Not on every render
+
+// 🔹 useCallback
+
+// useCallback is a React hook that remembers (memoizes) a function and returns the
+// same function on every render until its dependencies change.
+
+// In very easy words:
+
+// -> It prevents React from creating a new function on every render
+// -> So child components don’t re-render just because the function changed
+
+// Why do we use it?
+
+// -> To keep a stable function reference
+// -> To avoid unnecessary re-renders in React.memo child components
+// -> To prevent functions from breaking dependency arrays in useEffect
+
+// Why do we need it?
+
+// -> In React, functions are re-created on every render.
+// -> If you pass a function as a prop to a React.memo child:
+// -> Without useCallback → child sees new function every time → re-renders
+// -> With useCallback → same function reference if deps don’t change → child can skip
+//    re-render
+
+// Example:
+
+// const handleClick = useCallback(() => {
+//   // handle click
+// }, [deps]);
+
+// -> Same function is reused every render
+// -> Child components won’t re-render because of a “new function”
+
+// 🔹 Splitting state carefully
+
+// -> This is a big practical optimization that many forget.
+// -> We can avoid unnecessary re-renders by splitting state into smaller, focused pieces
+//    and colocating state where it’s used. That way, updating one piece of state doesn’t
+//    cause unrelated parts of the UI to re-render.
+
+// ❌ Problem: “One big state”
+
+// const [state, setState] = useState({
+//   search: "",
+//   filter: "",
+//   modalOpen: false,
+//   selectedItem: null,
+// });
+
+// -> Any change in any field → whole component re-renders.
+// -> All children that depend on state may re-render even if they don’t use
+//    the changed part.
+
+// ✅ Better: split state logically
+
+// const [search, setSearch] = useState('');
+// const [filter, setFilter] = useState('');
+// const [modalOpen, setModalOpen] = useState(false);
+// const [selectedItem, setSelectedItem] = useState(null);
+
+// Or even better:
+
+// -> Colocate state: keep state as close as possible to the component that uses it.
+// -> Don’t lift state to parent unnecessarily.
+// -> Use separate components for independent UI pieces.
+
+// Benefits:
+
+// -> Smaller components → fewer re-renders
+// -> Local state change doesn’t affect unrelated parts
+// -> Easier to reason about
+
+// Quick revision
+
+// -> React.lazy + Suspense → for component-level code splitting and lazy loading components
+//    with a loading fallback.
+
+// -> Code splitting vs Lazy loading:
+//    - Code splitting = splitting bundle into chunks
+//    - Lazy loading = loading those chunks only when required
+
+// -> Avoid unnecessary re-renders:
+//    - React.memo → memoize components based on props
+//    - useCallback → memoize functions so their reference doesn’t change unnecessarily
+//    - useMemo → memoize expensive calculations / derived data
+//    - Split and colocate state → updates affect only what’s needed
