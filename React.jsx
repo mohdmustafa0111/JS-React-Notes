@@ -2026,3 +2026,24 @@
 
 // Wrong keys (like index) cause React to reuse wrong DOM nodes. Use stable unique ids so
 // React can match items correctly.
+
+// 🔴 Testing Basics (Optional)
+
+// ⚛️ What is Jest?
+
+// -> Jest is a JavaScript testing framework created by Facebook.
+// -> It is used to test JavaScript and React applications.
+// -> It provides features like test runner, assertions, mocks, spies, and snapshot
+//    testing — all in one tool.
+
+// ⚛️ What is React Testing Library (RTL)?
+
+// -> React Testing Library is a lightweight testing library for React components.
+// -> It focuses on testing UI the way a user interacts with it (clicks, typing, screen text).
+// -> It doesn't test implementation details, only the actual behavior.
+
+// ⚛️ What is a Unit Test?
+
+// -> A unit test checks one small piece of your code (a function, component, or module)
+//    in isolation.
+// -> Goal: ensure individual units work correctly before integrating them.
